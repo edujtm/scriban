@@ -4,72 +4,9 @@ This document describes the syntax of the scriban language in a templating conte
 
 The language rules are the same in a pure scripting context.
 
-> NOTE: This document does not describe the `liquid` language. Check the [`liquid website`](https://shopify.github.io/liquid/) directly.
+!!! note
+    This document does not describe the `liquid` language. Check the [`liquid website`](https://shopify.github.io/liquid/) directly.
 
-## Table of Contents
-
-- [1. Blocks](#1-blocks)
-  - [1.1 Code block](#11-code-block)
-  - [1.2 Text block](#12-text-block)
-  - [1.3 Escape block](#13-escape-block)
-  - [1.4 Whitespace control](#14-whitespace-control)
-- [2 Comments](#2-comments)
-- [3 Literals](#3-literals)
-  - [3.1 Strings](#31-strings)
-  - [3.2 Numbers](#32-numbers)
-  - [3.3 Boolean](#33-boolean)
-  - [3.4 null](#34-null)
-- [4 Variables](#4-variables)
-  - [4.1 The special variable <code>this</code>](#41-the-special-variable-this)
-  - [4.2 The special variable <code>empty</code>](#42-the-special-variable-empty)
-- [5 Objects](#5-objects)
-  - [5.1 The special property <code>empty?</code>](#51-the-special-property-empty)
-- [6 Arrays](#6-arrays)
-  - [6.1 Array with properties](#61-array-with-properties)
-  - [6.2 The special <code>size</code> property](#62-the-special-size-property)
-- [7 Functions](#7-functions)
-  - [7.1 Simple functions](#71-simple-functions)
-  - [7.2 Anonymous functions](#72-anonymous-functions)
-  - [7.3 Parametric functions](#73-parametric-functions)
-  - [7.4 Inline functions](#74-inline-functions)
-  - [7.5 Function Pointers](#75-function-pointers)
-- [8 Expressions](#8-expressions)
-  - [8.1 Variable path expressions](#81-variable-path-expressions)
-  - [8.2 Assign expression](#82-assign-expression)
-  - [8.3 Nested expression](#83-nested-expression)
-  - [8.4 Arithmetic expressions](#84-arithmetic-expressions)
-    - [On numbers](#on-numbers)
-    - [On strings](#on-strings)
-  - [8.5 Conditional expressions](#85-conditional-expressions)
-  - [8.6 Unary expressions](#86-unary-expressions)
-  - [8.7 Range expressions](#87-range-expressions)
-  - [8.8 The null-coalescing operator <code>??</code>](#88-the-null-coalescing-operator-)
-  - [8.9 Function call expression](#89-function-call-expression)
-    - [Named arguments](#named-arguments)
-- [9 Statements](#9-statements)
-  - [9.1 Single expression](#91-single-expression)
-  - [9.2 <code>if &lt;expression&gt;</code>, <code>else</code>, <code>else if &lt;expression&gt;</code>](#92-if-expression-else-else-if-expression)
-    - [Truthy and Falsy](#truthy-and-falsy)
-  - [9.3 <code>case</code> and <code>when</code>](#93-case-and-when)
-  - [9.3 Loops](#93-loops)
-    - [<code>for &lt;variable&gt; in &lt;expression&gt; ... end</code>](#for-variable-in-expression--end)
-      - [The <code>offset</code> parameter](#the-offset-parameter)
-      - [The <code>limit</code> parameter](#the-limit-parameter)
-      - [The <code>reversed</code> parameter](#the-reversed-parameter)
-    - [<code>while &lt;expression&gt; ... end</code>](#while-expression--end)
-    - [<code>tablerow &lt;variable&gt; in &lt;expression&gt; ... end</code>](#tablerow-variable-in-expression--end)
-      - [The <code>cols</code> parameter](#the-cols-parameter)
-    - [Special loop variables](#special-loop-variables)
-    - [<code>break</code> and <code>continue</code>](#break-and-continue)
-  - [9.4 <code>capture &lt;variable&gt; ... end</code>](#94-capture-variable--end)
-  - [9.5 <code>readonly &lt;variable&gt;</code>](#95-readonly-variable)
-  - [9.6 <code>import &lt;variable_path&gt;</code>](#96-import-variable_path)
-  - [9.7 <code>with &lt;variable&gt; ... end</code>](#97-with-variable--end)
-  - [9.8 <code>wrap &lt;function&gt; &lt;arg1...argn&gt; ... end</code>](#98-wrap-function-arg1argn--end)
-  - [9.9 <code>include &lt;name&gt; arg1?...argn?</code>](#99-include-name-arg1argn)
-  - [9.10 <code>ret &lt;expression&gt;?</code>](#910-ret-expression)
-
-[:top:](#language)
 ## 1. Blocks
 
 There are 3 types of block of text in a template:
@@ -105,7 +42,7 @@ Inside a code block, except for the EOL after each statement, white spaces chara
 
 Also, if a statement is an expression (but not an assignment expression), the result of the expression will be output to the rendering output of the template:
 
-> **input**
+ **input**
 ```scriban-html
 {{
   x = "5"   # This assignment will not output anything
@@ -113,20 +50,20 @@ Also, if a statement is an expression (but not an assignment expression), the re
   x + 1     # This expression will print 6
 }}
 ```
-> **output**
+**output**
 ```html
 56
 ```
 Note that in the previous example, there is no EOL between `5` and `6` because we are inside a code block. 
 You can still use a plain string with an EOL inside a code block `"\n"` or you could use mixed code and text blocks:
 
-> **input**
+**input**
 ```scriban-html
 {{ x = "5" }}
 {{ x }}
 {{ x + 1 }}
 ```
-> **output**
+**output**
 ```html
 5
 6

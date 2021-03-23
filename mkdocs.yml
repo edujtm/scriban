@@ -1,0 +1,18 @@
+site_name: Scriban Docs
+repo_url: https://github.com/scriban/scriban
+theme:
+    name: material
+    logo: scriban.svg
+    palette:
+        primary: teal
+    features:
+        - navigation.tabs
+
+markdown_extensions:
+    - pymdownx.highlight
+    - pymdownx.superfences
+    - pymdownx.details
+    - admonition
+    - def_list
+    - toc:
+        toc_depth: 3

@@ -22,18 +22,17 @@ Scriban supports all the [core liquid syntax](https://shopify.github.io/liquid/)
 
 ## Known issues
 
-> NOTE: The liquid syntax has never been strictly formalized, and custom tags implementation can choose whatever syntax for their arguments.
->
-> This is a known issue in liquid itself, for example:
->  - [issue 507: Custom tags: what’s the preferred method of providing arguments containing quotes](https://github.com/Shopify/liquid/issues/507)
->  - [issue 671: Using liquid class libraries inside Liquid::Tag](https://github.com/Shopify/liquid/issues/671)
->  - [issue 560: Unified syntax for tag arguments [RFC]](https://github.com/Shopify/liquid/issues/560)
->
-> For example in liquid, you usually pass arguments to tags and filters like this (supported by scriban):
->
-> ```liquid
-> {{ "this is a string" | function "arg1" 15 16 }}
-> ```
+!!! note 
+    The liquid syntax has never been strictly formalized, and custom tags implementation can choose whatever syntax for their arguments.
+    This is a known issue in liquid itself, for example:
+    - [issue 507: Custom tags: what’s the preferred method of providing arguments containing quotes](https://github.com/Shopify/liquid/issues/507)
+    - [issue 671: Using liquid class libraries inside Liquid::Tag](https://github.com/Shopify/liquid/issues/671)
+    - [issue 560: Unified syntax for tag arguments [RFC]](https://github.com/Shopify/liquid/issues/560)
+
+    For example in liquid, you usually pass arguments to tags and filters like this (supported by scriban):
+    ```liquid
+    {{ "this is a string" | function "arg1" 15 16 }}
+    ```
 >
 > ```liquid
 > {% custom_tag "arg1" 15 16 %}

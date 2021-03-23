@@ -14,6 +14,8 @@ This document describes the various built-in functions available in scriban.
 
 [:top:](#builtins)
 
+---
+
 ## `array` functions
 
 Array functions available through the object 'array' in scriban.
@@ -39,8 +41,7 @@ Array functions available through the object 'array' in scriban.
 - [`array.uniq`](#arrayuniq)
 - [`array.contains`](#arraycontains)
 
-[:top:](#builtins)
-### `array.add`
+### **array.add**
 
 ```
 array.add <list> <value>
@@ -59,19 +60,17 @@ Adds a value to the input list.
 
 A new list with the value added
 
-#### Examples
+!!! example "Examples"
+    **input**
+    ```scriban-html
+    {{ [1, 2, 3] | array.add 4 }}
+    ```
+    **output**
+    ```html
+    [1, 2, 3, 4]
+    ```
 
-> **input**
-```scriban-html
-{{ [1, 2, 3] | array.add 4 }}
-```
-> **output**
-```html
-[1, 2, 3, 4]
-```
-
-[:top:](#builtins)
-### `array.add_range`
+### **array.add_range**
 
 ```
 array.add_range <list1> <list2>
@@ -90,19 +89,17 @@ Concatenates two lists.
 
 The concatenation of the two input lists
 
-#### Examples
+!!! example "Examples"
+    **input**
+    ```scriban-html
+    {{ [1, 2, 3] | array.add_range [4, 5] }}
+    ```
+    **output**
+    ```html
+    [1, 2, 3, 4, 5]
+    ```
 
-> **input**
-```scriban-html
-{{ [1, 2, 3] | array.add_range [4, 5] }}
-```
-> **output**
-```html
-[1, 2, 3, 4, 5]
-```
-
-[:top:](#builtins)
-### `array.compact`
+### **array.compact**
 
 ```
 array.compact <list>
@@ -120,19 +117,18 @@ Removes any non-null values from the input list.
 
 Returns a list with null value removed
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [1, null, 3] | array.compact }}
-```
-> **output**
-```html
-[1, 3]
-```
+    **input**
+    ```scriban-html
+    {{ [1, null, 3] | array.compact }}
+    ```
+    **output**
+    ```html
+    [1, 3]
+    ```
 
-[:top:](#builtins)
-### `array.concat`
+### **array.concat**
 
 ```
 array.concat <list1> <list2>
@@ -151,19 +147,18 @@ Concatenates two lists.
 
 The concatenation of the two input lists
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [1, 2, 3] | array.concat [4, 5] }}
-```
-> **output**
-```html
-[1, 2, 3, 4, 5]
-```
+    **input**
+    ```scriban-html
+    {{ [1, 2, 3] | array.concat [4, 5] }}
+    ```
+    **output**
+    ```html
+    [1, 2, 3, 4, 5]
+    ```
 
-[:top:](#builtins)
-### `array.cycle`
+### **array.cycle**
 
 ```
 array.cycle <list> <group>?
@@ -182,27 +177,26 @@ Loops through a group of strings and outputs them in the order that they were pa
 
 Returns a list with null value removed
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ array.cycle ['one', 'two', 'three'] }}
-{{ array.cycle ['one', 'two', 'three'] }}
-{{ array.cycle ['one', 'two', 'three'] }}
-{{ array.cycle ['one', 'two', 'three'] }}
-```
-> **output**
-```html
-one
-two
-three
-one
-```
+    **input**
+    ```scriban-html
+    {{ array.cycle ['one', 'two', 'three'] }}
+    {{ array.cycle ['one', 'two', 'three'] }}
+    {{ array.cycle ['one', 'two', 'three'] }}
+    {{ array.cycle ['one', 'two', 'three'] }}
+    ```
+     **output**
+    ```html
+    one
+    two
+    three
+    one
+    ```
 `cycle` accepts a parameter called cycle group in cases where you need multiple cycle blocks in one template.
 If no name is supplied for the cycle group, then it is assumed that multiple calls with the same parameters are one group.
 
-[:top:](#builtins)
-### `array.each`
+### **array.each**
 
 ```
 array.each <list> <function>
@@ -221,19 +215,18 @@ Applies the specified function to each element of the input.
 
 Returns a list with each item being transformed by the function.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [" a", " 5", "6 "] | array.each @string.strip }}
-```
-> **output**
-```html
-["a", "5", "6"]
-```
+    **input**
+    ```scriban-html
+    {{ [" a", " 5", "6 "] | array.each @string.strip }}
+    ```
+    **output**
+    ```html
+    ["a", "5", "6"]
+    ```
 
-[:top:](#builtins)
-### `array.filter`
+### **array.filter**
 
 ```
 array.filter <list> <function>
@@ -252,19 +245,18 @@ Filters the input list according the supplied filter function.
 
 Returns a new list which contains only those elements which match the filter function.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{["", "200", "","400"] | array.filter @string.empty}}
-```
-> **output**
-```html
-["", ""]
-```
+    **input**
+    ```scriban-html
+    {{["", "200", "","400"] | array.filter @string.empty}}
+    ```
+    **output**
+    ```html
+    ["", ""]
+    ```
 
-[:top:](#builtins)
-### `array.first`
+### **array.first**
 
 ```
 array.first <list>
@@ -282,19 +274,18 @@ Returns the first element of the input `list`.
 
 The first element of the input `list`.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [4, 5, 6] | array.first }}
-```
-> **output**
-```html
-4
-```
+    **input**
+    ```scriban-html
+    {{ [4, 5, 6] | array.first }}
+    ```
+    **output**
+    ```html
+    4
+    ```
 
-[:top:](#builtins)
-### `array.insert_at`
+### **array.insert_at**
 
 ```
 array.insert_at <list> <index> <value>
@@ -314,19 +305,18 @@ Inserts a `value` at the specified index in the input `list`.
 
 A new list with the element inserted.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ ["a", "b", "c"] | array.insert_at 2 "Yo" }}
-```
-> **output**
-```html
-["a", "b", "Yo", "c"]
-```
+    **input**
+    ```scriban-html
+    {{ ["a", "b", "c"] | array.insert_at 2 "Yo" }}
+    ```
+    **output**
+    ```html
+    ["a", "b", "Yo", "c"]
+    ```
 
-[:top:](#builtins)
-### `array.join`
+### **array.join**
 
 ```
 array.join <list> <delimiter> <function>?
@@ -346,19 +336,18 @@ Joins the element of a list separated by a delimiter string and return the conca
 
 A new list with the element inserted.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [1, 2, 3] | array.join "|" }}
-```
-> **output**
-```html
-1|2|3
-```
+    **input**
+    ```scriban-html
+    {{ [1, 2, 3] | array.join "|" }}
+    ```
+    **output**
+    ```html
+    1|2|3
+    ```
 
-[:top:](#builtins)
-### `array.last`
+### **array.last**
 
 ```
 array.last <list>
@@ -376,19 +365,17 @@ Returns the last element of the input `list`.
 
 The last element of the input `list`.
 
-#### Examples
+!!! example "Examples"
+    **input**
+    ```scriban-html
+    {{ [4, 5, 6] | array.last }}
+    ```
+    **output**
+    ```html
+    6
+    ```
 
-> **input**
-```scriban-html
-{{ [4, 5, 6] | array.last }}
-```
-> **output**
-```html
-6
-```
-
-[:top:](#builtins)
-### `array.limit`
+### **array.limit**
 
 ```
 array.limit <list> <count>
@@ -407,19 +394,17 @@ Returns a limited number of elments from the input list
 
 
 
-#### Examples
+!!! example "Examples"
+    **input**
+    ```scriban-html
+    {{ [4, 5, 6] | array.limit 2 }}
+    ```
+    **output**
+    ```html
+    [4, 5]
+    ```
 
-> **input**
-```scriban-html
-{{ [4, 5, 6] | array.limit 2 }}
-```
-> **output**
-```html
-[4, 5]
-```
-
-[:top:](#builtins)
-### `array.map`
+### **array.map**
 
 ```
 array.map <list> <member>
@@ -438,21 +423,20 @@ Accepts an array element's attribute as a parameter and creates an array out of 
 
 
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{
-products = [{title: "orange", type: "fruit"}, {title: "computer", type: "electronics"}, {title: "sofa", type: "furniture"}]
-products | array.map "type" | array.uniq | array.sort }}
-```
-> **output**
-```html
-["electronics", "fruit", "furniture"]
-```
+    **input**
+    ```scriban-html
+    {{
+    products = [{title: "orange", type: "fruit"}, {title: "computer", type: "electronics"}, {title: "sofa", type: "furniture"}]
+    products | array.map "type" | array.uniq | array.sort }}
+    ```
+    **output**
+    ```html
+    ["electronics", "fruit", "furniture"]
+    ```
 
-[:top:](#builtins)
-### `array.offset`
+### **array.offset**
 
 ```
 array.offset <list> <index>
@@ -471,19 +455,18 @@ Returns the remaining of the list after the specified offset
 
 
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [4, 5, 6, 7, 8] | array.offset 2 }}
-```
-> **output**
-```html
-[6, 7, 8]
-```
+    **input**
+    ```scriban-html
+    {{ [4, 5, 6, 7, 8] | array.offset 2 }}
+    ```
+    **output**
+    ```html
+    [6, 7, 8]
+    ```
 
-[:top:](#builtins)
-### `array.remove_at`
+### **array.remove_at**
 
 ```
 array.remove_at <list> <index>
@@ -502,28 +485,29 @@ Removes an element at the specified `index` from the input `list`
 
 A new list with the element removed. If index is negative, remove at the end of the list.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [4, 5, 6, 7, 8] | array.remove_at 2 }}
-```
-> **output**
-```html
-[4, 5, 7, 8]
-```
-If the `index` is negative, removes at the end of the list (notice that we need to put -1 in parenthesis to avoid confusing the parser with a binary `-` operation):
-> **input**
-```scriban-html
-{{ [4, 5, 6, 7, 8] | array.remove_at (-1) }}
-```
-> **output**
-```html
-[4, 5, 6, 7]
-```
+    **input**
+    ```scriban-html
+    {{ [4, 5, 6, 7, 8] | array.remove_at 2 }}
+    ```
+    **output**
+    ```html
+    [4, 5, 7, 8]
+    ```
 
-[:top:](#builtins)
-### `array.reverse`
+    If the `index` is negative, removes at the end of the list (notice that we need to put -1 in parenthesis to avoid confusing the parser with a binary `-` operation):
+
+    **input**
+    ```scriban-html
+    {{ [4, 5, 6, 7, 8] | array.remove_at (-1) }}
+    ```
+    **output**
+    ```html
+    [4, 5, 6, 7]
+    ```
+
+### **array.reverse**
 
 ```
 array.reverse <list>
@@ -541,19 +525,18 @@ Reverses the input `list`
 
 A new list in reversed order.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [4, 5, 6, 7] | array.reverse }}
-```
-> **output**
-```html
-[7, 6, 5, 4]
-```
+    **input**
+    ```scriban-html
+    {{ [4, 5, 6, 7] | array.reverse }}
+    ```
+    **output**
+    ```html
+    [7, 6, 5, 4]
+    ```
 
-[:top:](#builtins)
-### `array.size`
+### **array.size**
 
 ```
 array.size <list>
@@ -571,19 +554,18 @@ Returns the number of elements in the input `list`
 
 A number of elements in the input `list`.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [4, 5, 6] | array.size }}
-```
-> **output**
-```html
-3
-```
+    **input**
+    ```scriban-html
+    {{ [4, 5, 6] | array.size }}
+    ```
+    **output**
+    ```html
+    3
+    ```
 
-[:top:](#builtins)
-### `array.sort`
+### **array.sort**
 
 ```
 array.sort <list> <member>?
@@ -602,32 +584,34 @@ Sorts the elements of the input `list` according to the value of each element or
 
 A list sorted according to the value of each element or the value of the specified `member` of each element.
 
-#### Examples
+!!! example "Examples"
 
-Sorts by element's value:
-> **input**
-```scriban-html
-{{ [10, 2, 6] | array.sort }}
-```
-> **output**
-```html
-[2, 6, 10]
-```
-Sorts by elements member's value:
-> **input**
-```scriban-html
-{{
-products = [{title: "orange", type: "fruit"}, {title: "computer", type: "electronics"}, {title: "sofa", type: "furniture"}]
-products | array.sort "title" | array.map "title"
-}}
-```
-> **output**
-```html
-["computer", "orange", "sofa"]
-```
+    Sorts by element's value:
 
-[:top:](#builtins)
-### `array.uniq`
+    **input**
+    ```scriban-html
+    {{ [10, 2, 6] | array.sort }}
+    ```
+    **output**
+    ```html
+    [2, 6, 10]
+    ```
+    ---
+    Sorts by elements member's value:
+
+    **input**
+    ```scriban-html
+    {{
+    products = [{title: "orange", type: "fruit"}, {title: "computer", type: "electronics"}, {title: "sofa", type: "furniture"}]
+    products | array.sort "title" | array.map "title"
+    }}
+    ```
+    **output**
+    ```html
+    ["computer", "orange", "sofa"]
+    ```
+
+### **array.uniq**
 
 ```
 array.uniq <list>
@@ -645,19 +629,18 @@ Returns the unique elements of the input `list`.
 
 A list of unique elements of the input `list`.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [1, 1, 4, 5, 8, 8] | array.uniq }}
-```
-> **output**
-```html
-[1, 4, 5, 8]
-```
+    **input**
+    ```scriban-html
+    {{ [1, 1, 4, 5, 8, 8] | array.uniq }}
+    ```
+    **output**
+    ```html
+    [1, 4, 5, 8]
+    ```
 
-[:top:](#builtins)
-### `array.contains`
+### **array.contains**
 
 ```
 array.contains <list> <item>
@@ -676,17 +659,18 @@ Returns if an `list` contains an specifique element
 
 **true** if element is in `list`; otherwise **false**
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ [1, 2, 3, 4] | array.contains 4 }}
-```
-> **output**
-```html
-true
-```
-[:top:](#builtins)
+    **input**
+    ```scriban-html
+    {{ [1, 2, 3, 4] | array.contains 4 }}
+    ```
+    **output**
+    ```html
+    true
+    ```
+
+---
 
 ## `date` functions
 
@@ -703,7 +687,6 @@ A datetime object represents an instant in time, expressed as a date and time of
 | `.second`        | Gets the second of the date object
 | `.millisecond`   | Gets the millisecond of the date object
 
-[:top:](#builtins)
 #### Binary operations
 
 The substract operation `date1 - date2`: Substract `date2` from `date1` and return a timespan internal object (see timespan object below).
@@ -723,8 +706,7 @@ A `timespan` and also the added to a `datetime` object.
 - [`date.parse`](#dateparse)
 - [`date.to_string`](#dateto_string)
 
-[:top:](#builtins)
-### `date.now`
+### **date.now**
 
 ```
 date.now
@@ -741,19 +723,18 @@ Returns a datetime object of the current time, including the hour, minutes, seco
 
 
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ date.now.year }}
-```
-> **output**
-```html
-2021
-```
+    **input**
+    ```scriban-html
+    {{ date.now.year }}
+    ```
+    **output**
+    ```html
+    2021
+    ```
 
-[:top:](#builtins)
-### `date.add_days`
+### **date.add_days**
 
 ```
 date.add_days <date> <days>
@@ -772,19 +753,18 @@ Adds the specified number of days to the input date.
 
 A new date
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ date.parse '2016/01/05' | date.add_days 1 }}
-```
-> **output**
-```html
-06 Jan 2016
-```
+    **input**
+    ```scriban-html
+    {{ date.parse '2016/01/05' | date.add_days 1 }}
+    ```
+    **output**
+    ```html
+    06 Jan 2016
+    ```
 
-[:top:](#builtins)
-### `date.add_months`
+### **date.add_months**
 
 ```
 date.add_months <date> <months>
@@ -803,19 +783,18 @@ Adds the specified number of months to the input date.
 
 A new date
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ date.parse '2016/01/05' | date.add_months 1 }}
-```
-> **output**
-```html
-05 Feb 2016
-```
+    **input**
+    ```scriban-html
+    {{ date.parse '2016/01/05' | date.add_months 1 }}
+    ```
+    **output**
+    ```html
+    05 Feb 2016
+    ```
 
-[:top:](#builtins)
-### `date.add_years`
+### **date.add_years**
 
 ```
 date.add_years <date> <years>
@@ -834,19 +813,18 @@ Adds the specified number of years to the input date.
 
 A new date
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ date.parse '2016/01/05' | date.add_years 1 }}
-```
-> **output**
-```html
-05 Jan 2017
-```
+    **input**
+    ```scriban-html
+    {{ date.parse '2016/01/05' | date.add_years 1 }}
+    ```
+    **output**
+    ```html
+    05 Jan 2017
+    ```
 
-[:top:](#builtins)
-### `date.add_hours`
+### **date.add_hours**
 
 ```
 date.add_hours <date> <hours>
@@ -865,12 +843,10 @@ Adds the specified number of hours to the input date.
 
 A new date
 
-#### Examples
+!!! example "Examples"
 
 
-
-[:top:](#builtins)
-### `date.add_minutes`
+### **date.add_minutes**
 
 ```
 date.add_minutes <date> <minutes>
@@ -889,12 +865,11 @@ Adds the specified number of minutes to the input date.
 
 A new date
 
-#### Examples
+!!! example "Examples"
 
 
 
-[:top:](#builtins)
-### `date.add_seconds`
+### **date.add_seconds**
 
 ```
 date.add_seconds <date> <seconds>
@@ -917,8 +892,7 @@ A new date
 
 
 
-[:top:](#builtins)
-### `date.add_milliseconds`
+### **date.add_milliseconds**
 
 ```
 date.add_milliseconds <date> <millis>
@@ -937,12 +911,10 @@ Adds the specified number of milliseconds to the input date.
 
 A new date
 
-#### Examples
+!!! example "Examples"
 
 
-
-[:top:](#builtins)
-### `date.parse`
+### **date.parse**
 
 ```
 date.parse <text>
@@ -960,19 +932,18 @@ Parses the specified input string to a date object.
 
 A date object
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ date.parse '2016/01/05' }}
-```
-> **output**
-```html
-05 Jan 2016
-```
+    **input**
+    ```scriban-html
+    {{ date.parse '2016/01/05' }}
+    ```
+    **output**
+    ```html
+    05 Jan 2016
+    ```
 
-[:top:](#builtins)
-### `date.to_string`
+### **date.to_string**
 
 ```
 date.to_string <datetime> <pattern> <culture>
@@ -1041,16 +1012,19 @@ Suppose that `date.now` would return the date `2013-09-12 22:49:27 +0530`, the f
 | `"%%"` |  `"%"`            | Output the character `%`
 
 Note that the format is using a good part of the ruby format ([source](http://apidock.com/ruby/DateTime/strftime))
-> **input**
-```scriban-html
-{{ date.parse '2016/01/05' | date.to_string '%d %b %Y' }}
-{{ date.parse '2016/01/05' | date.to_string '%d %B %Y' 'fr-FR' }}
-```
-> **output**
-```html
-05 Jan 2016
-05 janvier 2016
-```
+
+!!! example "Examples"
+
+    **input**
+    ```scriban-html
+    {{ date.parse '2016/01/05' | date.to_string '%d %b %Y' }}
+    {{ date.parse '2016/01/05' | date.to_string '%d %B %Y' 'fr-FR' }}
+    ```
+    **output**
+    ```html
+    05 Jan 2016
+    05 janvier 2016
+    ```
 
 #### Arguments
 
@@ -1062,10 +1036,7 @@ Note that the format is using a good part of the ruby format ([source](http://ap
 
 A  that represents this instance.
 
-#### Examples
-
-
-[:top:](#builtins)
+---
 
 ## `html` functions
 
@@ -1076,8 +1047,7 @@ Html functions available through the builtin object 'html'.
 - [`html.url_encode`](#htmlurl_encode)
 - [`html.url_escape`](#htmlurl_escape)
 
-[:top:](#builtins)
-### `html.strip`
+### **html.strip**
 
 ```
 html.strip <text>
@@ -1095,19 +1065,18 @@ Removes any HTML tags from the input string
 
 The input string removed with any HTML tags
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ "<p>This is a paragraph</p>" | html.strip }}
-```
-> **output**
-```html
-This is a paragraph
-```
+    **input**
+    ```scriban-html
+    {{ "<p>This is a paragraph</p>" | html.strip }}
+    ```
+    **output**
+    ```html
+    This is a paragraph
+    ```
 
-[:top:](#builtins)
-### `html.escape`
+### **html.escape**
 
 ```
 html.escape <text>
@@ -1125,19 +1094,18 @@ Escapes a HTML input string (replacing `&` by `&amp;`)
 
 The input string removed with any HTML tags
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ "<p>This is a paragraph</p>" | html.escape }}
-```
-> **output**
-```html
-&lt;p&gt;This is a paragraph&lt;/p&gt;
-```
+    **input**
+    ```scriban-html
+    {{ "<p>This is a paragraph</p>" | html.escape }}
+    ```
+    **output**
+    ```html
+    &lt;p&gt;This is a paragraph&lt;/p&gt;
+    ```
 
-[:top:](#builtins)
-### `html.url_encode`
+### **html.url_encode**
 
 ```
 html.url_encode <text>
@@ -1155,19 +1123,18 @@ Converts any URL-unsafe characters in a string into percent-encoded characters.
 
 The input string url encoded
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ "john@liquid.com" | html.url_encode }}
-```
-> **output**
-```html
-john%40liquid.com
-```
+    **input**
+    ```scriban-html
+    {{ "john@liquid.com" | html.url_encode }}
+    ```
+    **output**
+    ```html
+    john%40liquid.com
+    ```
 
-[:top:](#builtins)
-### `html.url_escape`
+### **html.url_escape**
 
 ```
 html.url_escape <text>
@@ -1185,17 +1152,18 @@ Identifies all characters in a string that are not allowed in URLS, and replaces
 
 The input string url escaped
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ "<hello> & <scriban>" | html.url_escape }}
-```
-> **output**
-```html
-%3Chello%3E%20&%20%3Cscriban%3E
-```
-[:top:](#builtins)
+    **input**
+    ```scriban-html
+    {{ "<hello> & <scriban>" | html.url_escape }}
+    ```
+    **output**
+    ```html
+    %3Chello%3E%20&%20%3Cscriban%3E
+    ```
+
+<hr/>
 
 ## `math` functions
 
@@ -1215,8 +1183,7 @@ Math functions available through the object 'math' in scriban.
 - [`math.uuid`](#mathuuid)
 - [`math.random`](#mathrandom)
 
-[:top:](#builtins)
-### `math.abs`
+### **math.abs**
 
 ```
 math.abs <value>
@@ -1234,21 +1201,20 @@ Returns the absolute value of a specified number.
 
 The absolute value of the input value
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ -15.5| math.abs }}
-{{ -5| math.abs }}
-```
-> **output**
-```html
-15.5
-5
-```
+    **input**
+    ```scriban-html
+    {{ -15.5| math.abs }}
+    {{ -5| math.abs }}
+    ```
+    **output**
+    ```html
+    15.5
+    5
+    ```
 
-[:top:](#builtins)
-### `math.ceil`
+### **math.ceil**
 
 ```
 math.ceil <value>
@@ -1266,21 +1232,20 @@ Returns the smallest integer greater than or equal to the specified number.
 
 The smallest integer greater than or equal to the specified number.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 4.6 | math.ceil }}
-{{ 4.3 | math.ceil }}
-```
-> **output**
-```html
-5
-5
-```
+    **input**
+    ```scriban-html
+    {{ 4.6 | math.ceil }}
+    {{ 4.3 | math.ceil }}
+    ```
+    **output**
+    ```html
+    5
+    5
+    ```
 
-[:top:](#builtins)
-### `math.divided_by`
+### **math.divided_by**
 
 ```
 math.divided_by <value> <divisor>
@@ -1302,19 +1267,18 @@ The division of `value` by `divisor`.
 
 #### Examples
 
-> **input**
+**input**
 ```scriban-html
 {{ 8.4 | math.divided_by 2.0 | math.round 1 }}
 {{ 8.4 | math.divided_by 2 }}
 ```
-> **output**
+**output**
 ```html
 4.2
 4
 ```
 
-[:top:](#builtins)
-### `math.floor`
+### **math.floor**
 
 ```
 math.floor <value>
@@ -1332,21 +1296,20 @@ Returns the largest integer less than or equal to the specified number.
 
 The largest integer less than or equal to the specified number.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 4.6 | math.floor }}
-{{ 4.3 | math.floor }}
-```
-> **output**
-```html
-4
-4
-```
+    **input**
+    ```scriban-html
+    {{ 4.6 | math.floor }}
+    {{ 4.3 | math.floor }}
+    ```
+    **output**
+    ```html
+    4
+    4
+    ```
 
-[:top:](#builtins)
-### `math.format`
+### **math.format**
 
 ```
 math.format <value> <format> <culture>?
@@ -1366,19 +1329,18 @@ Formats a number value with specified [.NET standard numeric format strings](htt
 
 The largest integer less than or equal to the specified number.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 255 | math.format "X4" }}
-```
-> **output**
-```html
-00FF
-```
+    **input**
+    ```scriban-html
+    {{ 255 | math.format "X4" }}
+    ```
+    **output**
+    ```html
+    00FF
+    ```
 
-[:top:](#builtins)
-### `math.is_number`
+### **math.is_number**
 
 ```
 math.is_number <value>
@@ -1396,21 +1358,20 @@ Returns a boolean indicating if the input value is a number
 
 **true** if the input value is a number; otherwise false.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 255 | math.is_number }}
-{{ "yo" | math.is_number }}
-```
-> **output**
-```html
-true
-false
-```
+    **input**
+    ```liquid
+    {{ 255 | math.is_number }}
+    {{ "yo" | math.is_number }}
+    ```
+    **output**
+    ```html
+    true
+    false
+    ```
 
-[:top:](#builtins)
-### `math.minus`
+### **math.minus**
 
 ```
 math.minus <value> <with>
@@ -1429,19 +1390,18 @@ Substracts from the input value the `with` value
 
 The results of the substraction: `value` - `with`
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 255 | math.minus 5}}
-```
-> **output**
-```html
-250
-```
+    **input**
+    ```liquid
+    {{ 255 | math.minus 5}}
+    ```
+    **output**
+    ```html
+    250
+    ```
 
-[:top:](#builtins)
-### `math.modulo`
+### **math.modulo**
 
 ```
 math.modulo <value> <with>
@@ -1460,19 +1420,18 @@ Performs the modulo of the input value with the `with` value
 
 The results of the modulo: `value` % `with`
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 11 | math.modulo 10}}
-```
-> **output**
-```html
-1
-```
+    **input**
+    ```liquid
+    {{ 11 | math.modulo 10}}
+    ```
+    **output**
+    ```html
+    1
+    ```
 
-[:top:](#builtins)
-### `math.plus`
+### **math.plus**
 
 ```
 math.plus <value> <with>
@@ -1491,19 +1450,18 @@ Performs the addition of the input value with the `with` value
 
 The results of the addition: `value` + `with`
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 1 | math.plus 2}}
-```
-> **output**
-```html
-3
-```
+    **input**
+    ```liquid
+    {{ 1 | math.plus 2}}
+    ```
+    **output**
+    ```html
+    3
+    ```
 
-[:top:](#builtins)
-### `math.round`
+### **math.round**
 
 ```
 math.round <value> <precision: 0>?
@@ -1522,23 +1480,22 @@ Rounds a value to the nearest integer or to the specified number of fractional d
 
 A value rounded to the nearest integer or to the specified number of fractional digits.
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 4.6 | math.round }}
-{{ 4.3 | math.round }}
-{{ 4.5612 | math.round 2 }}
-```
-> **output**
-```html
-5
-4
-4.56
-```
+    **input**
+    ```liquid
+    {{ 4.6 | math.round }}
+    {{ 4.3 | math.round }}
+    {{ 4.5612 | math.round 2 }}
+    ```
+    **output**
+    ```html
+    5
+    4
+    4.56
+    ```
 
-[:top:](#builtins)
-### `math.times`
+### **math.times**
 
 ```
 math.times <value> <with>
@@ -1557,19 +1514,18 @@ Performs the multiplication of the input value with the `with` value
 
 The results of the multiplication: `value` * `with`
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ 2 | math.times 3}}
-```
-> **output**
-```html
-6
-```
+    **input**
+    ```scriban-html
+    {{ 2 | math.times 3}}
+    ```
+    **output**
+    ```html
+    6
+    ```
 
-[:top:](#builtins)
-### `math.uuid`
+### **math.uuid**
 
 ```
 math.uuid
@@ -1586,19 +1542,18 @@ Creates a new UUID
 
 The created UUID, ex. 2dc55d50-3f6c-446a-87d0-a5a4eed23269
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ math.uuid }}
-```
-> **output**
-```html
-1c0a4aa8-680e-4bd6-95e9-cdbec45ef057
-```
+    **input**
+    ```liquid
+    {{ math.uuid }}
+    ```
+    **output**
+    ```html
+    1c0a4aa8-680e-4bd6-95e9-cdbec45ef057
+    ```
 
-[:top:](#builtins)
-### `math.random`
+### **math.random**
 
 ```
 math.random <minValue> <maxValue>
@@ -1617,17 +1572,18 @@ Creates a random number
 
 A random number greater or equal to minValue and less than maxValue
 
-#### Examples
+!!! example "Examples"
 
-> **input**
-```scriban-html
-{{ math.random 1 10 }}
-```
-> **output**
-```html
-7
-```
-[:top:](#builtins)
+    **input**
+    ```scriban-html
+    {{ math.random 1 10 }}
+    ```
+    **output**
+    ```html
+    7
+    ```
+
+<hr>
 
 ## `object` functions
 

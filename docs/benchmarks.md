@@ -2,8 +2,9 @@
 
 Latest benchmark update: 07 March 2019
 
-> NOTE: This is a micro benchmark, so results may vary vastly on use cases. The goal here is to demonstrate on a very simple example how the different engines behave
-> Also, while Scriban is compared here to `liquid` and `mustache` like templating engines, you should  keep in mind that language-wise, Scriban is allowing a lot more language constructions/expressions.
+!!! note
+    This is a micro benchmark, so results may vary vastly on use cases. The goal here is to demonstrate on a very simple example how the different engines behave
+    Also, while Scriban is compared here to `liquid` and `mustache` like templating engines, you should  keep in mind that language-wise, Scriban is allowing a lot more language constructions/expressions.
 
 The benchmark was performed on two aspects of the libraries:
 
@@ -26,7 +27,6 @@ For benchmarking, we are using the fantastic [BenchmarkDotNet](https://github.co
 
 See the [Scriban.Benchmark/Program.cs](../src/Scriban.Benchmarks/Program.cs) for details of the benchmark implementation.
 
-[:top:](#benchmarks)
 ## Overall results
 
 For the parser part:
@@ -45,7 +45,6 @@ In comparison to Razor, `scriban` is only 4-5 times slower than Razor, which is 
 
 In the following sections, you will find benchmark details.
 
-[:top:](#benchmarks)
 ## Parser Benchmarks
 
 The methodology is to compile the following Scriban script:
@@ -131,7 +130,6 @@ About the results, we couldn't include Handlebars.NET in the following chart, as
 
 ![BenchMark Parser Time and Memory](../img/benchmark-parsing.png)
 
-[:top:](#benchmarks)
 ## Rendering Benchmarks
 
 The methodology is to use the previously compiled script and use it with a list of 500 Products to output a final string
@@ -141,6 +139,7 @@ BenchmarkDotNet=v0.11.4, OS=Windows 10.0.17134.590 (1803/April2018Update/Redston
 Intel Core i7-7700K CPU 4.20GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores                                      
   [Host]     : .NET Framework 4.7.2 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3324.0                                     
   DefaultJob : .NET Framework 4.7.2 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3324.0                                     
+```
 
 |       Method |        Mean |      Error |     StdDev | Gen 0/1k Op | Gen 1/1k Op | Gen 2/1k Op | Allocated Memory/Op |
 |------------- |------------:|-----------:|-----------:|------------:|------------:|------------:|--------------------:|
@@ -153,10 +152,7 @@ Intel Core i7-7700K CPU 4.20GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cor
 |       Cottle |  2,039.5 us |  11.350 us |  10.617 us |    218.7500 |    109.3750 |     11.7188 |          1329.83 KB |
 |        Fluid |    913.5 us |   2.231 us |   1.977 us |     56.6406 |     20.5078 |     19.5313 |            245.3 KB |
 |        Razor |    314.3 us |   3.107 us |   2.595 us |     58.1055 |     29.2969 |     19.0430 |           253.57 KB |
- ```
 
 Note that for Stubble, It was not possible to match the behavior of the other engines, so it is including the parsing time (which is anyway insignificant compare to the rendering time in this particular case)
 
 ![BenchMark Rendering Time and Memory](../img/benchmark-rendering.png)
-
-[:top:](#benchmarks)
