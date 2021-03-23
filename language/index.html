@@ -1,0 +1,2449 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>Language - Scriban Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#language" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Scriban Docs" class="md-header__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Scriban Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Language
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Documentation
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../benchmarks/" class="md-tabs__link">
+      Benchmarks
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../builtins/" class="md-tabs__link">
+      Builtins
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Language
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../liquid-support/" class="md-tabs__link">
+      Liquid Support
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../runtime/" class="md-tabs__link">
+      Runtime
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Scriban Docs" class="md-nav__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    Scriban Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmarks/" class="md-nav__link">
+        Benchmarks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../builtins/" class="md-nav__link">
+        Builtins
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Language
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Language
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-blocks" class="md-nav__link">
+    1. Blocks
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-code-block" class="md-nav__link">
+    1.1 Code block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-text-block" class="md-nav__link">
+    1.2 Text block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-escape-block" class="md-nav__link">
+    1.3 Escape block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-whitespace-control" class="md-nav__link">
+    1.4 Whitespace control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-comments" class="md-nav__link">
+    2 Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-literals" class="md-nav__link">
+    3 Literals
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Literals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-strings" class="md-nav__link">
+    3.1 Strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-numbers" class="md-nav__link">
+    3.2 Numbers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-boolean" class="md-nav__link">
+    3.3 Boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-null" class="md-nav__link">
+    3.4 null
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-variables" class="md-nav__link">
+    4 Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="4 Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-the-special-variable-this" class="md-nav__link">
+    4.1 The special variable this
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-the-special-variable-empty" class="md-nav__link">
+    4.2 The special variable empty
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-objects" class="md-nav__link">
+    5 Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="5 Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-the-special-property-empty" class="md-nav__link">
+    5.1 The special property empty?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-arrays" class="md-nav__link">
+    6 Arrays
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-array-with-properties" class="md-nav__link">
+    6.1 Array with properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-the-special-size-property" class="md-nav__link">
+    6.2 The special size property
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-functions" class="md-nav__link">
+    7 Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="7 Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-simple-functions" class="md-nav__link">
+    7.1 Simple functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-anonymous-functions" class="md-nav__link">
+    7.2 Anonymous functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-parametric-functions" class="md-nav__link">
+    7.3 Parametric functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-inline-functions" class="md-nav__link">
+    7.4 Inline functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-function-pointers" class="md-nav__link">
+    7.5 Function Pointers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-expressions" class="md-nav__link">
+    8 Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="8 Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-variable-path-expressions" class="md-nav__link">
+    8.1 Variable path expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-assign-expression" class="md-nav__link">
+    8.2 Assign expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-nested-expression" class="md-nav__link">
+    8.3 Nested expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-arithmetic-expressions" class="md-nav__link">
+    8.4 Arithmetic expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-conditional-expressions" class="md-nav__link">
+    8.5 Conditional expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-unary-expressions" class="md-nav__link">
+    8.6 Unary expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#87-range-expressions" class="md-nav__link">
+    8.7 Range expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#88-the-null-coalescing-operator" class="md-nav__link">
+    8.8 The null-coalescing operator ??
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#89-function-call-expression" class="md-nav__link">
+    8.9 Function call expression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-statements" class="md-nav__link">
+    9 Statements
+  </a>
+  
+    <nav class="md-nav" aria-label="9 Statements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-single-expression" class="md-nav__link">
+    9.1 Single expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-if-expression-else-else-if-expression" class="md-nav__link">
+    9.2 if &lt;expression&gt;, else, else if &lt;expression&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-case-and-when" class="md-nav__link">
+    9.3 case and when
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-loops" class="md-nav__link">
+    9.3 Loops
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-capture-variable-end" class="md-nav__link">
+    9.4 capture &lt;variable&gt; ... end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-readonly-variable" class="md-nav__link">
+    9.5 readonly &lt;variable&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-import-variable_path" class="md-nav__link">
+    9.6 import &lt;variable_path&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97-with-variable-end" class="md-nav__link">
+    9.7 with &lt;variable&gt; ... end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#98-wrap-function-arg1argn-end" class="md-nav__link">
+    9.8 wrap &lt;function&gt; &lt;arg1...argn&gt; ... end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#99-include-name-arg1argn" class="md-nav__link">
+    9.9 include &lt;name&gt; arg1?...argn?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#910-ret-expression" class="md-nav__link">
+    9.10 ret &lt;expression&gt;?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../liquid-support/" class="md-nav__link">
+        Liquid Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime/" class="md-nav__link">
+        Runtime
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-blocks" class="md-nav__link">
+    1. Blocks
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-code-block" class="md-nav__link">
+    1.1 Code block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-text-block" class="md-nav__link">
+    1.2 Text block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-escape-block" class="md-nav__link">
+    1.3 Escape block
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-whitespace-control" class="md-nav__link">
+    1.4 Whitespace control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-comments" class="md-nav__link">
+    2 Comments
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-literals" class="md-nav__link">
+    3 Literals
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Literals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-strings" class="md-nav__link">
+    3.1 Strings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-numbers" class="md-nav__link">
+    3.2 Numbers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-boolean" class="md-nav__link">
+    3.3 Boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-null" class="md-nav__link">
+    3.4 null
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-variables" class="md-nav__link">
+    4 Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="4 Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-the-special-variable-this" class="md-nav__link">
+    4.1 The special variable this
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-the-special-variable-empty" class="md-nav__link">
+    4.2 The special variable empty
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-objects" class="md-nav__link">
+    5 Objects
+  </a>
+  
+    <nav class="md-nav" aria-label="5 Objects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-the-special-property-empty" class="md-nav__link">
+    5.1 The special property empty?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-arrays" class="md-nav__link">
+    6 Arrays
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-array-with-properties" class="md-nav__link">
+    6.1 Array with properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-the-special-size-property" class="md-nav__link">
+    6.2 The special size property
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-functions" class="md-nav__link">
+    7 Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="7 Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-simple-functions" class="md-nav__link">
+    7.1 Simple functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-anonymous-functions" class="md-nav__link">
+    7.2 Anonymous functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-parametric-functions" class="md-nav__link">
+    7.3 Parametric functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-inline-functions" class="md-nav__link">
+    7.4 Inline functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75-function-pointers" class="md-nav__link">
+    7.5 Function Pointers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-expressions" class="md-nav__link">
+    8 Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="8 Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-variable-path-expressions" class="md-nav__link">
+    8.1 Variable path expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-assign-expression" class="md-nav__link">
+    8.2 Assign expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-nested-expression" class="md-nav__link">
+    8.3 Nested expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-arithmetic-expressions" class="md-nav__link">
+    8.4 Arithmetic expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#85-conditional-expressions" class="md-nav__link">
+    8.5 Conditional expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#86-unary-expressions" class="md-nav__link">
+    8.6 Unary expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#87-range-expressions" class="md-nav__link">
+    8.7 Range expressions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#88-the-null-coalescing-operator" class="md-nav__link">
+    8.8 The null-coalescing operator ??
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#89-function-call-expression" class="md-nav__link">
+    8.9 Function call expression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-statements" class="md-nav__link">
+    9 Statements
+  </a>
+  
+    <nav class="md-nav" aria-label="9 Statements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-single-expression" class="md-nav__link">
+    9.1 Single expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-if-expression-else-else-if-expression" class="md-nav__link">
+    9.2 if &lt;expression&gt;, else, else if &lt;expression&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-case-and-when" class="md-nav__link">
+    9.3 case and when
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-loops" class="md-nav__link">
+    9.3 Loops
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-capture-variable-end" class="md-nav__link">
+    9.4 capture &lt;variable&gt; ... end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-readonly-variable" class="md-nav__link">
+    9.5 readonly &lt;variable&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#96-import-variable_path" class="md-nav__link">
+    9.6 import &lt;variable_path&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#97-with-variable-end" class="md-nav__link">
+    9.7 with &lt;variable&gt; ... end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#98-wrap-function-arg1argn-end" class="md-nav__link">
+    9.8 wrap &lt;function&gt; &lt;arg1...argn&gt; ... end
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#99-include-name-arg1argn" class="md-nav__link">
+    9.9 include &lt;name&gt; arg1?...argn?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#910-ret-expression" class="md-nav__link">
+    9.10 ret &lt;expression&gt;?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/scriban/scriban/edit/master/docs/language.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="language">Language</h1>
+<p>This document describes the syntax of the scriban language in a templating context (within <code>{{</code> and <code>}}</code>).</p>
+<p>The language rules are the same in a pure scripting context.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document does not describe the <code>liquid</code> language. Check the <a href="https://shopify.github.io/liquid/"><code>liquid website</code></a> directly.</p>
+</div>
+<h2 id="1-blocks">1. Blocks</h2>
+<p>There are 3 types of block of text in a template:</p>
+<ul>
+<li><strong>Code block</strong>: contains scriban template statements</li>
+<li><strong>Text block</strong>: a plain block to output <em>as is</em></li>
+<li><strong>Escape block</strong>: a text block that can escape code blocks </li>
+</ul>
+<p><a href="#language">:top:</a></p>
+<h3 id="11-code-block">1.1 Code block</h3>
+<p>A text enclosed by <code>{{</code> and <code>}}</code> is a scriban <strong>code block</strong> that will be evaluated by the scriban templating engine.</p>
+<p>A scriban code block may contain:</p>
+<ul>
+<li>a <strong>single line expression statement</strong>:
+   <code>{{ name }}</code></li>
+<li>or a <strong>multiline statements</strong>:
+    <div class="highlight"><pre><span></span><code>{{
+  if !name
+    name = &quot;default&quot;
+  end
+  name
+}}
+</code></pre></div></li>
+<li>or <strong>statements separated by a semi-colon <code>;</code></strong> to allow compact forms in some use cases:
+    <div class="highlight"><pre><span></span><code>{{if !name; name = &quot;default&quot;; end; name }}
+</code></pre></div></li>
+</ul>
+<p>Inside a code block, except for the EOL after each statement, white spaces characters are not affecting the parsing. There is only one case where whitespace is used to disambiguate between an array indexer and an array initializer. </p>
+<p>Also, if a statement is an expression (but not an assignment expression), the result of the expression will be output to the rendering output of the template:</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+  x = &quot;5&quot;   # This assignment will not output anything
+  x         # This expression will print 5
+  x + 1     # This expression will print 6
+}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>56
+</code></pre></div>
+Note that in the previous example, there is no EOL between <code>5</code> and <code>6</code> because we are inside a code block. 
+You can still use a plain string with an EOL inside a code block <code>"\n"</code> or you could use mixed code and text blocks:</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ x = &quot;5&quot; }}
+{{ x }}
+{{ x + 1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+6
+</code></pre></div></p>
+<p><a href="#language">:top:</a></p>
+<h3 id="12-text-block">1.2 Text block</h3>
+<p>Otherwise, any text is considered as a <strong>text block</strong> and simply output as is</p>
+<div class="highlight"><pre><span></span><code>Hello this is {{ name }}, welcome to scriban!
+______________          _____________________
+^ text block            ^ text block
+</code></pre></div>
+<p><a href="#language">:top:</a></p>
+<h3 id="13-escape-block">1.3 Escape block</h3>
+<p>Any code and text block can be escaped to produce a text block by enclosing it with <code>{%{</code> and <code>}%}</code> </p>
+<p>For example the following escape:</p>
+<blockquote>
+<p><strong>input</strong>: <code>{%{Hello this is {{ name }}}%}</code> <br />
+<strong>output</strong>: <code>Hello this is {{ name }}</code> </p>
+</blockquote>
+<p>Any escape block can be also escaped by increasing the number of <code>%</code> in the starting and ending block:</p>
+<blockquote>
+<p><strong>input</strong>: <code>{%%{This is an escaped block: }%} here}%%}</code>
+<strong>output</strong>: <code>This is an escaped block: }%} here</code></p>
+</blockquote>
+<p>This allow effectively to nest escape blocks and still be able to escape them.</p>
+<p>Hence a starting escape block <code>{%%%%{</code> will required an ending <code>}%%%%}</code></p>
+<p><a href="#language">:top:</a></p>
+<h3 id="14-whitespace-control">1.4 Whitespace control</h3>
+<p>By default, any whitespace (including new lines) before or after a code/escape block are copied as-is to the output. </p>
+<p>Scriban provides <strong>two modes</strong> for controlling whitespace:</p>
+<ul>
+<li>
+<p>The <strong>greedy mode</strong> using the character <code>-</code> (e.g <code>{{-</code> or <code>-}}</code>), <strong>removes any whitespace, including newlines</strong> 
+  Examples with the variable <code>name = "foo"</code>:</p>
+</li>
+<li>
+<p>Strip whitespace on the left:<br />
+    &gt; <strong>input</strong>
+    <div class="highlight"><pre><span></span><code>This is a &lt;       
+{{- name}}&gt; text
+</code></pre></div>
+    &gt; <strong>output</strong>
+    <div class="highlight"><pre><span></span><code>This is a <span class="p">&lt;</span><span class="nt">foo</span><span class="p">&gt;</span> a text
+</code></pre></div></p>
+</li>
+<li>
+<p>Strip on the right:<br />
+    &gt; <strong>input</strong>
+    <div class="highlight"><pre><span></span><code>This is a &lt;{{ name -}} 
+&gt; text:       
+</code></pre></div>
+    &gt; <strong>output</strong>
+    <div class="highlight"><pre><span></span><code>This is a <span class="p">&lt;</span><span class="nt">foo</span><span class="p">&gt;</span> text
+</code></pre></div></p>
+</li>
+<li>
+<p>Strip on both left and right:<br />
+    &gt; <strong>input</strong>
+    <div class="highlight"><pre><span></span><code>This is a &lt;
+{{- name -}} 
+&gt; text:       
+</code></pre></div>
+    &gt; <strong>output</strong>
+    <div class="highlight"><pre><span></span><code>This is a <span class="p">&lt;</span><span class="nt">foo</span><span class="p">&gt;</span> text
+</code></pre></div></p>
+</li>
+<li>
+<p>The <strong>non greedy mode</strong> using the character <code>~</code></p>
+</li>
+<li>Using a <code>{{~</code> will remove any <strong>whitespace before</strong> but will <strong>stop on the first newline without including it</strong></li>
+<li>Using a <code>~}}</code> will remove any <strong>whitespace after including the first newline</strong> but will stop after</li>
+</ul>
+<p>This mode is very convenient when you want to use only a scriban statement on a line, but want that line to be completely 
+  removed from the output, but to keep spaces before and after this line intact.</p>
+<p>In the following example, we want to remove entirely the lines <code>{{~ for product in products ~}}</code> and <code>{{~ end ~}}</code>, but we want
+  for example to keep the indentation of the opening <code>&lt;li&gt;</code>.</p>
+<p>Using the greedy mode <code>{{-</code> or <code>-}}</code> would have removed all whitespace and lines and would have put the results on a single line.</p>
+<blockquote>
+<p><strong>input</strong>
+  <div class="highlight"><pre><span></span><code>&lt;ul&gt;
+    {{~ for product in products ~}}
+    &lt;li&gt;{{ product.name }}&lt;/li&gt;
+    {{~ end ~}}
+&lt;/ul&gt;
+</code></pre></div></p>
+<p><strong>output</strong>
+  <div class="highlight"><pre><span></span><code>&lt;ul&gt;
+    &lt;li&gt;Orange&lt;/li&gt;
+    &lt;li&gt;Banana&lt;/li&gt;
+    &lt;li&gt;Apple&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></div></p>
+</blockquote>
+<p>Both mode <code>~</code> and '-' can also be used with <strong>escape blocks</strong> <code>{%%{~</code> or <code>~}%%}</code> or <code>{%%{-</code> or <code>-}%%}</code></p>
+<p><a href="#language">:top:</a></p>
+<h2 id="2-comments">2 Comments</h2>
+<p>Within a code block, scriban supports single line comments <code>#</code> and multi-line comments <code>##</code>:</p>
+<p><code>{{ name   # this is a single line comment }}</code></p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ ## This 
+is a multi
+line
+comment ## }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div></p>
+</blockquote>
+<p>As you can notice, both single line and multi-line comments can be closed by the presence of a code block exit tag <code>}}</code></p>
+<p><a href="#language">:top:</a></p>
+<h2 id="3-literals">3 Literals</h2>
+<h3 id="31-strings">3.1 Strings</h3>
+<p>Scriban supports two types of strings:</p>
+<ul>
+<li><strong>regular strings</strong> enclosed by double quotes <code>"..."</code> or simple quotes <code>'...'</code>. Regular strings supports multiline and will interpret the following escape sequences:</li>
+<li><code>\'</code> single quote</li>
+<li><code>\"</code> double quote</li>
+<li><code>\\</code> backslash</li>
+<li><code>\n</code> new line</li>
+<li><code>\r</code> carriage return</li>
+<li><code>\t</code> tab</li>
+<li><code>\b</code> backspace</li>
+<li><code>\f</code> form feed</li>
+<li><code>\uxxxx</code> where xxxx is a unicode hexa code number <code>0000</code> to <code>ffff</code> </li>
+<li>
+<p><code>\x00-\xFF</code> a hexadecimal ranging from <code>0x00</code> to <code>0xFF</code></p>
+</li>
+<li>
+<p><strong>verbatim strings</strong> enclosed by backstick quotes <code>`...`</code>. They are, for example, useful to use with for regex patterns :</p>
+<blockquote>
+<p><strong>input</strong>
+  <div class="highlight"><pre><span></span><code>{{ &quot;this is a text&quot; | regex.split `\s+` }}
+</code></pre></div></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>output</strong>
+  <div class="highlight"><pre><span></span><code>[this, is, a, test]
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h3 id="32-numbers">3.2 Numbers</h3>
+<p>A number in scriban <code>{{ 100 }}</code> is similar to a javascript number: </p>
+<ul>
+<li>Integers: <code>100</code>, <code>1e3</code></li>
+<li>Hexadecimal integers: <code>0x1ef</code> and unsigned <code>0x80000000u</code></li>
+<li>Floats: <code>100.0</code>, <code>1.0e3</code>, <code>1.0e-3</code></li>
+<li>32-bit floats: <code>100.0f</code></li>
+<li>64-bit floats: <code>100.0d</code></li>
+<li>128-bit decimals: <code>100.0m</code> </li>
+</ul>
+<p><a href="#language">:top:</a></p>
+<h3 id="33-boolean">3.3 Boolean</h3>
+<p>The boolean value <code>{{ true }}</code> or <code>{{ false }}</code></p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ true }}
+{{ false }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+false
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h3 id="34-null">3.4 null</h3>
+<p>The null value <code>{{ null }}</code> </p>
+<p>When resolving to a string output, the null value will output an empty string:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ null }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h2 id="4-variables">4 Variables</h2>
+<p>Scriban supports the concept of <strong>global</strong> and <strong>local</strong> variables</p>
+<p>A <strong>global/property variable</strong> like <code>{{ name }}</code> is a liquid like handle, starting by a letter or underscore <code>_</code> and following by a letter <code>A-Z a-z</code>, a digit <code>0-9</code>, an underscore <code>_</code></p>
+<p>The following text are valid variable names:</p>
+<ul>
+<li><code>var</code> </li>
+<li><code>var9</code></li>
+<li><code>_var</code></li>
+</ul>
+<blockquote>
+<p>NOTE: In liquid, the character <code>-</code> is allowed in a variable name, but when translating it to a scriban, you will have to enclose it into a quoted string</p>
+</blockquote>
+<p>A <strong>local variable</strong> like <code>{{ $name }}</code> is an identifier starting with <code>$</code>. A local variable is only accessible within the same include page or function body.</p>
+<p>The <strong>special local variable</strong> <code>$</code> alone is an array containing the arguments passed to the current function or include page.</p>
+<p>The special local variables <code>$0</code> <code>$1</code> ... <code>$n</code> is a shorthand of <code>$[0]</code>, <code>$[1]</code> ... <code>$[n]</code>. e.g Using <code>$0</code> returns the first argument of the current function or including page.</p>
+<h3 id="41-the-special-variable-this">4.1 The special variable <code>this</code></h3>
+<p>The <code>this</code> variable gives you access to the current object bound where you have access to all local variables for the current scope.</p>
+<p>Thus the following variable access are equivalent:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+a = 5
+a    # output 5
+this.a = 6
+a    # output 6
+this[&quot;a&quot;] = 7
+a    # output 7
+}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>567
+</code></pre></div>
+In the case of the <code>with</code> statement, the this operator refers to the object passed to <code>with</code>:</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+a = {x: 1, y: 2}
+with a
+    b = this
+end
+b.x
+}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>1
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h3 id="42-the-special-variable-empty">4.2 The special variable <code>empty</code></h3>
+<p>The <code>empty</code> variable represents simply an empty object. It is mainly relevant to be compatible with liquid, by providing a way to compare an object with the <code>empty</code> object to check if it is empty or not:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+a = {}
+b = [1, 2]~}}
+{{a == empty}}
+{{b == empty}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+false
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h2 id="5-objects">5 Objects</h2>
+<p>Scriban supports javascript like objects <code>{...}</code></p>
+<p>An object can be initialized empty :</p>
+<p><code>{{ myobject = {} }}</code> </p>
+<p>An object can be initialized with some members:</p>
+<p><code>{{ myobject = { member1: "yes", member2: "no" } }}</code></p>
+<p>or use a json syntax:</p>
+<p><code>{{ myobject = { "member1": "yes", "member2": "no" } }}</code></p>
+<p>An object can be initialized with some members over multiple lines:</p>
+<div class="highlight"><pre><span></span><code>{{
+  myobject = { 
+      member1: &quot;yes&quot;, 
+      member2: &quot;no&quot; 
+  } 
+}}
+</code></pre></div>
+<p>Members of an object can be accessed:</p>
+<p><code>{{ myobject.member1 }}</code> also equivalent to <code>{{ myobject["member1"] }}</code></p>
+<p>You can access optional members in chain via the optional member operator <code>?.</code> (instead of the regular member operator: <code>.</code> ) (<strong>New in 3.0</strong>)</p>
+<p><code>{{ myobject.member1?.submember1?.submember2 ?? "nothing" }}</code> will return <code>"nothing"</code> as <code>member1</code> doesn't contain a <code>submember1</code>/<code>submember2</code>.</p>
+<p>If the object is a "pure" scriban objects (created with a <code>{...}</code> or  instantiated by the runtime as a <code>ScriptObject</code>), you can also add members to it with a simple assignment:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+  myobject = {} 
+  myobject.member3 = &quot;may be&quot; 
+  myobject.member3
+}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>may be
+</code></pre></div></p>
+<p><strong>NOTICE</strong></p>
+<p>By default, Properties and methods of .NET objects are automatically exposed with lowercase and <code>_</code> names. It means that a property like <code>MyMethodIsNice</code> will be exposed as <code>my_method_is_nice</code>. This is the default convention, originally to match the behavior of liquid templates.
+If you want to change this behavior, you need to use a <a href="../runtime/#member-renamer"><code>MemberRenamer</code></a> delegate</p>
+</blockquote>
+<h3 id="51-the-special-property-empty">5.1 The special property <code>empty?</code></h3>
+<p>Any object can respond the the property <code>.empty?</code> to check if it is empty or not:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+a = {}
+b = [1, 2]~}}
+{{a.empty?}}
+{{b.empty?}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+false
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h2 id="6-arrays">6 Arrays</h2>
+<p>An array can be initialized empty :</p>
+<p><code>{{ myarray = [] }}</code> </p>
+<p>An array can be initialized with some items:</p>
+<p><code>{{ myarray = [1, 2, 3, 4] }}</code></p>
+<p>An array can be initialized with some items over multiple lines:</p>
+<div class="highlight"><pre><span></span><code>{{
+  myarray = [ 
+    1,
+    2,
+    3,
+    4,
+  ] 
+}}
+</code></pre></div>
+<p>Items of an array can be zero-based indexed:</p>
+<p><code>{{ myarray[0] }}</code></p>
+<p>If the array is a "pure" scriban array (created with a <code>[...]</code> or  instantiated by the runtime as a <code>ScriptArray</code>), you can also add items to it with a simple assignment that will expand automatically the array depending on the index:</p>
+<div class="highlight"><pre><span></span><code>{{
+  myarray = [] 
+  myarray[0] = 1 
+  myarray[1] = 2 
+  myarray[2] = 3 
+  myarray[3] = 4 
+}}
+</code></pre></div>
+<p>You can also manipulate arrays with the <a href="#array-builtin"><code>array</code> builtin object</a>.</p>
+<blockquote>
+<p><strong>Important notice</strong></p>
+<p>While whitespace characters are mostly not relevant while parsing in scriban, there is a case where a <strong>whitespace helps to disambiguate between an array  indexer and an array initializer</strong>.</p>
+<p>For instance, if a whitespace is found before a <code>[</code> and the previous expression was a variable path expressions (see later), the following expression <code>[...]</code> will be considered as an array initializer instead of an array indexer:</p>
+<div class="highlight"><pre><span></span><code>{{
+myfunction [1]  # There is a whitespace after myfunction. 
+                # It will result in a call to myfunction passing an array as an argument
+
+myvariable[1]   # Without a whitespace, this is accessing 
+                # an element in the array provided by myvariable
+}}    
+</code></pre></div>
+</blockquote>
+<h3 id="61-array-with-properties">6.1 Array with properties</h3>
+<p>An array can also contains attached properties:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+a = [5, 6, 7]
+a.x = &quot;yes&quot;
+a.x + a[0]
+}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>yes5
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h3 id="62-the-special-size-property">6.2 The special <code>size</code> property</h3>
+<p>Arrays have a <code>size</code> property that can be used to query the number of elements in the array:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+a = [1, 2, 3]
+a.size
+}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h2 id="7-functions">7 Functions</h2>
+<p>Scriban allows to define 4 kind of functions:</p>
+<ul>
+<li>Simple functions</li>
+<li>Anonymous functions</li>
+<li>Parametric functions (<strong>New in 3.0</strong>)</li>
+<li>Inline functions (<strong>New in 3.0</strong>)</li>
+</ul>
+<h3 id="71-simple-functions">7.1 Simple functions</h3>
+<p>The following declares a function <code>sub</code> that uses its first argument and subtract from it the second argument:</p>
+<div class="highlight"><pre><span></span><code>{{func sub
+   ret $0 - $1
+end}}
+</code></pre></div>
+<p>All argument are passed to the special variable <code>$</code> that will contain the list of direct arguments
+and named arguments:</p>
+<ul>
+<li><code>$0</code> or <code>$[0]</code> will access the first argument</li>
+<li><code>$1</code> or <code>$[1]</code> will access the second argument</li>
+<li><code>$[-1]</code> will access the last argument</li>
+<li><code>$.named</code> will access the named argument <code>named</code> </li>
+</ul>
+<p>This function can then be used:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{sub 5 1}}
+{{5 | sub 1}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>4
+4
+</code></pre></div></p>
+</blockquote>
+<p>As you can notice from the example above, when using the pipe, the result of the pipe is pushed as the <strong>first argument</strong> of the pipe receiver.</p>
+<p>Note that a function can have mixed text statements as well:</p>
+<div class="highlight"><pre><span></span><code>{{func inc}}
+   This is a text with the following argument {{ $0 + 1 }}
+{{end}}
+</code></pre></div>
+<blockquote>
+<p>NOTE: Setting a non-local variable (e.g <code>a = 10</code>) in a simple function will be set at the global level and not at the function level.</p>
+<p>Parametric functions are solving this behavior by introducing a new variable scope inside the function that includes parameters. </p>
+</blockquote>
+<h3 id="72-anonymous-functions">7.2 Anonymous functions</h3>
+<p>Anonymous functions are like simple functions but can be used in expressions (e.g as the last argument of function call)</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ sub = do; ret $0 - $1; end; 1 | sub 3 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>-2
+</code></pre></div></p>
+</blockquote>
+<p>They are very convenient to build custom block functions:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ func launch; ret $0 1 2; end
+launch do 
+    ret $0 + $1
+end
+}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div></p>
+</blockquote>
+<h3 id="73-parametric-functions">7.3 Parametric functions</h3>
+<p>They are similar to simple functions but they are declared with parenthesis, while also supporting declaration of different kind of parameters (normal, optional, variable).</p>
+<p>Another difference with simple functions is that they require function calls and arguments to match the expected function parameters. </p>
+<ul>
+<li>A function with normal parameters:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>{{func sub(x,y)
+   ret x - y
+end}}
+</code></pre></div>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{sub 5 1}}
+{{5 | sub 1}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>4
+4
+</code></pre></div></p>
+</blockquote>
+<ul>
+<li>A function with normal parameters and optional parameters with default values:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>{{func sub_opt(x, y, z = 1, w = 2)
+   ret x - y - z - w
+end}}
+</code></pre></div>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{sub_opt 5 1}}
+{{5 | sub_opt 1}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>1
+1
+</code></pre></div></p>
+</blockquote>
+<p>Here we override the value of <code>z</code> and set it to <code>0</code> instead of default <code>1</code>:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{sub_opt 5 1 0 }}
+{{5 | sub_opt 1 0}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>2
+2
+</code></pre></div></p>
+</blockquote>
+<ul>
+<li>A function with normal parameters and optional parameters with default values:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>{{func sub_variable(x, y...)
+   ret x - (y[0] ?? 0) - (y[1] ?? 0)
+end}}
+</code></pre></div>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{sub_variable 5 1 -1}
+{{5 | sub_variable 1 -1}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+5
+</code></pre></div></p>
+<p>NOTE: The special variable <code>$</code> is still accessible in parametric functions and represent the direct list of arguments. In the example above, <code>$ =  [5, [1, -1]]</code> </p>
+</blockquote>
+<h3 id="74-inline-functions">7.4 Inline functions</h3>
+<p>For simple functions, it is convenient to define simple functions like mathematical functions:</p>
+<div class="highlight"><pre><span></span><code>{{ sub(x,y) = x - y }}
+</code></pre></div>
+<p>Inline functions are similar to parametric functions but they only support normal parameters. They don't support optional or variable parameters.</p>
+<h3 id="75-function-pointers">7.5 Function Pointers</h3>
+<p>Because functions are object, they can be stored into a property of an object by using the alias <code>@</code> operator:</p>
+<div class="highlight"><pre><span></span><code>{{
+myobject.myinc = @inc  # Use the @ alias operator to allow to 
+                       # use a function without evaluating it
+x = 1 | myobject.myinc # x = x + 1
+}}
+</code></pre></div>
+<p>The function aliasing operator <code>@</code> allows to pass a function as a parameter to another function, enabling powerful function compositions.</p>
+<p><a href="#language">:top:</a></p>
+<h2 id="8-expressions">8 Expressions</h2>
+<p>Scriban supports conventional unary and binary expressions.</p>
+<p><a href="#language">:top:</a></p>
+<h3 id="81-variable-path-expressions">8.1 Variable path expressions</h3>
+<p>A variable path expression contains the path to a variable:</p>
+<ul>
+<li>A simple variable access: <code>{{ name }}</code> e.g resolve to the top level variable <code>name</code></li>
+<li>An array access: <code>{{ myarray[1] }}</code> e.g resolve to the top level variable <code>myarray</code> and an indexer to the array</li>
+<li>A member access: <code>{{ myobject.member1.myarray[2] }}</code> e.g resolve to the top level variable <code>myobject</code>, then the property <code>member1</code> this object, the property <code>myarray</code> and an indexer to the array returned by <code>myarray</code></li>
+</ul>
+<p>Note that a variable path can either point to a simple variable or can result into calling a parameter less function. </p>
+<p><a href="#language">:top:</a></p>
+<h3 id="82-assign-expression">8.2 Assign expression</h3>
+<p>A value can be assigned to a top level variable or to the member of an object/array:</p>
+<ul>
+<li>
+<p><code>{{ name = "foo" }}</code> e.g Assign the string <code>"foo"</code> the variable <code>name</code> </p>
+</li>
+<li>
+<p><code>{{ myobject.member1.myarray[0] = "foo" }}</code></p>
+</li>
+</ul>
+<p>An assign expression must be a top level expression statement and cannot be used within a sub-expression.</p>
+<p><a href="#language">:top:</a></p>
+<h3 id="83-nested-expression">8.3 Nested expression</h3>
+<p>An expression enclosed by <code>(</code> and <code>)</code> </p>
+<p><code>{{ name = ('foo' + 'bar') }}</code></p>
+<p><a href="#language">:top:</a></p>
+<h3 id="84-arithmetic-expressions">8.4 Arithmetic expressions</h3>
+<h4 id="on-numbers">On numbers</h4>
+<p>The following binary operators are supported for <strong>numbers</strong>: </p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;left&gt; + &lt;right&gt;</code></td>
+<td>add left to right number</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; - &lt;right&gt;</code></td>
+<td>substract right number from left</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; * &lt;right&gt;</code></td>
+<td>multiply left by right number</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; / &lt;right&gt;</code></td>
+<td>divide left by right number</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; // &lt;right&gt;</code></td>
+<td>divide left by right number and round to an integer</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; % &lt;right&gt;</code></td>
+<td>calculates the modulus of left by right</td>
+</tr>
+</tbody>
+</table>
+<p>If left or right is a float and the other is an integer, the result of the operation will be a float.</p>
+<p><a href="#language">:top:</a></p>
+<h4 id="on-strings">On strings</h4>
+<p>The following binary operators are supported for <strong>strings</strong>: </p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'left' + &lt;right&gt;</code></td>
+<td>concatenates left to right string: <code>"ab" + "c" -&gt; "abc"</code></td>
+</tr>
+<tr>
+<td><code>'left' * &lt;right&gt;</code></td>
+<td>concatenates the left string <code>right</code> times: <code>'a' * 5  -&gt; aaaaa</code>. left and right and be swapped as long as there is one string and one number.</td>
+</tr>
+</tbody>
+</table>
+<p>As long as there is a string in a binary operation, the other part will be automatically converted to a string.</p>
+<p>The following literals are converted to plain strings:</p>
+<ul>
+<li><code>null -&gt; ""</code>. e.g: <code>"aaaa" + null -&gt; "aaaa"</code></li>
+<li><code>0 -&gt; "0"</code></li>
+<li><code>1.0 -&gt; "1.0"</code></li>
+<li><code>true -&gt; "true"</code></li>
+<li><code>false -&gt; "false"</code></li>
+</ul>
+<p><a href="#language">:top:</a></p>
+<h3 id="85-conditional-expressions">8.5 Conditional expressions</h3>
+<p>A boolean expression produces a boolean by comparing a left and right value.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;left&gt; == &lt;right&gt;</code></td>
+<td>Is left equal to right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; != &lt;right&gt;</code></td>
+<td>Is left not equal to right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; &gt; &lt;right&gt;</code></td>
+<td>Is left greater than right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; &gt;= &lt;right&gt;</code></td>
+<td>Is left greater or equal to right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; &lt; &lt;right&gt;</code></td>
+<td>Is left less than right?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; &lt;= &lt;right&gt;</code></td>
+<td>Is left less or equal to right?</td>
+</tr>
+</tbody>
+</table>
+<p>They work with both <code>numbers</code>, <code>strings</code> and datetimes.</p>
+<p>You can combine conditional expressions with <code>&amp;&amp;</code> (and operator) and <code>||</code> (or operator).
+Unlike in <code>javascript</code> it always returns <code>boolean</code> and never <code>&lt;left&gt;</code> or <code>&lt;right&gt;</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;left&gt; &amp;&amp; &lt;right&gt;</code></td>
+<td>Is left true and right true?</td>
+</tr>
+<tr>
+<td><code>&lt;left&gt; \|\| &lt;right&gt;</code></td>
+<td>Is left true or right true?</td>
+</tr>
+</tbody>
+</table>
+<p>The conditional expression <code>cond ? left : right</code> allow to return <code>left</code> if <code>cond</code> is <code>true</code> otherwise <code>right</code>. (<strong>New in 3.0</strong>)</p>
+<p><a href="#language">:top:</a></p>
+<h3 id="86-unary-expressions">8.6 Unary expressions</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>! &lt;expression&gt;</code></td>
+<td>Boolean negate an expression. e.g <code>if !page</code></td>
+</tr>
+<tr>
+<td><code>+ &lt;expression&gt;</code></td>
+<td>Arithmetic positive an expression. e.g <code>+1.5</code></td>
+</tr>
+<tr>
+<td><code>- &lt;expression&gt;</code></td>
+<td>Arithmetic negate an expression</td>
+</tr>
+<tr>
+<td><code>^ &lt;expression&gt;</code></td>
+<td>Expand an array passed to arguments of a function call (see function call)</td>
+</tr>
+<tr>
+<td><code>@ &lt;expression&gt;</code></td>
+<td>Alias the result of an expression that would be evaluated if it was a function call</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#language">:top:</a></p>
+<h3 id="87-range-expressions">8.7 Range expressions</h3>
+<p>They are special binary expressions that provides an iterator (used usually with the <code>for</code> statement)</p>
+<p>The evaluated <code>left</code> and <code>right</code> expressions must resolve to an integer at runtime.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>left..right</code></td>
+<td>Returns an iterator between <code>left</code> and <code>right</code> with a step of 1, including <code>right</code>. e.g: <code>1..5</code> iterates from 1 to 5</td>
+</tr>
+<tr>
+<td><code>left..&lt;right</code></td>
+<td>Returns an iterator between <code>left</code> and <code>right</code> with a step of 1, excluding <code>right</code>. e.g: <code>1..&lt;5</code> iterates from 1 to 4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="88-the-null-coalescing-operator">8.8 The null-coalescing operator <code>??</code></h3>
+<p>The operator <code>left ?? right</code> can be used to return the <code>right</code> value if <code>left</code> is null.</p>
+<p><a href="#language">:top:</a></p>
+<h3 id="89-function-call-expression">8.9 Function call expression</h3>
+<p>A function can be called by passing parameters separated by a whitespace:</p>
+<p><code>{{ myfunction arg1 "arg2" (1+5) }}</code></p>
+<p>The pipe operator <code>|</code> can also be used to pipe the result of an expression to a function:</p>
+<p><code>{{ date.parse '2016/01/05' | date.to_string '%g' }}</code> will output <code>06 Jan 2016</code></p>
+<blockquote>
+<p>Notice that when a function receives the result of a pipe call (e.g <code>date.to_string</code> in the example above), it is passed as the <strong>first argument of the call</strong>. This is valid for both .NET custom functions as well as for Scriban integrated functions.</p>
+</blockquote>
+<p>Pipes are <em>greedy</em> with respect to whitespace.  This allow them to be chained across multiple lines:  </p>
+<div class="highlight"><pre><span></span><code>{{-
+&quot;text&quot;                        |
+      string.append &quot;END&quot;     |
+      string.prepend &quot;START&quot;
+-}}
+</code></pre></div>
+<p>will output <code>STARTtextEND</code></p>
+<h4 id="named-arguments">Named arguments</h4>
+<p>When passing multiple arguments to an existing .NET function, you may want to use named arguments.</p>
+<p>Suppose you have declared a .NET function like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">MyProcessor</span><span class="p">(</span><span class="kt">string</span> <span class="n">left</span><span class="p">,</span> <span class="kt">string</span> <span class="n">right</span><span class="p">,</span> <span class="kt">int</span> <span class="n">count</span><span class="p">,</span> <span class="kt">string</span> <span class="n">options</span> <span class="p">=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>You can call this function from scriban with the following syntax:</p>
+<div class="highlight"><pre><span></span><code>{{ my_processor &quot;Hello&quot; &quot;World&quot; count: 15 options: &quot;optimized&quot; }}
+</code></pre></div>
+<p>with a pipe we could rewrite this to:</p>
+<div class="highlight"><pre><span></span><code>{{ &quot;Hello&quot; | my_processor &quot;World&quot; count: 15 options: &quot;optimized&quot; }}
+</code></pre></div>
+<blockquote>
+<p>Note that once arguments are named, the following arguments must be all named.</p>
+</blockquote>
+<p>In a custom function declared with <code>func</code> named arguments are accessible through the variable arguments variable <code>$</code>, but as properties (and not as part of the default array arguments):</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+    func my_processor
+        &quot;Argument count:&quot; + $.count
+        &quot;Argument options:&quot; + $[&quot;options&quot;]
+        for $x in $
+            &quot;arg[&quot; + $x + &quot;]: &quot; + $x
+        end
+    end
+
+    my_processor &quot;Hello&quot; &quot;World&quot; count: 15 options: &quot;optimized&quot;
+}}
+</code></pre></div></p>
+<p><strong>output</strong>
+<div class="highlight"><pre><span></span><code>Argument count: 15
+Argument options: optimized
+arg[0]: Hello
+arg[1]: World
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h2 id="9-statements">9 Statements</h2>
+<p>Each statement must be terminated by a code block <code>}}</code> or an EOL within a code block, or a semicolon to separate multiple statements on a single line within a code block.</p>
+<p><a href="#language">:top:</a></p>
+<h3 id="91-single-expression">9.1 Single expression</h3>
+<p>An expression statement:</p>
+<p><code>{{ value + 1 }}</code> e.g Evaluates <code>value + 1</code> and output the result</p>
+<div class="highlight"><pre><span></span><code>{{
+value + 1       # This is a single line expression statement followed by this comment
+}}
+</code></pre></div>
+<p><a href="#language">:top:</a></p>
+<h3 id="92-if-expression-else-else-if-expression">9.2 <code>if &lt;expression&gt;</code>, <code>else</code>, <code>else if &lt;expression&gt;</code></h3>
+<p>The general syntax is:</p>
+<div class="highlight"><pre><span></span><code>{{
+if &lt;expression&gt;
+  ...
+else if &lt;expression&gt;
+  ...
+else 
+  ...
+end
+}}
+</code></pre></div>
+<p>An <code>if</code> statement must be closed by an <code>end</code> or followed by a <code>else</code> or <code>else if</code> statement. An <code>else</code> or <code>else if</code> statement must be followed by a <code>else</code>, <code>else if</code> or closed by an <code>end</code> statement.</p>
+<p>An expression evaluated for a <code>if</code> or <code>else if</code> will be converted to a boolean.</p>
+<h4 id="truthy-and-falsy">Truthy and Falsy</h4>
+<p>By default, only the <code>null</code> and boolean <code>false</code> are considered as <code>false</code> when evaluated as booleans.</p>
+<p>The following values are used for converting literals to boolean:</p>
+<ul>
+<li><code>0 -&gt; true</code></li>
+<li><code>1 -&gt; true</code> or any non zero value</li>
+<li><strong><code>null -&gt; false</code></strong></li>
+<li><strong><code>false -&gt; false</code></strong></li>
+<li><code>non_null_object -&gt; true</code></li>
+<li><code>"" -&gt; true</code> An empty string returns <strong>true</strong></li>
+<li><code>"foo" -&gt; true</code> </li>
+</ul>
+<p>Example testing a page object:</p>
+<p><code>{{ if page }}Page is not null{{ else }}Page is null!{{ end }}</code> </p>
+<p><a href="#language">:top:</a></p>
+<h3 id="93-case-and-when">9.3 <code>case</code> and <code>when</code></h3>
+<p>This is the equivalent of <code>switch</code> statement in C#, a selection statement that chooses a single switch section to execute from a list of candidates based on a value matching. </p>
+<ul>
+<li><code>case &lt;expression&gt;</code> opens a switch with an expression</li>
+<li><code>when &lt;match&gt;</code> allows to match with the specified expression and the case expression</li>
+<li><code>when</code> can also be used with multiple values separated by <code>,</code> or <code>||</code></li>
+<li>A final <code>else</code> can be used to as a default handler in case nothing matched.</li>
+</ul>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+    x = 5
+    case x
+      when 1, 2, 3
+          &quot;Value is 1 or 2 or 3
+      when 5
+          &quot;Value is 5&quot;
+      else
+          &quot;Value is &quot; + x
+    end
+}}
+</code></pre></div></p>
+<p><strong>output</strong>
+<div class="highlight"><pre><span></span><code>Value is 5
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h3 id="93-loops">9.3 Loops</h3>
+<h4 id="for-variable-in-expression-end"><code>for &lt;variable&gt; in &lt;expression&gt; ... end</code></h4>
+<div class="highlight"><pre><span></span><code>{{for &lt;variable&gt; in &lt;expression&gt;}} 
+  ... 
+{{end}}
+</code></pre></div>
+<p>The expression can be an array or a range iterator:</p>
+<ul>
+<li>
+<p>Loop on an array: <code>{{ for page in pages }}This is the page {{ page.title }}{{ end }}</code>  </p>
+</li>
+<li>
+<p>Loop on a range: <code>{{ for x in 1..n }}This is the loop step [{{x}}]{{ end }}</code>  </p>
+</li>
+</ul>
+<p>The for loop (along with the <code>tablerow</code> statement below) supports additional parameters, <code>offset</code>, <code>limit</code> and <code>reversed</code> that can also be used togethers:</p>
+<h5 id="the-offset-parameter">The <code>offset</code> parameter</h5>
+<p>Allows to start the iteration of the loop at the specified zero-based index:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{~ for $i in 4..9 offset:2 ~}}
+ {{ $i }}
+{{~ endfor ~}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>6
+7
+8
+9
+</code></pre></div></p>
+</blockquote>
+<h5 id="the-limit-parameter">The <code>limit</code> parameter</h5>
+<p>Allows to limit the iteration of the loop for the specified count</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{~ for $i in 4..9 limit:2 ~}}
+ {{ $i }}
+{{~ endfor ~}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>4
+5
+</code></pre></div></p>
+</blockquote>
+<h5 id="the-reversed-parameter">The <code>reversed</code> parameter</h5>
+<p>Allows to reverse the iteration on the elements</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{~ for $i in 1..3 reversed ~}}
+ {{ $i }}
+{{~ endfor ~}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>3
+2
+1
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h4 id="while-expression-end"><code>while &lt;expression&gt; ... end</code></h4>
+<div class="highlight"><pre><span></span><code>{{while &lt;expression&gt;}}
+  ...
+{{end}}
+</code></pre></div>
+<p>Like the <code>if</code> statement, the <code>expression</code> is evaluated to a boolean.</p>
+<h4 id="tablerow-variable-in-expression-end"><code>tablerow &lt;variable&gt; in &lt;expression&gt; ... end</code></h4>
+<p>This function generates HTML rows compatible with an HTML table. Must be wrapped in an opening <code>&lt;table&gt;</code> and closing <code>&lt;/table&gt;</code> HTML tags.</p>
+<p>This statement is mainly for compatibility reason with the liquid <code>tablerow</code> tag.
+It has overall the same syntax as a <code>for</code> statement (supporting the same parameters).</p>
+<div class="highlight"><pre><span></span><code>{{tablerow &lt;variable&gt; in &lt;expression&gt;}} 
+  ... 
+{{end}}
+</code></pre></div>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>&lt;table&gt;
+  {{~ tablerow $p in products | array.sort &quot;title&quot; -}}
+    {{ $p.title -}}
+  {{ end ~}}
+&lt;/table&gt;
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row1&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Apple<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row2&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Banana<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row3&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Computer<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row4&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Mobile Phone<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row5&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Orange<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row6&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Sofa<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row7&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Table<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</code></pre></div></p>
+</blockquote>
+<h5 id="the-cols-parameter">The <code>cols</code> parameter</h5>
+<p>Defines the number of columns to output:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>&lt;table&gt;
+  {{~ tablerow $p in (products | array.sort &quot;title&quot;) limit: 4 cols: 2 -}}
+    {{ $p.title -}}
+  {{ end ~}}
+&lt;/table&gt;
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row1&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Apple<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col2&quot;</span><span class="p">&gt;</span>Banana<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">tr</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;row2&quot;</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col1&quot;</span><span class="p">&gt;</span>Computer<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col2&quot;</span><span class="p">&gt;</span>Mobile Phone<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</code></pre></div></p>
+</blockquote>
+<p><a href="#language">:top:</a></p>
+<h4 id="special-loop-variables">Special loop variables</h4>
+<p>The following variables are accessible within a <code>for</code> block:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{{for.index}}</code></td>
+<td>The current <code>index</code> of the for loop</td>
+</tr>
+<tr>
+<td><code>{{for.rindex}}</code></td>
+<td>The current <code>index</code> of the for loop starting from the end of the list</td>
+</tr>
+<tr>
+<td><code>{{for.first}}</code></td>
+<td>A boolean indicating whether this is the first step in the loop</td>
+</tr>
+<tr>
+<td><code>{{for.last}}</code></td>
+<td>A boolean indicating whether this is the last step in the loop</td>
+</tr>
+<tr>
+<td><code>{{for.even}}</code></td>
+<td>A boolean indicating whether this is an even row in the loop</td>
+</tr>
+<tr>
+<td><code>{{for.odd}}</code></td>
+<td>A boolean indicating whether this is an odd row in the loop</td>
+</tr>
+<tr>
+<td><code>{{for.changed}}</code></td>
+<td>A boolean indicating whether a current value of this iteration changed from previous step</td>
+</tr>
+</tbody>
+</table>
+<p>Within a <code>while</code> statement, the following variables can be used:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{{while.index}}</code></td>
+<td>The current <code>index</code> of the while loop</td>
+</tr>
+<tr>
+<td><code>{{while.first}}</code></td>
+<td>A boolean indicating whether this is the first step in the loop</td>
+</tr>
+<tr>
+<td><code>{{while.even}}</code></td>
+<td>A boolean indicating whether this is an even row in the loop</td>
+</tr>
+<tr>
+<td><code>{{while.odd}}</code></td>
+<td>A boolean indicating whether this is an odd row in the loop</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#language">:top:</a></p>
+<h4 id="break-and-continue"><code>break</code> and <code>continue</code></h4>
+<p>The <code>break</code> statement allows to early exit a loop</p>
+<div class="highlight"><pre><span></span><code>{{ for i in 1..5
+  if i &gt; 2
+    break
+  end
+end }}
+</code></pre></div>
+<p>The <code>continue</code> statement allows to skip the rest of a loop and continue on the next step </p>
+<div class="highlight"><pre><span></span><code>{{ for i in 1..5
+  if i == 2
+    continue
+  end
+}}
+[{{i}}]] step 
+{{ end }}
+</code></pre></div>
+<p>Will output:</p>
+<div class="highlight"><pre><span></span><code>[1] step
+[3] step
+[4] step
+[5] step
+</code></pre></div>
+<p><a href="#language">:top:</a></p>
+<h3 id="94-capture-variable-end">9.4 <code>capture &lt;variable&gt; ... end</code></h3>
+<p>The <code>capture &lt;variable&gt; ... end</code> statement allows to capture the template output to a variable:</p>
+<p>For example the following code:</p>
+<div class="highlight"><pre><span></span><code>{{ capture myvariable }}
+This is the result of a capture {{ date.now }} 
+{{ end }}
+</code></pre></div>
+<p>will set <code>myvariable = "This is the result of a capture 06 Jan 2016\n"</code> </p>
+<p><a href="#language">:top:</a></p>
+<h3 id="95-readonly-variable">9.5 <code>readonly &lt;variable&gt;</code></h3>
+<p>The <code>readonly</code> statement prevents a variable for subsequent assignments:</p>
+<div class="highlight"><pre><span></span><code>{{ x = 1 }}
+{{ readonly x }}
+{{ x = 2 }} &lt;- this will result in a runtime error 
+</code></pre></div>
+<p><a href="#language">:top:</a></p>
+<h3 id="96-import-variable_path">9.6 <code>import &lt;variable_path&gt;</code></h3>
+<p>The <code>import &lt;variable_path&gt;</code> statement allows to import the members of an object as variables of the current bound: </p>
+<div class="highlight"><pre><span></span><code>{{ 
+  myobject = { member1: &quot;yes&quot; }
+  import myobject
+  member1  # will print the &quot;yes&quot; string to the output
+}}
+</code></pre></div>
+<p>Note that <code>readonly</code> variables won't be override. </p>
+<p><a href="#language">:top:</a></p>
+<h3 id="97-with-variable-end">9.7 <code>with &lt;variable&gt; ... end</code></h3>
+<p>The <code>with &lt;variable&gt; ... end</code> statement will open a new object context with the passed variable, all assignment will result in setting the members of the passed object. </p>
+<div class="highlight"><pre><span></span><code>myobject = {}
+with myobject
+  member1 = &quot;yes&quot;
+end
+</code></pre></div>
+<p><a href="#language">:top:</a></p>
+<h3 id="98-wrap-function-arg1argn-end">9.8 <code>wrap &lt;function&gt; &lt;arg1...argn&gt; ... end</code></h3>
+<p>Pass a block of statements to a function that will be able to evaluate it using the special variable <code>$$</code></p>
+<div class="highlight"><pre><span></span><code>{{
+func wrapped
+    for $i in 1..&lt;$0
+        $$   # This special variable evaluates the block pass 
+             # to the wrap statement
+    end
+end
+
+wrap wrapped 5
+    $i + &quot; -&gt; This is inside the wrap!\r\n&quot;
+end
+}}
+</code></pre></div>
+<p>will output:</p>
+<div class="highlight"><pre><span></span><code>1 -&gt; This is inside the wrap!
+2 -&gt; This is inside the wrap!
+3 -&gt; This is inside the wrap!
+4 -&gt; This is inside the wrap!
+</code></pre></div>
+<p>Note that variables declared outside the <code>with</code> block are accessible within.</p>
+<p><a href="#language">:top:</a></p>
+<h3 id="99-include-name-arg1argn">9.9 <code>include &lt;name&gt; arg1?...argn?</code></h3>
+<p>The include is not a statement but actually a function that allows to parse and render the specified template name. In order to use this function, a delegate to an template loader must be setup on the <a href="../runtime/#include-and-itemplateloader"><code>TemplateOptions.TemplateLoader</code></a> property passed to the <code>Template.Parse</code> method.</p>
+<div class="highlight"><pre><span></span><code>include &#39;myinclude.html&#39;
+x = include &#39;myinclude.html&#39;
+x + &quot; modified&quot;
+</code></pre></div>
+<p>assuming that <code>myinclude.html</code> is
+<div class="highlight"><pre><span></span><code>{{ y = y + 1 ~}}
+This is a string with the value {{ y }}
+</code></pre></div></p>
+<p>will output:</p>
+<div class="highlight"><pre><span></span><code>This is a string with the value 1
+This is a string with the value 2 modified
+</code></pre></div>
+<p><a href="#language">:top:</a></p>
+<h3 id="910-ret-expression">9.10 <code>ret &lt;expression&gt;?</code></h3>
+<p>The return statement is used to early exit from a top-level/include page or a function.</p>
+<div class="highlight"><pre><span></span><code>This is a text
+{{~  ret ~}}
+This text will not appear
+</code></pre></div>
+<p>will output:</p>
+<div class="highlight"><pre><span></span><code>This is a text
+</code></pre></div>
+<p><a href="#language">:top:</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../builtins/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Builtins
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../liquid-support/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Liquid Support
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>

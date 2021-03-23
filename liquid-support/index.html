@@ -1,0 +1,1049 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>Liquid Support - Scriban Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#liquid-support" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Scriban Docs" class="md-header__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Scriban Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Liquid Support
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Documentation
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../benchmarks/" class="md-tabs__link">
+      Benchmarks
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../builtins/" class="md-tabs__link">
+      Builtins
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../language/" class="md-tabs__link">
+      Language
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Liquid Support
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../runtime/" class="md-tabs__link">
+      Runtime
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Scriban Docs" class="md-nav__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    Scriban Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmarks/" class="md-nav__link">
+        Benchmarks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../builtins/" class="md-nav__link">
+        Builtins
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../language/" class="md-nav__link">
+        Language
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Liquid Support
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Liquid Support
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-types" class="md-nav__link">
+    Supported types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-operators" class="md-nav__link">
+    Supported operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-tags" class="md-nav__link">
+    Supported tags
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-and-properties-accessors" class="md-nav__link">
+    Variable and properties accessors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-tag" class="md-nav__link">
+    comment tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-tag" class="md-nav__link">
+    raw tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-tag" class="md-nav__link">
+    assign tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-tag" class="md-nav__link">
+    if tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unless-tag" class="md-nav__link">
+    unless tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-and-when-tags" class="md-nav__link">
+    case and when tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-tag" class="md-nav__link">
+    for tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablerow-tag" class="md-nav__link">
+    tablerow tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-tag" class="md-nav__link">
+    capture tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipe-calls" class="md-nav__link">
+    Pipe calls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-filters" class="md-nav__link">
+    Supported filters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-liquid-to-scriban-using-liquid2scriban" class="md-nav__link">
+    Converting liquid to scriban using liquid2scriban
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime/" class="md-nav__link">
+        Runtime
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-types" class="md-nav__link">
+    Supported types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-operators" class="md-nav__link">
+    Supported operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-tags" class="md-nav__link">
+    Supported tags
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-and-properties-accessors" class="md-nav__link">
+    Variable and properties accessors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-tag" class="md-nav__link">
+    comment tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-tag" class="md-nav__link">
+    raw tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-tag" class="md-nav__link">
+    assign tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-tag" class="md-nav__link">
+    if tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unless-tag" class="md-nav__link">
+    unless tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-and-when-tags" class="md-nav__link">
+    case and when tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-tag" class="md-nav__link">
+    for tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablerow-tag" class="md-nav__link">
+    tablerow tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture-tag" class="md-nav__link">
+    capture tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipe-calls" class="md-nav__link">
+    Pipe calls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-filters" class="md-nav__link">
+    Supported filters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-liquid-to-scriban-using-liquid2scriban" class="md-nav__link">
+    Converting liquid to scriban using liquid2scriban
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/scriban/scriban/edit/master/docs/liquid-support.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="liquid-support">Liquid Support</h1>
+<p>Scriban supports all the <a href="https://shopify.github.io/liquid/">core liquid syntax</a> types, operators, tags and filters.</p>
+<ul>
+<li><a href="#known-issues">Known issues</a></li>
+<li><a href="#supported-types">Supported types</a></li>
+<li><a href="#supported-operators">Supported operators</a></li>
+<li><a href="#supported-tags">Supported tags</a></li>
+<li><a href="#variable-and-properties-accessors">Variable and properties accessors</a></li>
+<li><a href="#comment-tag"><code>comment</code> tag</a></li>
+<li><a href="#raw-tag"><code>raw</code> tag</a></li>
+<li><a href="#assign-tag"><code>assign</code> tag</a></li>
+<li><a href="#if-tag"><code>if</code> tag</a></li>
+<li><a href="#unless-tag"><code>unless</code> tag</a></li>
+<li><a href="#case-and-when-tags"><code>case</code> and <code>when</code> tags</a></li>
+<li><a href="#for-tag"><code>for</code> tag</a></li>
+<li><a href="#tablerow-tag"><code>tablerow</code> tag</a></li>
+<li><a href="#capture-tag"><code>capture</code> tag</a></li>
+<li><a href="#pipe-calls">Pipe calls</a></li>
+<li><a href="#supported-filters">Supported filters</a></li>
+<li><a href="#converting-liquid-to-scriban-using-liquid2scriban">Converting <code>liquid</code> to <code>scriban</code> using <code>liquid2scriban</code></a></li>
+</ul>
+<h2 id="known-issues">Known issues</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The liquid syntax has never been strictly formalized, and custom tags implementation can choose whatever syntax for their arguments.
+This is a known issue in liquid itself, for example:
+- <a href="https://github.com/Shopify/liquid/issues/507">issue 507: Custom tags: what’s the preferred method of providing arguments containing quotes</a>
+- <a href="https://github.com/Shopify/liquid/issues/671">issue 671: Using liquid class libraries inside Liquid::Tag</a>
+- <a href="https://github.com/Shopify/liquid/issues/560">issue 560: Unified syntax for tag arguments [RFC]</a></p>
+<p>For example in liquid, you usually pass arguments to tags and filters like this (supported by scriban):
+<div class="highlight"><pre><span></span><code><span class="p">{{</span><span class="w"> </span><span class="err">&quot;</span><span class="nv">this</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">string&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">function</span><span class="w"> </span><span class="s2">&quot;arg1&quot;</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div></p>
+</div>
+<blockquote>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="nt">custom_tag</span><span class="w"> </span><span class="s2">&quot;arg1&quot;</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div>
+<p>But some liquid tag/filter implementations may in fact choose to accept different ways of passing arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="nt">avatar</span><span class="w"> </span><span class="na">user</span><span class="o">=</span>author<span class="w"> </span><span class="na">size</span><span class="o">=</span><span class="mi">24</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div>
+<p>There is in fact multiple versions of the liquid language, supporting different syntaxes for tags, which are completely arbitrary and not unified.</p>
+<p>As a consequence, <strong>the liquid parser implemented in Scriban cannot parse any custom liquid tags/filters that are using custom arguments parsing</strong>
+but only regular arguments (strings, numbers, variables, variable properties) separated by spaces.</p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h2 id="supported-types">Supported types</h2>
+<p>Liquid types are translated to the same types in scriban:</p>
+<ul>
+<li><a href="../language/#31-strings">string</a></li>
+<li><a href="../language/#32-numbers">number</a></li>
+<li><a href="../language/#33-boolean">boolean</a></li>
+</ul>
+<p>The <code>nil</code> value (which can't be expressed in liquid) is equivalent to the expression <a href="../language/#34-null"><code>null</code></a> in scriban.</p>
+<ul>
+<li><a href="../language/#6-arrays">array</a> are also supported, except that scriban allows to create arrays directly from the language unlike liquid</li>
+</ul>
+<p>In addition to this, scriban supports the creation of an <a href="../language/#5-objects"><code>object</code></a></p>
+<p><a href="#liquid-support">:top:</a></p>
+<h2 id="supported-operators">Supported operators</h2>
+<p>Liquid supports only conditional expressions and they directly translate to <a href="../language/#85-conditional-expressions">conditionnal expressions</a> in scriban.</p>
+<p>In addition to this, scriban supports:</p>
+<ul>
+<li><a href="../language/#84-arithmetic-expressions">binary operators</a></li>
+<li><a href="../language/#86-unary-expressions">unary operators</a></li>
+<li><a href="../language/#87-range-expressions">range <code>1..x</code> expressions</a></li>
+<li><a href="../language/#88-the-null-coalescing-operator-">The null coalescing operator <code>??</code></a></li>
+</ul>
+<p><a href="#liquid-support">:top:</a></p>
+<h2 id="supported-tags">Supported tags</h2>
+<p>In the following sections, you will find a list of the supported liquid tags and how scriban translates a liquid template into a scriban template. </p>
+<blockquote>
+<p>NOTE: All the following examples are using the feature <a href="../runtime/#ast-to-text"><strong>Ast to text</strong></a> that
+allowed to translate liquid code into scriban code automatically</p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="variable-and-properties-accessors">Variable and properties accessors</h3>
+<table>
+<thead>
+<tr>
+<th>Liquid</th>
+<th>Scriban</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{% assign variable = 1 %}</code></td>
+<td><code>{{ variable = 1 }}</code></td>
+</tr>
+<tr>
+<td><code>{{ variable }}</code></td>
+<td><code>{{ variable }}</code></td>
+</tr>
+<tr>
+<td><code>{{ my-handle }}</code></td>
+<td><code>{{ this["my-handle" }}</code></td>
+</tr>
+<tr>
+<td><code>{{ page.title }}</code></td>
+<td><code>{{ page.title }}</code></td>
+</tr>
+<tr>
+<td><code>{% assign for = 5 %}</code></td>
+<td><code>{{ (for) = 5 }}</code> (for keyword needs parenthesis in scriban)</td>
+</tr>
+<tr>
+<td><code>{{ for }}</code></td>
+<td><code>{{ (for) }}</code></td>
+</tr>
+<tr>
+<td><code>{{ products[0].title }}</code></td>
+<td><code>{{ products[0].title }}</code></td>
+</tr>
+<tr>
+<td><code>{{ product.empty? }}</code></td>
+<td><code>{{ product.empty? }}</code></td>
+</tr>
+</tbody>
+</table>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="comment-tag"><code>comment</code> tag</h3>
+<p>Liquid <code>comment</code>/<code>endcomment</code> tags translate to a code block <code>{{</code> ... <code>}}</code> embracing a <a href="../language/#2-comments">multiline comments <code>##</code></a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code>This is plain <span class="p">{%</span><span class="w"> </span><span class="nt">comment</span><span class="w"> </span><span class="p">%}</span><span class="c">This is comment {% with ## some tag %} and comment</span><span class="p">{%</span><span class="w"> </span><span class="nt">endcomment</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div>
+<strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>This is plain {{## This is comment {% with \#\# some tag %\} and comment ##}}
+</code></pre></div></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="raw-tag"><code>raw</code> tag</h3>
+<p>Liquid raw tag block translate to an <a href="../language/#13-escape-block">escape block</a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code>This is plain <span class="p">{%</span><span class="w"> </span><span class="nt">raw</span><span class="w"> </span><span class="p">%}</span>This is raw {% with some tag %} and raw<span class="p">{%</span><span class="w"> </span><span class="nt">endraw</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div>
+<strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>This is plain {%{This is raw {% with some tag %} and raw}%}
+</code></pre></div></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="assign-tag"><code>assign</code> tag</h3>
+<p>Liquid <code>assign</code> tag translates to a simple <a href="../language/#82-assign-expression">assignment expression</a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">variable</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div>
+<strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>{{ variable = 1 }}
+{{ variable }}
+</code></pre></div></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="if-tag"><code>if</code> tag</h3>
+<p>Liquid <code>if &lt;expression&gt;</code>/<code>endif</code> tags translate to a <a href="../language/#92-if-expression-else-else-if-expression"><code>if &lt;expression&gt;</code>/<code>end</code></a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">variable</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">%}</span>
+  This is a variable with 1
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div>
+<strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>{{ variable = 1 }}
+{{ if variable == 1 }}
+  This is a variable with 1
+{{ end }}
+</code></pre></div></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="unless-tag"><code>unless</code> tag</h3>
+<p>Liquid <code>unless &lt;expression&gt;</code>/<code>endunless</code> tags translate to a <a href="../language/#92-if-expression-else-else-if-expression"><code>if &lt;expression&gt;</code>/<code>end</code></a> with a reversed nested <code>!(expression)</code></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">unless</span><span class="w"> </span><span class="nv">variable</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">%}</span>
+  This is not a variable with 1
+<span class="p">{%</span><span class="w"> </span><span class="kr">endunless</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></p>
+<p><strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>{{ variable = 1 }}
+{{ if!( variable == 1 )}}
+  This is not a variable with 1
+{{ end }}
+</code></pre></div></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="case-and-when-tags"><code>case</code> and <code>when</code> tags</h3>
+<p>Liquid <code>case &lt;variable&gt;</code>/<code>when &lt;expression&gt;</code>/<code>endcase</code> tags translate to a <a href="../language/#93-case-and-when"><code>case &lt;expression&gt;</code>/<code>when &lt;expression&gt;</code>/<code>end</code></a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="nt">-</span><span class="w"> </span>assign<span class="w"> </span><span class="na">variable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span>-<span class="p">%}</span>
+<span class="p">{%</span><span class="nt">-</span><span class="w"> </span>case<span class="w"> </span>variable<span class="w"> </span>-<span class="p">%}</span>
+    <span class="p">{%</span><span class="nt">-</span><span class="w"> </span>when<span class="w"> </span><span class="mi">6</span><span class="w"> </span>-<span class="p">%}</span>
+        Yo 6
+    <span class="p">{%</span><span class="nt">-</span><span class="w"> </span>when<span class="w"> </span><span class="mi">7</span><span class="w"> </span>-<span class="p">%}</span>
+        Yo 7
+    <span class="p">{%</span><span class="nt">-</span><span class="w"> </span>when<span class="w"> </span><span class="mi">5</span><span class="w"> </span>-<span class="p">%}</span>
+        Yo 5
+<span class="p">{%</span><span class="w"> </span><span class="nt">endcase</span><span class="w"> </span>-<span class="p">%}</span>
+</code></pre></div></p>
+<p><strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>{{ variable = 5 -}}
+{{ case variable -}}
+    {{ when 6 -}}
+        Yo 6
+    {{- when 7 -}}
+        Yo 7
+    {{- when 5 -}}
+        Yo 5
+{{ end }}
+</code></pre></div></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="for-tag"><code>for</code> tag</h3>
+<p>Liquid <code>for &lt;variable&gt; in &lt;expression&gt;</code>/<code>endfor</code> tags translate to the same <a href="../language/#for-variable-in-expression--end"><code>for</code>/<code>end</code></a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="nt">-</span><span class="w"> </span>for<span class="w"> </span>variable<span class="w"> </span>in<span class="w"> </span>(<span class="mi">1</span>..<span class="mi">5</span>)<span class="w"> </span>-<span class="p">%}</span>
+    This is variable <span class="p">{{</span><span class="nv">variable</span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span>-<span class="p">%}</span>
+</code></pre></div></p>
+<p><strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>{{ for variable in (1..5) -}}
+    This is variable {{variable}}
+{{ end }}
+</code></pre></div></p>
+<p>NOTE: Scriban supports all tags arguments: <code>limit</code>, <code>offset</code>, <code>reversed</code></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="tablerow-tag"><code>tablerow</code> tag</h3>
+<p>Liquid <code>tablerow &lt;variable&gt; in &lt;expression&gt;</code>/<code>endtablerow</code> tags translate to the same <a href="../language/#tablerow-variable-in-expression--end"><code>tablerow</code>/<code>end</code></a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="nt">-</span><span class="w"> </span>tablerow<span class="w"> </span>variable<span class="w"> </span>in<span class="w"> </span>(<span class="mi">1</span>..<span class="mi">5</span>)<span class="w"> </span>-<span class="p">%}</span>
+    This is variable <span class="p">{{</span><span class="nv">variable</span><span class="p">}}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endtablerow</span><span class="w"> </span>-<span class="p">%}</span>
+</code></pre></div></p>
+<p><strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>{{ tablerow variable in (1..5) -}}
+    This is variable {{variable}}
+{{ end }}
+</code></pre></div></p>
+<p>NOTE: Scriban supports all tags arguments for <code>tablerow</code>: <code>cols</code>, <code>limit</code>, <code>offset</code>, <code>reversed</code></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="capture-tag"><code>capture</code> tag</h3>
+<p>Liquid <code>capture &lt;variable&gt;</code>/<code>endcapture</code> tags translate to a <a href="../language/#94-capture-variable--end"><code>capture &lt;expression&gt;</code>/<code>end</code></a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="nt">-</span><span class="w"> </span>capture<span class="w"> </span>variable<span class="w"> </span>-<span class="p">%}</span>
+    This is a capture
+<span class="p">{%</span><span class="nt">-</span><span class="w"> </span>endcapture<span class="w"> </span>-<span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">variable</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div></p>
+<p><strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>{{ capture variable -}}
+    This is a capture
+{{- end -}}
+{{ variable }}
+</code></pre></div></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h3 id="pipe-calls">Pipe calls</h3>
+<p>Liquid pipe call translates to the same <a href="../language/#89-function-call-expression"><code>pipe call</code></a></p>
+<blockquote>
+<p><strong>liquid</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="na">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;abcdef&quot;</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">test</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">truncate</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div></p>
+<p><strong>scriban</strong>
+<div class="highlight"><pre><span></span><code>{{ test = &quot;abcdef&quot; }}
+{{ test |  string.truncate 5 }}
+</code></pre></div>
+As you can notice, Scriban will translate a call to a liquid tag to the corresponding scriban tag. But scriban also provides supports for direct tags calls using the <code>LiquidTemplateContext</code>. See <a href="../runtime/#liquid-support">liquid support in runtime</a></p>
+</blockquote>
+<p><a href="#liquid-support">:top:</a></p>
+<h2 id="supported-filters">Supported filters</h2>
+<p>By default, all liquid filters are translated to scriban <a href="../builtins/">builtin functions</a> (through objects like <code>string</code> or <code>array</code>)</p>
+<p>The translation is performed by the <a href="https://github.com/lunet-io/scriban/blob/4ecb68deab3065c3163d46e3b51956712ec75e49/src/Scriban/Functions/LiquidBuiltinsFunctions.cs#L30">TryLiquidToScriban</a> function at parsing time.</p>
+<p>This translation can be disabled by setting the <code>ParserOptions.LiquidFunctionsToScriban</code> to <code>false</code></p>
+<p><a href="#liquid-support">:top:</a></p>
+<h2 id="converting-liquid-to-scriban-using-liquid2scriban">Converting <code>liquid</code> to <code>scriban</code> using <code>liquid2scriban</code></h2>
+<p>If you compile this repository, you will find a tool <code>liquid2scriban</code> that allows to convert a liquid script to scriban.</p>
+<p>The <code>liquid2scriban</code> has one option that allows to parse Jekyll liquid templates that are passing to the include directive raw strings without quotes (e.g <code>{% include /this/is/partial.html %}</code>)
+In that case, you can pass the option <code>--relaxed-include</code> to liquid2scriban, to allow the convertor to recognize this parameter as an implicit string instead.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../language/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Language
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../runtime/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Runtime
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>

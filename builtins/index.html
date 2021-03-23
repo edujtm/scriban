@@ -1,0 +1,5240 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>Builtins - Scriban Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#builtins" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Scriban Docs" class="md-header__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Scriban Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Builtins
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Documentation
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../benchmarks/" class="md-tabs__link">
+      Benchmarks
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Builtins
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../language/" class="md-tabs__link">
+      Language
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../liquid-support/" class="md-tabs__link">
+      Liquid Support
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../runtime/" class="md-tabs__link">
+      Runtime
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Scriban Docs" class="md-nav__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    Scriban Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmarks/" class="md-nav__link">
+        Benchmarks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Builtins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Builtins
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#array-functions" class="md-nav__link">
+    array functions
+  </a>
+  
+    <nav class="md-nav" aria-label="array functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrayadd" class="md-nav__link">
+    array.add
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayadd_range" class="md-nav__link">
+    array.add_range
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraycompact" class="md-nav__link">
+    array.compact
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayconcat" class="md-nav__link">
+    array.concat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraycycle" class="md-nav__link">
+    array.cycle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayeach" class="md-nav__link">
+    array.each
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayfilter" class="md-nav__link">
+    array.filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayfirst" class="md-nav__link">
+    array.first
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayinsert_at" class="md-nav__link">
+    array.insert_at
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayjoin" class="md-nav__link">
+    array.join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraylast" class="md-nav__link">
+    array.last
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraylimit" class="md-nav__link">
+    array.limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraymap" class="md-nav__link">
+    array.map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayoffset" class="md-nav__link">
+    array.offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayremove_at" class="md-nav__link">
+    array.remove_at
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayreverse" class="md-nav__link">
+    array.reverse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraysize" class="md-nav__link">
+    array.size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraysort" class="md-nav__link">
+    array.sort
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayuniq" class="md-nav__link">
+    array.uniq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraycontains" class="md-nav__link">
+    array.contains
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-functions" class="md-nav__link">
+    date functions
+  </a>
+  
+    <nav class="md-nav" aria-label="date functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datenow" class="md-nav__link">
+    date.now
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_days" class="md-nav__link">
+    date.add_days
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_months" class="md-nav__link">
+    date.add_months
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_years" class="md-nav__link">
+    date.add_years
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_hours" class="md-nav__link">
+    date.add_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_minutes" class="md-nav__link">
+    date.add_minutes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_seconds" class="md-nav__link">
+    date.add_seconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_milliseconds" class="md-nav__link">
+    date.add_milliseconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateparse" class="md-nav__link">
+    date.parse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateto_string" class="md-nav__link">
+    date.to_string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html-functions" class="md-nav__link">
+    html functions
+  </a>
+  
+    <nav class="md-nav" aria-label="html functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#htmlstrip" class="md-nav__link">
+    html.strip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htmlescape" class="md-nav__link">
+    html.escape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htmlurl_encode" class="md-nav__link">
+    html.url_encode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htmlurl_escape" class="md-nav__link">
+    html.url_escape
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math-functions" class="md-nav__link">
+    math functions
+  </a>
+  
+    <nav class="md-nav" aria-label="math functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathabs" class="md-nav__link">
+    math.abs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathceil" class="md-nav__link">
+    math.ceil
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathdivided_by" class="md-nav__link">
+    math.divided_by
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathfloor" class="md-nav__link">
+    math.floor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathformat" class="md-nav__link">
+    math.format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathis_number" class="md-nav__link">
+    math.is_number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathminus" class="md-nav__link">
+    math.minus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathmodulo" class="md-nav__link">
+    math.modulo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathplus" class="md-nav__link">
+    math.plus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathround" class="md-nav__link">
+    math.round
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathtimes" class="md-nav__link">
+    math.times
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathuuid" class="md-nav__link">
+    math.uuid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathrandom" class="md-nav__link">
+    math.random
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-functions" class="md-nav__link">
+    object functions
+  </a>
+  
+    <nav class="md-nav" aria-label="object functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectdefault" class="md-nav__link">
+    object.default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecteval" class="md-nav__link">
+    object.eval
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecteval_template" class="md-nav__link">
+    object.eval_template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectformat" class="md-nav__link">
+    object.format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecthas_key" class="md-nav__link">
+    object.has_key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecthas_value" class="md-nav__link">
+    object.has_value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectkeys" class="md-nav__link">
+    object.keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectsize" class="md-nav__link">
+    object.size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecttypeof" class="md-nav__link">
+    object.typeof
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectkind" class="md-nav__link">
+    object.kind
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectvalues" class="md-nav__link">
+    object.values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regex-functions" class="md-nav__link">
+    regex functions
+  </a>
+  
+    <nav class="md-nav" aria-label="regex functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regexescape" class="md-nav__link">
+    regex.escape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexmatch" class="md-nav__link">
+    regex.match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexmatches" class="md-nav__link">
+    regex.matches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexreplace" class="md-nav__link">
+    regex.replace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexsplit" class="md-nav__link">
+    regex.split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexunescape" class="md-nav__link">
+    regex.unescape
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-functions" class="md-nav__link">
+    string functions
+  </a>
+  
+    <nav class="md-nav" aria-label="string functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringescape" class="md-nav__link">
+    string.escape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringappend" class="md-nav__link">
+    string.append
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcapitalize" class="md-nav__link">
+    string.capitalize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcapitalizewords" class="md-nav__link">
+    string.capitalizewords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcontains" class="md-nav__link">
+    string.contains
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringempty" class="md-nav__link">
+    string.empty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringwhitespace" class="md-nav__link">
+    string.whitespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringdowncase" class="md-nav__link">
+    string.downcase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringends_with" class="md-nav__link">
+    string.ends_with
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhandleize" class="md-nav__link">
+    string.handleize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringliteral" class="md-nav__link">
+    string.literal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringlstrip" class="md-nav__link">
+    string.lstrip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringpluralize" class="md-nav__link">
+    string.pluralize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringprepend" class="md-nav__link">
+    string.prepend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringremove" class="md-nav__link">
+    string.remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringremove_first" class="md-nav__link">
+    string.remove_first
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringreplace" class="md-nav__link">
+    string.replace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringreplace_first" class="md-nav__link">
+    string.replace_first
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringrstrip" class="md-nav__link">
+    string.rstrip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsize" class="md-nav__link">
+    string.size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringslice" class="md-nav__link">
+    string.slice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringslice1" class="md-nav__link">
+    string.slice1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsplit" class="md-nav__link">
+    string.split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringstarts_with" class="md-nav__link">
+    string.starts_with
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringstrip" class="md-nav__link">
+    string.strip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringstrip_newlines" class="md-nav__link">
+    string.strip_newlines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_int" class="md-nav__link">
+    string.to_int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_long" class="md-nav__link">
+    string.to_long
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_float" class="md-nav__link">
+    string.to_float
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_double" class="md-nav__link">
+    string.to_double
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtruncate" class="md-nav__link">
+    string.truncate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtruncatewords" class="md-nav__link">
+    string.truncatewords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringupcase" class="md-nav__link">
+    string.upcase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringmd5" class="md-nav__link">
+    string.md5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsha1" class="md-nav__link">
+    string.sha1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsha256" class="md-nav__link">
+    string.sha256
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhmac_sha1" class="md-nav__link">
+    string.hmac_sha1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhmac_sha256" class="md-nav__link">
+    string.hmac_sha256
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringpad_left" class="md-nav__link">
+    string.pad_left
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringpad_right" class="md-nav__link">
+    string.pad_right
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbase64_encode" class="md-nav__link">
+    string.base64_encode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbase64_decode" class="md-nav__link">
+    string.base64_decode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timespan-functions" class="md-nav__link">
+    timespan functions
+  </a>
+  
+    <nav class="md-nav" aria-label="timespan functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_days" class="md-nav__link">
+    timespan.from_days
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_hours" class="md-nav__link">
+    timespan.from_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_minutes" class="md-nav__link">
+    timespan.from_minutes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_seconds" class="md-nav__link">
+    timespan.from_seconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_milliseconds" class="md-nav__link">
+    timespan.from_milliseconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanparse" class="md-nav__link">
+    timespan.parse
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../language/" class="md-nav__link">
+        Language
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../liquid-support/" class="md-nav__link">
+        Liquid Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime/" class="md-nav__link">
+        Runtime
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#array-functions" class="md-nav__link">
+    array functions
+  </a>
+  
+    <nav class="md-nav" aria-label="array functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrayadd" class="md-nav__link">
+    array.add
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayadd_range" class="md-nav__link">
+    array.add_range
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraycompact" class="md-nav__link">
+    array.compact
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayconcat" class="md-nav__link">
+    array.concat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraycycle" class="md-nav__link">
+    array.cycle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayeach" class="md-nav__link">
+    array.each
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayfilter" class="md-nav__link">
+    array.filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayfirst" class="md-nav__link">
+    array.first
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayinsert_at" class="md-nav__link">
+    array.insert_at
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayjoin" class="md-nav__link">
+    array.join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraylast" class="md-nav__link">
+    array.last
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraylimit" class="md-nav__link">
+    array.limit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraymap" class="md-nav__link">
+    array.map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayoffset" class="md-nav__link">
+    array.offset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayremove_at" class="md-nav__link">
+    array.remove_at
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayreverse" class="md-nav__link">
+    array.reverse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraysize" class="md-nav__link">
+    array.size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraysort" class="md-nav__link">
+    array.sort
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arrayuniq" class="md-nav__link">
+    array.uniq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arraycontains" class="md-nav__link">
+    array.contains
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#date-functions" class="md-nav__link">
+    date functions
+  </a>
+  
+    <nav class="md-nav" aria-label="date functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datenow" class="md-nav__link">
+    date.now
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_days" class="md-nav__link">
+    date.add_days
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_months" class="md-nav__link">
+    date.add_months
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_years" class="md-nav__link">
+    date.add_years
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_hours" class="md-nav__link">
+    date.add_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_minutes" class="md-nav__link">
+    date.add_minutes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_seconds" class="md-nav__link">
+    date.add_seconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateadd_milliseconds" class="md-nav__link">
+    date.add_milliseconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateparse" class="md-nav__link">
+    date.parse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dateto_string" class="md-nav__link">
+    date.to_string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#html-functions" class="md-nav__link">
+    html functions
+  </a>
+  
+    <nav class="md-nav" aria-label="html functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#htmlstrip" class="md-nav__link">
+    html.strip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htmlescape" class="md-nav__link">
+    html.escape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htmlurl_encode" class="md-nav__link">
+    html.url_encode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htmlurl_escape" class="md-nav__link">
+    html.url_escape
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#math-functions" class="md-nav__link">
+    math functions
+  </a>
+  
+    <nav class="md-nav" aria-label="math functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathabs" class="md-nav__link">
+    math.abs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathceil" class="md-nav__link">
+    math.ceil
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathdivided_by" class="md-nav__link">
+    math.divided_by
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathfloor" class="md-nav__link">
+    math.floor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathformat" class="md-nav__link">
+    math.format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathis_number" class="md-nav__link">
+    math.is_number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathminus" class="md-nav__link">
+    math.minus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathmodulo" class="md-nav__link">
+    math.modulo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathplus" class="md-nav__link">
+    math.plus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathround" class="md-nav__link">
+    math.round
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathtimes" class="md-nav__link">
+    math.times
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathuuid" class="md-nav__link">
+    math.uuid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathrandom" class="md-nav__link">
+    math.random
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-functions" class="md-nav__link">
+    object functions
+  </a>
+  
+    <nav class="md-nav" aria-label="object functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectdefault" class="md-nav__link">
+    object.default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecteval" class="md-nav__link">
+    object.eval
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecteval_template" class="md-nav__link">
+    object.eval_template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectformat" class="md-nav__link">
+    object.format
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecthas_key" class="md-nav__link">
+    object.has_key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecthas_value" class="md-nav__link">
+    object.has_value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectkeys" class="md-nav__link">
+    object.keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectsize" class="md-nav__link">
+    object.size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objecttypeof" class="md-nav__link">
+    object.typeof
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectkind" class="md-nav__link">
+    object.kind
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objectvalues" class="md-nav__link">
+    object.values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regex-functions" class="md-nav__link">
+    regex functions
+  </a>
+  
+    <nav class="md-nav" aria-label="regex functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regexescape" class="md-nav__link">
+    regex.escape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexmatch" class="md-nav__link">
+    regex.match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexmatches" class="md-nav__link">
+    regex.matches
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexreplace" class="md-nav__link">
+    regex.replace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexsplit" class="md-nav__link">
+    regex.split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regexunescape" class="md-nav__link">
+    regex.unescape
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string-functions" class="md-nav__link">
+    string functions
+  </a>
+  
+    <nav class="md-nav" aria-label="string functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringescape" class="md-nav__link">
+    string.escape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringappend" class="md-nav__link">
+    string.append
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcapitalize" class="md-nav__link">
+    string.capitalize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcapitalizewords" class="md-nav__link">
+    string.capitalizewords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcontains" class="md-nav__link">
+    string.contains
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringempty" class="md-nav__link">
+    string.empty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringwhitespace" class="md-nav__link">
+    string.whitespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringdowncase" class="md-nav__link">
+    string.downcase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringends_with" class="md-nav__link">
+    string.ends_with
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhandleize" class="md-nav__link">
+    string.handleize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringliteral" class="md-nav__link">
+    string.literal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringlstrip" class="md-nav__link">
+    string.lstrip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringpluralize" class="md-nav__link">
+    string.pluralize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringprepend" class="md-nav__link">
+    string.prepend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringremove" class="md-nav__link">
+    string.remove
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringremove_first" class="md-nav__link">
+    string.remove_first
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringreplace" class="md-nav__link">
+    string.replace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringreplace_first" class="md-nav__link">
+    string.replace_first
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringrstrip" class="md-nav__link">
+    string.rstrip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsize" class="md-nav__link">
+    string.size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringslice" class="md-nav__link">
+    string.slice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringslice1" class="md-nav__link">
+    string.slice1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsplit" class="md-nav__link">
+    string.split
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringstarts_with" class="md-nav__link">
+    string.starts_with
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringstrip" class="md-nav__link">
+    string.strip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringstrip_newlines" class="md-nav__link">
+    string.strip_newlines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_int" class="md-nav__link">
+    string.to_int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_long" class="md-nav__link">
+    string.to_long
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_float" class="md-nav__link">
+    string.to_float
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_double" class="md-nav__link">
+    string.to_double
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtruncate" class="md-nav__link">
+    string.truncate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtruncatewords" class="md-nav__link">
+    string.truncatewords
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringupcase" class="md-nav__link">
+    string.upcase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringmd5" class="md-nav__link">
+    string.md5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsha1" class="md-nav__link">
+    string.sha1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsha256" class="md-nav__link">
+    string.sha256
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhmac_sha1" class="md-nav__link">
+    string.hmac_sha1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhmac_sha256" class="md-nav__link">
+    string.hmac_sha256
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringpad_left" class="md-nav__link">
+    string.pad_left
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringpad_right" class="md-nav__link">
+    string.pad_right
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbase64_encode" class="md-nav__link">
+    string.base64_encode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringbase64_decode" class="md-nav__link">
+    string.base64_decode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timespan-functions" class="md-nav__link">
+    timespan functions
+  </a>
+  
+    <nav class="md-nav" aria-label="timespan functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_days" class="md-nav__link">
+    timespan.from_days
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_hours" class="md-nav__link">
+    timespan.from_hours
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_minutes" class="md-nav__link">
+    timespan.from_minutes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_seconds" class="md-nav__link">
+    timespan.from_seconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanfrom_milliseconds" class="md-nav__link">
+    timespan.from_milliseconds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timespanparse" class="md-nav__link">
+    timespan.parse
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/scriban/scriban/edit/master/docs/builtins.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="builtins">Builtins</h1>
+<p>This document describes the various built-in functions available in scriban.</p>
+<ul>
+<li><a href="#array-functions"><code>array</code> functions</a></li>
+<li><a href="#date-functions"><code>date</code> functions</a></li>
+<li><a href="#html-functions"><code>html</code> functions</a></li>
+<li><a href="#math-functions"><code>math</code> functions</a></li>
+<li><a href="#object-functions"><code>object</code> functions</a></li>
+<li><a href="#regex-functions"><code>regex</code> functions</a></li>
+<li><a href="#string-functions"><code>string</code> functions</a></li>
+<li><a href="#timespan-functions"><code>timespan</code> functions</a></li>
+</ul>
+<p><a href="#builtins">:top:</a></p>
+<hr />
+<h2 id="array-functions"><code>array</code> functions</h2>
+<p>Array functions available through the object 'array' in scriban.</p>
+<ul>
+<li><a href="#arrayadd"><code>array.add</code></a></li>
+<li><a href="#arrayadd_range"><code>array.add_range</code></a></li>
+<li><a href="#arraycompact"><code>array.compact</code></a></li>
+<li><a href="#arrayconcat"><code>array.concat</code></a></li>
+<li><a href="#arraycycle"><code>array.cycle</code></a></li>
+<li><a href="#arrayeach"><code>array.each</code></a></li>
+<li><a href="#arrayfilter"><code>array.filter</code></a></li>
+<li><a href="#arrayfirst"><code>array.first</code></a></li>
+<li><a href="#arrayinsert_at"><code>array.insert_at</code></a></li>
+<li><a href="#arrayjoin"><code>array.join</code></a></li>
+<li><a href="#arraylast"><code>array.last</code></a></li>
+<li><a href="#arraylimit"><code>array.limit</code></a></li>
+<li><a href="#arraymap"><code>array.map</code></a></li>
+<li><a href="#arrayoffset"><code>array.offset</code></a></li>
+<li><a href="#arrayremove_at"><code>array.remove_at</code></a></li>
+<li><a href="#arrayreverse"><code>array.reverse</code></a></li>
+<li><a href="#arraysize"><code>array.size</code></a></li>
+<li><a href="#arraysort"><code>array.sort</code></a></li>
+<li><a href="#arrayuniq"><code>array.uniq</code></a></li>
+<li><a href="#arraycontains"><code>array.contains</code></a></li>
+</ul>
+<h3 id="arrayadd"><strong>array.add</strong></h3>
+<div class="highlight"><pre><span></span><code>array.add &lt;list&gt; &lt;value&gt;
+</code></pre></div>
+<h4 id="description">Description</h4>
+<p>Adds a value to the input list.</p>
+<h4 id="arguments">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+<li><code>value</code>: The value to add at the end of the list</li>
+</ul>
+<h4 id="returns">Returns</h4>
+<p>A new list with the value added</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [1, 2, 3] | array.add 4 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[1, 2, 3, 4]
+</code></pre></div></p>
+</div>
+<h3 id="arrayadd_range"><strong>array.add_range</strong></h3>
+<div class="highlight"><pre><span></span><code>array.add_range &lt;list1&gt; &lt;list2&gt;
+</code></pre></div>
+<h4 id="description_1">Description</h4>
+<p>Concatenates two lists.</p>
+<h4 id="arguments_1">Arguments</h4>
+<ul>
+<li><code>list1</code>: The 1st input list</li>
+<li><code>list2</code>: The 2nd input list</li>
+</ul>
+<h4 id="returns_1">Returns</h4>
+<p>The concatenation of the two input lists</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [1, 2, 3] | array.add_range [4, 5] }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[1, 2, 3, 4, 5]
+</code></pre></div></p>
+</div>
+<h3 id="arraycompact"><strong>array.compact</strong></h3>
+<div class="highlight"><pre><span></span><code>array.compact &lt;list&gt;
+</code></pre></div>
+<h4 id="description_2">Description</h4>
+<p>Removes any non-null values from the input list.</p>
+<h4 id="arguments_2">Arguments</h4>
+<ul>
+<li><code>list</code>: An input list</li>
+</ul>
+<h4 id="returns_2">Returns</h4>
+<p>Returns a list with null value removed</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [1, null, 3] | array.compact }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[1, 3]
+</code></pre></div></p>
+</div>
+<h3 id="arrayconcat"><strong>array.concat</strong></h3>
+<div class="highlight"><pre><span></span><code>array.concat &lt;list1&gt; &lt;list2&gt;
+</code></pre></div>
+<h4 id="description_3">Description</h4>
+<p>Concatenates two lists.</p>
+<h4 id="arguments_3">Arguments</h4>
+<ul>
+<li><code>list1</code>: The 1st input list</li>
+<li><code>list2</code>: The 2nd input list</li>
+</ul>
+<h4 id="returns_3">Returns</h4>
+<p>The concatenation of the two input lists</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [1, 2, 3] | array.concat [4, 5] }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[1, 2, 3, 4, 5]
+</code></pre></div></p>
+</div>
+<h3 id="arraycycle"><strong>array.cycle</strong></h3>
+<div class="highlight"><pre><span></span><code>array.cycle &lt;list&gt; &lt;group&gt;?
+</code></pre></div>
+<h4 id="description_4">Description</h4>
+<p>Loops through a group of strings and outputs them in the order that they were passed as parameters. Each time cycle is called, the next string that was passed as a parameter is output.</p>
+<h4 id="arguments_4">Arguments</h4>
+<ul>
+<li><code>list</code>: An input list</li>
+<li><code>group</code>: The group used. Default is <code>null</code></li>
+</ul>
+<h4 id="returns_4">Returns</h4>
+<p>Returns a list with null value removed</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ array.cycle [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;] }}
+{{ array.cycle [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;] }}
+{{ array.cycle [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;] }}
+{{ array.cycle [&#39;one&#39;, &#39;two&#39;, &#39;three&#39;] }}
+</code></pre></div>
+ <strong>output</strong>
+<div class="highlight"><pre><span></span><code>one
+two
+three
+one
+</code></pre></div></p>
+</div>
+<p><code>cycle</code> accepts a parameter called cycle group in cases where you need multiple cycle blocks in one template.
+If no name is supplied for the cycle group, then it is assumed that multiple calls with the same parameters are one group.</p>
+<h3 id="arrayeach"><strong>array.each</strong></h3>
+<div class="highlight"><pre><span></span><code>array.each &lt;list&gt; &lt;function&gt;
+</code></pre></div>
+<h4 id="description_5">Description</h4>
+<p>Applies the specified function to each element of the input.</p>
+<h4 id="arguments_5">Arguments</h4>
+<ul>
+<li><code>list</code>: An input list</li>
+<li><code>function</code>: The function to apply to each item in the list</li>
+</ul>
+<h4 id="returns_5">Returns</h4>
+<p>Returns a list with each item being transformed by the function.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [&quot; a&quot;, &quot; 5&quot;, &quot;6 &quot;] | array.each @string.strip }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;a&quot;, &quot;5&quot;, &quot;6&quot;]
+</code></pre></div></p>
+</div>
+<h3 id="arrayfilter"><strong>array.filter</strong></h3>
+<div class="highlight"><pre><span></span><code>array.filter &lt;list&gt; &lt;function&gt;
+</code></pre></div>
+<h4 id="description_6">Description</h4>
+<p>Filters the input list according the supplied filter function.</p>
+<h4 id="arguments_6">Arguments</h4>
+<ul>
+<li><code>list</code>: An input list</li>
+<li><code>function</code>: The function used to test each elemement of the list</li>
+</ul>
+<h4 id="returns_6">Returns</h4>
+<p>Returns a new list which contains only those elements which match the filter function.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{[&quot;&quot;, &quot;200&quot;, &quot;&quot;,&quot;400&quot;] | array.filter @string.empty}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;&quot;, &quot;&quot;]
+</code></pre></div></p>
+</div>
+<h3 id="arrayfirst"><strong>array.first</strong></h3>
+<div class="highlight"><pre><span></span><code>array.first &lt;list&gt;
+</code></pre></div>
+<h4 id="description_7">Description</h4>
+<p>Returns the first element of the input <code>list</code>.</p>
+<h4 id="arguments_7">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+</ul>
+<h4 id="returns_7">Returns</h4>
+<p>The first element of the input <code>list</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [4, 5, 6] | array.first }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>4
+</code></pre></div></p>
+</div>
+<h3 id="arrayinsert_at"><strong>array.insert_at</strong></h3>
+<div class="highlight"><pre><span></span><code>array.insert_at &lt;list&gt; &lt;index&gt; &lt;value&gt;
+</code></pre></div>
+<h4 id="description_8">Description</h4>
+<p>Inserts a <code>value</code> at the specified index in the input <code>list</code>.</p>
+<h4 id="arguments_8">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+<li><code>index</code>: The index in the list where to insert the element</li>
+<li><code>value</code>: The value to insert</li>
+</ul>
+<h4 id="returns_8">Returns</h4>
+<p>A new list with the element inserted.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;] | array.insert_at 2 &quot;Yo&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;a&quot;, &quot;b&quot;, &quot;Yo&quot;, &quot;c&quot;]
+</code></pre></div></p>
+</div>
+<h3 id="arrayjoin"><strong>array.join</strong></h3>
+<div class="highlight"><pre><span></span><code>array.join &lt;list&gt; &lt;delimiter&gt; &lt;function&gt;?
+</code></pre></div>
+<h4 id="description_9">Description</h4>
+<p>Joins the element of a list separated by a delimiter string and return the concatenated string.</p>
+<h4 id="arguments_9">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+<li><code>delimiter</code>: The delimiter string to use to separate elements in the output string</li>
+<li><code>function</code>: An optional function that will receive the string representation of the item to join and can transform the text before joining.</li>
+</ul>
+<h4 id="returns_9">Returns</h4>
+<p>A new list with the element inserted.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [1, 2, 3] | array.join &quot;|&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>1|2|3
+</code></pre></div></p>
+</div>
+<h3 id="arraylast"><strong>array.last</strong></h3>
+<div class="highlight"><pre><span></span><code>array.last &lt;list&gt;
+</code></pre></div>
+<h4 id="description_10">Description</h4>
+<p>Returns the last element of the input <code>list</code>.</p>
+<h4 id="arguments_10">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+</ul>
+<h4 id="returns_10">Returns</h4>
+<p>The last element of the input <code>list</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [4, 5, 6] | array.last }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>6
+</code></pre></div></p>
+</div>
+<h3 id="arraylimit"><strong>array.limit</strong></h3>
+<div class="highlight"><pre><span></span><code>array.limit &lt;list&gt; &lt;count&gt;
+</code></pre></div>
+<h4 id="description_11">Description</h4>
+<p>Returns a limited number of elments from the input list</p>
+<h4 id="arguments_11">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+<li><code>count</code>: The number of elements to return from the input list</li>
+</ul>
+<h4 id="returns_11">Returns</h4>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [4, 5, 6] | array.limit 2 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[4, 5]
+</code></pre></div></p>
+</div>
+<h3 id="arraymap"><strong>array.map</strong></h3>
+<div class="highlight"><pre><span></span><code>array.map &lt;list&gt; &lt;member&gt;
+</code></pre></div>
+<h4 id="description_12">Description</h4>
+<p>Accepts an array element's attribute as a parameter and creates an array out of each array element's value.</p>
+<h4 id="arguments_12">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+<li><code>member</code>: The member to extract the value from</li>
+</ul>
+<h4 id="returns_12">Returns</h4>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+products = [{title: &quot;orange&quot;, type: &quot;fruit&quot;}, {title: &quot;computer&quot;, type: &quot;electronics&quot;}, {title: &quot;sofa&quot;, type: &quot;furniture&quot;}]
+products | array.map &quot;type&quot; | array.uniq | array.sort }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;electronics&quot;, &quot;fruit&quot;, &quot;furniture&quot;]
+</code></pre></div></p>
+</div>
+<h3 id="arrayoffset"><strong>array.offset</strong></h3>
+<div class="highlight"><pre><span></span><code>array.offset &lt;list&gt; &lt;index&gt;
+</code></pre></div>
+<h4 id="description_13">Description</h4>
+<p>Returns the remaining of the list after the specified offset</p>
+<h4 id="arguments_13">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+<li><code>index</code>: The index of a list to return elements</li>
+</ul>
+<h4 id="returns_13">Returns</h4>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [4, 5, 6, 7, 8] | array.offset 2 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[6, 7, 8]
+</code></pre></div></p>
+</div>
+<h3 id="arrayremove_at"><strong>array.remove_at</strong></h3>
+<div class="highlight"><pre><span></span><code>array.remove_at &lt;list&gt; &lt;index&gt;
+</code></pre></div>
+<h4 id="description_14">Description</h4>
+<p>Removes an element at the specified <code>index</code> from the input <code>list</code></p>
+<h4 id="arguments_14">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+<li><code>index</code>: The index of a list to return elements</li>
+</ul>
+<h4 id="returns_14">Returns</h4>
+<p>A new list with the element removed. If index is negative, remove at the end of the list.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [4, 5, 6, 7, 8] | array.remove_at 2 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[4, 5, 7, 8]
+</code></pre></div></p>
+<p>If the <code>index</code> is negative, removes at the end of the list (notice that we need to put -1 in parenthesis to avoid confusing the parser with a binary <code>-</code> operation):</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [4, 5, 6, 7, 8] | array.remove_at (-1) }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[4, 5, 6, 7]
+</code></pre></div></p>
+</div>
+<h3 id="arrayreverse"><strong>array.reverse</strong></h3>
+<div class="highlight"><pre><span></span><code>array.reverse &lt;list&gt;
+</code></pre></div>
+<h4 id="description_15">Description</h4>
+<p>Reverses the input <code>list</code></p>
+<h4 id="arguments_15">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+</ul>
+<h4 id="returns_15">Returns</h4>
+<p>A new list in reversed order.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [4, 5, 6, 7] | array.reverse }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[7, 6, 5, 4]
+</code></pre></div></p>
+</div>
+<h3 id="arraysize"><strong>array.size</strong></h3>
+<div class="highlight"><pre><span></span><code>array.size &lt;list&gt;
+</code></pre></div>
+<h4 id="description_16">Description</h4>
+<p>Returns the number of elements in the input <code>list</code></p>
+<h4 id="arguments_16">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+</ul>
+<h4 id="returns_16">Returns</h4>
+<p>A number of elements in the input <code>list</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [4, 5, 6] | array.size }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div></p>
+</div>
+<h3 id="arraysort"><strong>array.sort</strong></h3>
+<div class="highlight"><pre><span></span><code>array.sort &lt;list&gt; &lt;member&gt;?
+</code></pre></div>
+<h4 id="description_17">Description</h4>
+<p>Sorts the elements of the input <code>list</code> according to the value of each element or the value of the specified <code>member</code> of each element</p>
+<h4 id="arguments_17">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+<li><code>member</code>: The member name to sort according to its value. Null by default, meaning that the element's value are used instead.</li>
+</ul>
+<h4 id="returns_17">Returns</h4>
+<p>A list sorted according to the value of each element or the value of the specified <code>member</code> of each element.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p>Sorts by element's value:</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [10, 2, 6] | array.sort }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[2, 6, 10]
+</code></pre></div></p>
+<hr />
+<p>Sorts by elements member's value:</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{
+products = [{title: &quot;orange&quot;, type: &quot;fruit&quot;}, {title: &quot;computer&quot;, type: &quot;electronics&quot;}, {title: &quot;sofa&quot;, type: &quot;furniture&quot;}]
+products | array.sort &quot;title&quot; | array.map &quot;title&quot;
+}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;computer&quot;, &quot;orange&quot;, &quot;sofa&quot;]
+</code></pre></div></p>
+</div>
+<h3 id="arrayuniq"><strong>array.uniq</strong></h3>
+<div class="highlight"><pre><span></span><code>array.uniq &lt;list&gt;
+</code></pre></div>
+<h4 id="description_18">Description</h4>
+<p>Returns the unique elements of the input <code>list</code>.</p>
+<h4 id="arguments_18">Arguments</h4>
+<ul>
+<li><code>list</code>: The input list</li>
+</ul>
+<h4 id="returns_18">Returns</h4>
+<p>A list of unique elements of the input <code>list</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [1, 1, 4, 5, 8, 8] | array.uniq }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[1, 4, 5, 8]
+</code></pre></div></p>
+</div>
+<h3 id="arraycontains"><strong>array.contains</strong></h3>
+<div class="highlight"><pre><span></span><code>array.contains &lt;list&gt; &lt;item&gt;
+</code></pre></div>
+<h4 id="description_19">Description</h4>
+<p>Returns if an <code>list</code> contains an specifique element</p>
+<h4 id="arguments_19">Arguments</h4>
+<ul>
+<li><code>list</code>: the input list</li>
+<li><code>item</code>: the input item</li>
+</ul>
+<h4 id="returns_19">Returns</h4>
+<p><strong>true</strong> if element is in <code>list</code>; otherwise <strong>false</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [1, 2, 3, 4] | array.contains 4 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div></p>
+</div>
+<hr />
+<h2 id="date-functions"><code>date</code> functions</h2>
+<p>A datetime object represents an instant in time, expressed as a date and time of day.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.year</code></td>
+<td>Gets the year of a date object</td>
+</tr>
+<tr>
+<td><code>.month</code></td>
+<td>Gets the month of a date object</td>
+</tr>
+<tr>
+<td><code>.day</code></td>
+<td>Gets the day in the month of a date object</td>
+</tr>
+<tr>
+<td><code>.day_of_year</code></td>
+<td>Gets the day within the year</td>
+</tr>
+<tr>
+<td><code>.hour</code></td>
+<td>Gets the hour of the date object</td>
+</tr>
+<tr>
+<td><code>.minute</code></td>
+<td>Gets the minute of the date object</td>
+</tr>
+<tr>
+<td><code>.second</code></td>
+<td>Gets the second of the date object</td>
+</tr>
+<tr>
+<td><code>.millisecond</code></td>
+<td>Gets the millisecond of the date object</td>
+</tr>
+</tbody>
+</table>
+<h4 id="binary-operations">Binary operations</h4>
+<p>The substract operation <code>date1 - date2</code>: Substract <code>date2</code> from <code>date1</code> and return a timespan internal object (see timespan object below).</p>
+<p>Other comparison operators(<code>==</code>, <code>!=</code>, <code>&lt;=</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&gt;</code>) are also working with date objects.</p>
+<p>A <code>timespan</code> and also the added to a <code>datetime</code> object.</p>
+<ul>
+<li><a href="#datenow"><code>date.now</code></a></li>
+<li><a href="#dateadd_days"><code>date.add_days</code></a></li>
+<li><a href="#dateadd_months"><code>date.add_months</code></a></li>
+<li><a href="#dateadd_years"><code>date.add_years</code></a></li>
+<li><a href="#dateadd_hours"><code>date.add_hours</code></a></li>
+<li><a href="#dateadd_minutes"><code>date.add_minutes</code></a></li>
+<li><a href="#dateadd_seconds"><code>date.add_seconds</code></a></li>
+<li><a href="#dateadd_milliseconds"><code>date.add_milliseconds</code></a></li>
+<li><a href="#dateparse"><code>date.parse</code></a></li>
+<li><a href="#dateto_string"><code>date.to_string</code></a></li>
+</ul>
+<h3 id="datenow"><strong>date.now</strong></h3>
+<div class="highlight"><pre><span></span><code>date.now
+</code></pre></div>
+<h4 id="description_20">Description</h4>
+<p>Returns a datetime object of the current time, including the hour, minutes, seconds and milliseconds.</p>
+<h4 id="arguments_20">Arguments</h4>
+<h4 id="returns_20">Returns</h4>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ date.now.year }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>2021
+</code></pre></div></p>
+</div>
+<h3 id="dateadd_days"><strong>date.add_days</strong></h3>
+<div class="highlight"><pre><span></span><code>date.add_days &lt;date&gt; &lt;days&gt;
+</code></pre></div>
+<h4 id="description_21">Description</h4>
+<p>Adds the specified number of days to the input date.</p>
+<h4 id="arguments_21">Arguments</h4>
+<ul>
+<li><code>date</code>: The date.</li>
+<li><code>days</code>: The days.</li>
+</ul>
+<h4 id="returns_21">Returns</h4>
+<p>A new date</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ date.parse &#39;2016/01/05&#39; | date.add_days 1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>06 Jan 2016
+</code></pre></div></p>
+</div>
+<h3 id="dateadd_months"><strong>date.add_months</strong></h3>
+<div class="highlight"><pre><span></span><code>date.add_months &lt;date&gt; &lt;months&gt;
+</code></pre></div>
+<h4 id="description_22">Description</h4>
+<p>Adds the specified number of months to the input date.</p>
+<h4 id="arguments_22">Arguments</h4>
+<ul>
+<li><code>date</code>: The date.</li>
+<li><code>months</code>: The months.</li>
+</ul>
+<h4 id="returns_22">Returns</h4>
+<p>A new date</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ date.parse &#39;2016/01/05&#39; | date.add_months 1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>05 Feb 2016
+</code></pre></div></p>
+</div>
+<h3 id="dateadd_years"><strong>date.add_years</strong></h3>
+<div class="highlight"><pre><span></span><code>date.add_years &lt;date&gt; &lt;years&gt;
+</code></pre></div>
+<h4 id="description_23">Description</h4>
+<p>Adds the specified number of years to the input date.</p>
+<h4 id="arguments_23">Arguments</h4>
+<ul>
+<li><code>date</code>: The date.</li>
+<li><code>years</code>: The years.</li>
+</ul>
+<h4 id="returns_23">Returns</h4>
+<p>A new date</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ date.parse &#39;2016/01/05&#39; | date.add_years 1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>05 Jan 2017
+</code></pre></div></p>
+</div>
+<h3 id="dateadd_hours"><strong>date.add_hours</strong></h3>
+<div class="highlight"><pre><span></span><code>date.add_hours &lt;date&gt; &lt;hours&gt;
+</code></pre></div>
+<h4 id="description_24">Description</h4>
+<p>Adds the specified number of hours to the input date.</p>
+<h4 id="arguments_24">Arguments</h4>
+<ul>
+<li><code>date</code>: The date.</li>
+<li><code>hours</code>: The hours.</li>
+</ul>
+<h4 id="returns_24">Returns</h4>
+<p>A new date</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+</div>
+<h3 id="dateadd_minutes"><strong>date.add_minutes</strong></h3>
+<div class="highlight"><pre><span></span><code>date.add_minutes &lt;date&gt; &lt;minutes&gt;
+</code></pre></div>
+<h4 id="description_25">Description</h4>
+<p>Adds the specified number of minutes to the input date.</p>
+<h4 id="arguments_25">Arguments</h4>
+<ul>
+<li><code>date</code>: The date.</li>
+<li><code>minutes</code>: The minutes.</li>
+</ul>
+<h4 id="returns_25">Returns</h4>
+<p>A new date</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+</div>
+<h3 id="dateadd_seconds"><strong>date.add_seconds</strong></h3>
+<div class="highlight"><pre><span></span><code>date.add_seconds &lt;date&gt; &lt;seconds&gt;
+</code></pre></div>
+<h4 id="description_26">Description</h4>
+<p>Adds the specified number of seconds to the input date.</p>
+<h4 id="arguments_26">Arguments</h4>
+<ul>
+<li><code>date</code>: The date.</li>
+<li><code>seconds</code>: The seconds.</li>
+</ul>
+<h4 id="returns_26">Returns</h4>
+<p>A new date</p>
+<h4 id="examples">Examples</h4>
+<h3 id="dateadd_milliseconds"><strong>date.add_milliseconds</strong></h3>
+<div class="highlight"><pre><span></span><code>date.add_milliseconds &lt;date&gt; &lt;millis&gt;
+</code></pre></div>
+<h4 id="description_27">Description</h4>
+<p>Adds the specified number of milliseconds to the input date.</p>
+<h4 id="arguments_27">Arguments</h4>
+<ul>
+<li><code>date</code>: The date.</li>
+<li><code>millis</code>: The milliseconds.</li>
+</ul>
+<h4 id="returns_27">Returns</h4>
+<p>A new date</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+</div>
+<h3 id="dateparse"><strong>date.parse</strong></h3>
+<div class="highlight"><pre><span></span><code>date.parse &lt;text&gt;
+</code></pre></div>
+<h4 id="description_28">Description</h4>
+<p>Parses the specified input string to a date object.</p>
+<h4 id="arguments_28">Arguments</h4>
+<ul>
+<li><code>text</code>: A text representing a date.</li>
+</ul>
+<h4 id="returns_28">Returns</h4>
+<p>A date object</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ date.parse &#39;2016/01/05&#39; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>05 Jan 2016
+</code></pre></div></p>
+</div>
+<h3 id="dateto_string"><strong>date.to_string</strong></h3>
+<div class="highlight"><pre><span></span><code>date.to_string &lt;datetime&gt; &lt;pattern&gt; &lt;culture&gt;
+</code></pre></div>
+<h4 id="description_29">Description</h4>
+<p>Converts a datetime object to a textual representation using the specified format string.</p>
+<p>By default, if you are using a date, it will use the format specified by <code>date.format</code> which defaults to <code>date.default_format</code> (readonly) which default to <code>%d %b %Y</code></p>
+<p>You can override the format used for formatting all dates by assigning the a new format: <code>date.format = '%a %b %e %T %Y';</code></p>
+<p>You can recover the default format by using <code>date.format = date.default_format;</code></p>
+<p>By default, the to_string format is using the <strong>current culture</strong>, but you can switch to an invariant culture by using the modifier <code>%g</code></p>
+<p>For example, using <code>%g %d %b %Y</code> will output the date using an invariant culture.</p>
+<p>If you are using <code>%g</code> alone, it will output the date with <code>date.format</code> using an invariant culture.</p>
+<p>Suppose that <code>date.now</code> would return the date <code>2013-09-12 22:49:27 +0530</code>, the following table explains the format modifiers:</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Result</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"%a"</code></td>
+<td><code>"Thu"</code></td>
+<td>Name of week day in short form of the</td>
+</tr>
+<tr>
+<td><code>"%A"</code></td>
+<td><code>"Thursday"</code></td>
+<td>Week day in full form of the time</td>
+</tr>
+<tr>
+<td><code>"%b"</code></td>
+<td><code>"Sep"</code></td>
+<td>Month in short form of the time</td>
+</tr>
+<tr>
+<td><code>"%B"</code></td>
+<td><code>"September"</code></td>
+<td>Month in full form of the time</td>
+</tr>
+<tr>
+<td><code>"%c"</code></td>
+<td></td>
+<td>Date and time (%a %b %e %T %Y)</td>
+</tr>
+<tr>
+<td><code>"%C"</code></td>
+<td><code>"20"</code></td>
+<td>Century of the time</td>
+</tr>
+<tr>
+<td><code>"%d"</code></td>
+<td><code>"12"</code></td>
+<td>Day of the month of the time</td>
+</tr>
+<tr>
+<td><code>"%D"</code></td>
+<td><code>"09/12/13"</code></td>
+<td>Date (%m/%d/%y)</td>
+</tr>
+<tr>
+<td><code>"%e"</code></td>
+<td><code>"12"</code></td>
+<td>Day of the month, blank-padded ( 1..31)</td>
+</tr>
+<tr>
+<td><code>"%F"</code></td>
+<td><code>"2013-09-12"</code></td>
+<td>ISO 8601 date (%Y-%m-%d)</td>
+</tr>
+<tr>
+<td><code>"%h"</code></td>
+<td><code>"Sep"</code></td>
+<td>Alias for %b</td>
+</tr>
+<tr>
+<td><code>"%H"</code></td>
+<td><code>"22"</code></td>
+<td>Hour of the time in 24 hour clock format</td>
+</tr>
+<tr>
+<td><code>"%I"</code></td>
+<td><code>"10"</code></td>
+<td>Hour of the time in 12 hour clock format</td>
+</tr>
+<tr>
+<td><code>"%j"</code></td>
+<td><code>"255"</code></td>
+<td>Day of the year (001..366) (3 digits, left padded with zero)</td>
+</tr>
+<tr>
+<td><code>"%k"</code></td>
+<td><code>"22"</code></td>
+<td>Hour of the time in 24 hour clock format, blank-padded ( 0..23)</td>
+</tr>
+<tr>
+<td><code>"%l"</code></td>
+<td><code>"10"</code></td>
+<td>Hour of the time in 12 hour clock format, blank-padded ( 0..12)</td>
+</tr>
+<tr>
+<td><code>"%L"</code></td>
+<td><code>"000"</code></td>
+<td>Millisecond of the time (3 digits, left padded with zero)</td>
+</tr>
+<tr>
+<td><code>"%m"</code></td>
+<td><code>"09"</code></td>
+<td>Month of the time</td>
+</tr>
+<tr>
+<td><code>"%M"</code></td>
+<td><code>"49"</code></td>
+<td>Minutes of the time (2 digits, left padded with zero e.g 01 02)</td>
+</tr>
+<tr>
+<td><code>"%n"</code></td>
+<td></td>
+<td>Newline character (\n)</td>
+</tr>
+<tr>
+<td><code>"%N"</code></td>
+<td><code>"000000000"</code></td>
+<td>Nanoseconds of the time (9 digits, left padded with zero)</td>
+</tr>
+<tr>
+<td><code>"%p"</code></td>
+<td><code>"PM"</code></td>
+<td>Gives AM / PM of the time</td>
+</tr>
+<tr>
+<td><code>"%P"</code></td>
+<td><code>"pm"</code></td>
+<td>Gives am / pm of the time</td>
+</tr>
+<tr>
+<td><code>"%r"</code></td>
+<td><code>"10:49:27 PM"</code></td>
+<td>Long time in 12 hour clock format (%I:%M:%S %p)</td>
+</tr>
+<tr>
+<td><code>"%R"</code></td>
+<td><code>"22:49"</code></td>
+<td>Short time in 24 hour clock format (%H:%M)</td>
+</tr>
+<tr>
+<td><code>"%s"</code></td>
+<td></td>
+<td>Number of seconds since 1970-01-01 00:00:00 +0000</td>
+</tr>
+<tr>
+<td><code>"%S"</code></td>
+<td><code>"27"</code></td>
+<td>Seconds of the time</td>
+</tr>
+<tr>
+<td><code>"%t"</code></td>
+<td></td>
+<td>Tab character (\t)</td>
+</tr>
+<tr>
+<td><code>"%T"</code></td>
+<td><code>"22:49:27"</code></td>
+<td>Long time in 24 hour clock format (%H:%M:%S)</td>
+</tr>
+<tr>
+<td><code>"%u"</code></td>
+<td><code>"4"</code></td>
+<td>Day of week of the time (from 1 for Monday to 7 for Sunday)</td>
+</tr>
+<tr>
+<td><code>"%U"</code></td>
+<td><code>"36"</code></td>
+<td>Week number of the current year, starting with the first Sunday as the first day of the first week (00..53)</td>
+</tr>
+<tr>
+<td><code>"%v"</code></td>
+<td><code>"12-SEP-2013"</code></td>
+<td>VMS date (%e-%b-%Y) (culture invariant)</td>
+</tr>
+<tr>
+<td><code>"%V"</code></td>
+<td><code>"37"</code></td>
+<td>Week number of the current year according to ISO 8601 (01..53)</td>
+</tr>
+<tr>
+<td><code>"%W"</code></td>
+<td><code>"36"</code></td>
+<td>Week number of the current year, starting with the first Monday as the first day of the first week (00..53)</td>
+</tr>
+<tr>
+<td><code>"%w"</code></td>
+<td><code>"4"</code></td>
+<td>Day of week of the time (from 0 for Sunday to 6 for Saturday)</td>
+</tr>
+<tr>
+<td><code>"%x"</code></td>
+<td></td>
+<td>Preferred representation for the date alone, no time</td>
+</tr>
+<tr>
+<td><code>"%X"</code></td>
+<td></td>
+<td>Preferred representation for the time alone, no date</td>
+</tr>
+<tr>
+<td><code>"%y"</code></td>
+<td><code>"13"</code></td>
+<td>Gives year without century of the time</td>
+</tr>
+<tr>
+<td><code>"%Y"</code></td>
+<td><code>"2013"</code></td>
+<td>Year of the time</td>
+</tr>
+<tr>
+<td><code>"%Z"</code></td>
+<td><code>"IST"</code></td>
+<td>Gives Time Zone of the time</td>
+</tr>
+<tr>
+<td><code>"%%"</code></td>
+<td><code>"%"</code></td>
+<td>Output the character <code>%</code></td>
+</tr>
+</tbody>
+</table>
+<p>Note that the format is using a good part of the ruby format (<a href="http://apidock.com/ruby/DateTime/strftime">source</a>)</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ date.parse &#39;2016/01/05&#39; | date.to_string &#39;%d %b %Y&#39; }}
+{{ date.parse &#39;2016/01/05&#39; | date.to_string &#39;%d %B %Y&#39; &#39;fr-FR&#39; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>05 Jan 2016
+05 janvier 2016
+</code></pre></div></p>
+</div>
+<h4 id="arguments_29">Arguments</h4>
+<ul>
+<li><code>datetime</code>: The input datetime to format</li>
+<li><code>pattern</code>: The date format pattern.</li>
+<li><code>culture</code>: The culture used to format the datetime</li>
+</ul>
+<h4 id="returns_29">Returns</h4>
+<p>A  that represents this instance.</p>
+<hr />
+<h2 id="html-functions"><code>html</code> functions</h2>
+<p>Html functions available through the builtin object 'html'.</p>
+<ul>
+<li><a href="#htmlstrip"><code>html.strip</code></a></li>
+<li><a href="#htmlescape"><code>html.escape</code></a></li>
+<li><a href="#htmlurl_encode"><code>html.url_encode</code></a></li>
+<li><a href="#htmlurl_escape"><code>html.url_escape</code></a></li>
+</ul>
+<h3 id="htmlstrip"><strong>html.strip</strong></h3>
+<div class="highlight"><pre><span></span><code>html.strip &lt;text&gt;
+</code></pre></div>
+<h4 id="description_30">Description</h4>
+<p>Removes any HTML tags from the input string</p>
+<h4 id="arguments_30">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_30">Returns</h4>
+<p>The input string removed with any HTML tags</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;&lt;p&gt;This is a paragraph&lt;/p&gt;&quot; | html.strip }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>This is a paragraph
+</code></pre></div></p>
+</div>
+<h3 id="htmlescape"><strong>html.escape</strong></h3>
+<div class="highlight"><pre><span></span><code>html.escape &lt;text&gt;
+</code></pre></div>
+<h4 id="description_31">Description</h4>
+<p>Escapes a HTML input string (replacing <code>&amp;</code> by <code>&amp;amp;</code>)</p>
+<h4 id="arguments_31">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_31">Returns</h4>
+<p>The input string removed with any HTML tags</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;&lt;p&gt;This is a paragraph&lt;/p&gt;&quot; | html.escape }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code><span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>This is a paragraph<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+</code></pre></div></p>
+</div>
+<h3 id="htmlurl_encode"><strong>html.url_encode</strong></h3>
+<div class="highlight"><pre><span></span><code>html.url_encode &lt;text&gt;
+</code></pre></div>
+<h4 id="description_32">Description</h4>
+<p>Converts any URL-unsafe characters in a string into percent-encoded characters.</p>
+<h4 id="arguments_32">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_32">Returns</h4>
+<p>The input string url encoded</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;john@liquid.com&quot; | html.url_encode }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>john%40liquid.com
+</code></pre></div></p>
+</div>
+<h3 id="htmlurl_escape"><strong>html.url_escape</strong></h3>
+<div class="highlight"><pre><span></span><code>html.url_escape &lt;text&gt;
+</code></pre></div>
+<h4 id="description_33">Description</h4>
+<p>Identifies all characters in a string that are not allowed in URLS, and replaces the characters with their escaped variants.</p>
+<h4 id="arguments_33">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_33">Returns</h4>
+<p>The input string url escaped</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;&lt;hello&gt; &amp; &lt;scriban&gt;&quot; | html.url_escape }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>%3Chello%3E%20<span class="err">&amp;</span>%20%3Cscriban%3E
+</code></pre></div></p>
+</div>
+<hr/>
+
+<h2 id="math-functions"><code>math</code> functions</h2>
+<p>Math functions available through the object 'math' in scriban.</p>
+<ul>
+<li><a href="#mathabs"><code>math.abs</code></a></li>
+<li><a href="#mathceil"><code>math.ceil</code></a></li>
+<li><a href="#mathdivided_by"><code>math.divided_by</code></a></li>
+<li><a href="#mathfloor"><code>math.floor</code></a></li>
+<li><a href="#mathformat"><code>math.format</code></a></li>
+<li><a href="#mathis_number"><code>math.is_number</code></a></li>
+<li><a href="#mathminus"><code>math.minus</code></a></li>
+<li><a href="#mathmodulo"><code>math.modulo</code></a></li>
+<li><a href="#mathplus"><code>math.plus</code></a></li>
+<li><a href="#mathround"><code>math.round</code></a></li>
+<li><a href="#mathtimes"><code>math.times</code></a></li>
+<li><a href="#mathuuid"><code>math.uuid</code></a></li>
+<li><a href="#mathrandom"><code>math.random</code></a></li>
+</ul>
+<h3 id="mathabs"><strong>math.abs</strong></h3>
+<div class="highlight"><pre><span></span><code>math.abs &lt;value&gt;
+</code></pre></div>
+<h4 id="description_34">Description</h4>
+<p>Returns the absolute value of a specified number.</p>
+<h4 id="arguments_34">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+</ul>
+<h4 id="returns_34">Returns</h4>
+<p>The absolute value of the input value</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ -15.5| math.abs }}
+{{ -5| math.abs }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>15.5
+5
+</code></pre></div></p>
+</div>
+<h3 id="mathceil"><strong>math.ceil</strong></h3>
+<div class="highlight"><pre><span></span><code>math.ceil &lt;value&gt;
+</code></pre></div>
+<h4 id="description_35">Description</h4>
+<p>Returns the smallest integer greater than or equal to the specified number.</p>
+<h4 id="arguments_35">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+</ul>
+<h4 id="returns_35">Returns</h4>
+<p>The smallest integer greater than or equal to the specified number.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ 4.6 | math.ceil }}
+{{ 4.3 | math.ceil }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+5
+</code></pre></div></p>
+</div>
+<h3 id="mathdivided_by"><strong>math.divided_by</strong></h3>
+<div class="highlight"><pre><span></span><code>math.divided_by &lt;value&gt; &lt;divisor&gt;
+</code></pre></div>
+<h4 id="description_36">Description</h4>
+<p>Divides the specified value by another value. If the divisor is an integer, the result will
+be floor to and converted back to an integer.</p>
+<h4 id="arguments_36">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+<li><code>divisor</code>: The divisor value</li>
+</ul>
+<h4 id="returns_36">Returns</h4>
+<p>The division of <code>value</code> by <code>divisor</code>.</p>
+<h4 id="examples_1">Examples</h4>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ 8.4 | math.divided_by 2.0 | math.round 1 }}
+{{ 8.4 | math.divided_by 2 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>4.2
+4
+</code></pre></div></p>
+<h3 id="mathfloor"><strong>math.floor</strong></h3>
+<div class="highlight"><pre><span></span><code>math.floor &lt;value&gt;
+</code></pre></div>
+<h4 id="description_37">Description</h4>
+<p>Returns the largest integer less than or equal to the specified number.</p>
+<h4 id="arguments_37">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+</ul>
+<h4 id="returns_37">Returns</h4>
+<p>The largest integer less than or equal to the specified number.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ 4.6 | math.floor }}
+{{ 4.3 | math.floor }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>4
+4
+</code></pre></div></p>
+</div>
+<h3 id="mathformat"><strong>math.format</strong></h3>
+<div class="highlight"><pre><span></span><code>math.format &lt;value&gt; &lt;format&gt; &lt;culture&gt;?
+</code></pre></div>
+<h4 id="description_38">Description</h4>
+<p>Formats a number value with specified <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings">.NET standard numeric format strings</a></p>
+<h4 id="arguments_38">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+<li><code>format</code>: The format string.</li>
+<li><code>culture</code>: The culture as a string (e.g <code>en-US</code>). By default the culture from  is used</li>
+</ul>
+<h4 id="returns_38">Returns</h4>
+<p>The largest integer less than or equal to the specified number.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ 255 | math.format &quot;X4&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>00FF
+</code></pre></div></p>
+</div>
+<h3 id="mathis_number"><strong>math.is_number</strong></h3>
+<div class="highlight"><pre><span></span><code>math.is_number &lt;value&gt;
+</code></pre></div>
+<h4 id="description_39">Description</h4>
+<p>Returns a boolean indicating if the input value is a number</p>
+<h4 id="arguments_39">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+</ul>
+<h4 id="returns_39">Returns</h4>
+<p><strong>true</strong> if the input value is a number; otherwise false.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{{</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">math.is_number</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="s2">&quot;yo&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">math.is_number</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+false
+</code></pre></div></p>
+</div>
+<h3 id="mathminus"><strong>math.minus</strong></h3>
+<div class="highlight"><pre><span></span><code>math.minus &lt;value&gt; &lt;with&gt;
+</code></pre></div>
+<h4 id="description_40">Description</h4>
+<p>Substracts from the input value the <code>with</code> value</p>
+<h4 id="arguments_40">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+<li><code>with</code>: The with value to substract from <code>value</code></li>
+</ul>
+<h4 id="returns_40">Returns</h4>
+<p>The results of the substraction: <code>value</code> - <code>with</code></p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{{</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">math.minus</span><span class="w"> </span><span class="mi">5</span><span class="p">}}</span>
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>250
+</code></pre></div></p>
+</div>
+<h3 id="mathmodulo"><strong>math.modulo</strong></h3>
+<div class="highlight"><pre><span></span><code>math.modulo &lt;value&gt; &lt;with&gt;
+</code></pre></div>
+<h4 id="description_41">Description</h4>
+<p>Performs the modulo of the input value with the <code>with</code> value</p>
+<h4 id="arguments_41">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+<li><code>with</code>: The with value to module <code>value</code></li>
+</ul>
+<h4 id="returns_41">Returns</h4>
+<p>The results of the modulo: <code>value</code> % <code>with</code></p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{{</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">math.modulo</span><span class="w"> </span><span class="mi">10</span><span class="p">}}</span>
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>1
+</code></pre></div></p>
+</div>
+<h3 id="mathplus"><strong>math.plus</strong></h3>
+<div class="highlight"><pre><span></span><code>math.plus &lt;value&gt; &lt;with&gt;
+</code></pre></div>
+<h4 id="description_42">Description</h4>
+<p>Performs the addition of the input value with the <code>with</code> value</p>
+<h4 id="arguments_42">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+<li><code>with</code>: The with value to add to<code>value</code></li>
+</ul>
+<h4 id="returns_42">Returns</h4>
+<p>The results of the addition: <code>value</code> + <code>with</code></p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{{</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">math.plus</span><span class="w"> </span><span class="mi">2</span><span class="p">}}</span>
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div></p>
+</div>
+<h3 id="mathround"><strong>math.round</strong></h3>
+<div class="highlight"><pre><span></span><code>math.round &lt;value&gt; &lt;precision: 0&gt;?
+</code></pre></div>
+<h4 id="description_43">Description</h4>
+<p>Rounds a value to the nearest integer or to the specified number of fractional digits.</p>
+<h4 id="arguments_43">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+<li><code>precision</code>: The number of fractional digits in the return value. Default is 0.</li>
+</ul>
+<h4 id="returns_43">Returns</h4>
+<p>A value rounded to the nearest integer or to the specified number of fractional digits.</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{{</span><span class="w"> </span><span class="mf">4.6</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">math.round</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mf">4.3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">math.round</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="mf">4.5612</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">math.round</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+4
+4.56
+</code></pre></div></p>
+</div>
+<h3 id="mathtimes"><strong>math.times</strong></h3>
+<div class="highlight"><pre><span></span><code>math.times &lt;value&gt; &lt;with&gt;
+</code></pre></div>
+<h4 id="description_44">Description</h4>
+<p>Performs the multiplication of the input value with the <code>with</code> value</p>
+<h4 id="arguments_44">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+<li><code>with</code>: The with value to multiply to<code>value</code></li>
+</ul>
+<h4 id="returns_44">Returns</h4>
+<p>The results of the multiplication: <code>value</code> * <code>with</code></p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ 2 | math.times 3}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>6
+</code></pre></div></p>
+</div>
+<h3 id="mathuuid"><strong>math.uuid</strong></h3>
+<div class="highlight"><pre><span></span><code>math.uuid
+</code></pre></div>
+<h4 id="description_45">Description</h4>
+<p>Creates a new UUID</p>
+<h4 id="arguments_45">Arguments</h4>
+<h4 id="returns_45">Returns</h4>
+<p>The created UUID, ex. 2dc55d50-3f6c-446a-87d0-a5a4eed23269</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{{</span><span class="w"> </span><span class="nv">math</span><span class="p">.</span><span class="nv">uuid</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>1c0a4aa8-680e-4bd6-95e9-cdbec45ef057
+</code></pre></div></p>
+</div>
+<h3 id="mathrandom"><strong>math.random</strong></h3>
+<div class="highlight"><pre><span></span><code>math.random &lt;minValue&gt; &lt;maxValue&gt;
+</code></pre></div>
+<h4 id="description_46">Description</h4>
+<p>Creates a random number</p>
+<h4 id="arguments_46">Arguments</h4>
+<ul>
+<li><code>minValue</code>: The inclusive lower bound of the random number returned</li>
+<li><code>maxValue</code>: The exclusive upper bound of the random number returned. maxValue must be greater than or equal to minValue.</li>
+</ul>
+<h4 id="returns_46">Returns</h4>
+<p>A random number greater or equal to minValue and less than maxValue</p>
+<div class="admonition example">
+<p class="admonition-title">Examples</p>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ math.random 1 10 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>7
+</code></pre></div></p>
+</div>
+<hr>
+
+<h2 id="object-functions"><code>object</code> functions</h2>
+<p>Object functions available through the builtin object 'object'.</p>
+<ul>
+<li><a href="#objectdefault"><code>object.default</code></a></li>
+<li><a href="#objecteval"><code>object.eval</code></a></li>
+<li><a href="#objecteval_template"><code>object.eval_template</code></a></li>
+<li><a href="#objectformat"><code>object.format</code></a></li>
+<li><a href="#objecthas_key"><code>object.has_key</code></a></li>
+<li><a href="#objecthas_value"><code>object.has_value</code></a></li>
+<li><a href="#objectkeys"><code>object.keys</code></a></li>
+<li><a href="#objectsize"><code>object.size</code></a></li>
+<li><a href="#objecttypeof"><code>object.typeof</code></a></li>
+<li><a href="#objectkind"><code>object.kind</code></a></li>
+<li><a href="#objectvalues"><code>object.values</code></a></li>
+</ul>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objectdefault"><code>object.default</code></h3>
+<div class="highlight"><pre><span></span><code>object.default &lt;value&gt; &lt;default&gt;
+</code></pre></div>
+<h4 id="description_47">Description</h4>
+<p>The <code>default</code> value is returned if the input <code>value</code> is null or an empty string "". A string containing whitespace characters will not resolve to the default value.</p>
+<h4 id="arguments_47">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value to check if it is null or an empty string.</li>
+<li><code>default</code>: The default value to return if the input <code>value</code> is null or an empty string.</li>
+</ul>
+<h4 id="returns_47">Returns</h4>
+<p>The <code>default</code> value is returned if the input <code>value</code> is null or an empty string "", otherwise it returns <code>value</code></p>
+<h4 id="examples_2">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ undefined_var | object.default &quot;Yo&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Yo
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objecteval"><code>object.eval</code></h3>
+<div class="highlight"><pre><span></span><code>object.eval &lt;value&gt;
+</code></pre></div>
+<h4 id="description_48">Description</h4>
+<p>The evaluates a string as a scriban expression or evaluate the passed function or return the passed value.</p>
+<h4 id="arguments_48">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value, either a scriban template in a string, or an alias function or directly a value.</li>
+</ul>
+<h4 id="returns_48">Returns</h4>
+<p>The evaluation of the input value.</p>
+<h4 id="examples_3">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;1 + 2&quot; | object.eval }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objecteval_template"><code>object.eval_template</code></h3>
+<div class="highlight"><pre><span></span><code>object.eval_template &lt;value&gt;
+</code></pre></div>
+<h4 id="description_49">Description</h4>
+<p>The evaluates a string as a scriban template or evaluate the passed function or return the passed value.</p>
+<h4 id="arguments_49">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value, either a scriban template in a string, or an alias function or directly a value.</li>
+</ul>
+<h4 id="returns_49">Returns</h4>
+<p>The evaluation of the input value.</p>
+<h4 id="examples_4">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;This is a template text {{ 1 + 2 }}&quot; | object.eval_template }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>This is a template text 3
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objectformat"><code>object.format</code></h3>
+<div class="highlight"><pre><span></span><code>object.format &lt;value&gt; &lt;format&gt; &lt;culture&gt;?
+</code></pre></div>
+<h4 id="description_50">Description</h4>
+<p>Formats an object using specified format.</p>
+<h4 id="arguments_50">Arguments</h4>
+<ul>
+<li><code>value</code>: The input value</li>
+<li><code>format</code>: The format string.</li>
+<li><code>culture</code>: The culture as a string (e.g <code>en-US</code>). By default the culture from  is used</li>
+</ul>
+<h4 id="returns_50">Returns</h4>
+<h4 id="examples_5">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ 255 | object.format &quot;X4&quot; }}
+{{ 1523 | object.format &quot;N2&quot; &quot;fr-FR&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>00FF
+1 523,00
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objecthas_key"><code>object.has_key</code></h3>
+<div class="highlight"><pre><span></span><code>object.has_key &lt;value&gt; &lt;key&gt;
+</code></pre></div>
+<h4 id="description_51">Description</h4>
+<p>Checks if the specified object as the member <code>key</code></p>
+<h4 id="arguments_51">Arguments</h4>
+<ul>
+<li><code>value</code>: The input object.</li>
+<li><code>key</code>: The member name to check its existence.</li>
+</ul>
+<h4 id="returns_51">Returns</h4>
+<p><strong>true</strong> if the input object contains the member <code>key</code>; otherwise <strong>false</strong></p>
+<h4 id="examples_6">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ product | object.has_key &quot;title&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objecthas_value"><code>object.has_value</code></h3>
+<div class="highlight"><pre><span></span><code>object.has_value &lt;value&gt; &lt;key&gt;
+</code></pre></div>
+<h4 id="description_52">Description</h4>
+<p>Checks if the specified object as a value for the member <code>key</code></p>
+<h4 id="arguments_52">Arguments</h4>
+<ul>
+<li><code>value</code>: The input object.</li>
+<li><code>key</code>: The member name to check the existence of its value.</li>
+</ul>
+<h4 id="returns_52">Returns</h4>
+<p><strong>true</strong> if the input object contains the member <code>key</code> and has a value; otherwise <strong>false</strong></p>
+<h4 id="examples_7">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ product | object.has_value &quot;title&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objectkeys"><code>object.keys</code></h3>
+<div class="highlight"><pre><span></span><code>object.keys &lt;value&gt;
+</code></pre></div>
+<h4 id="description_53">Description</h4>
+<p>Gets the members/keys of the specified value object.</p>
+<h4 id="arguments_53">Arguments</h4>
+<ul>
+<li><code>value</code>: The input object.</li>
+</ul>
+<h4 id="returns_53">Returns</h4>
+<p>A list with the member names/key of the input object</p>
+<h4 id="examples_8">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ product | object.keys | array.sort }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;title&quot;, &quot;type&quot;]
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objectsize"><code>object.size</code></h3>
+<div class="highlight"><pre><span></span><code>object.size &lt;value&gt;
+</code></pre></div>
+<h4 id="description_54">Description</h4>
+<p>Returns the size of the input object.
+- If the input object is a string, it will return the length
+- If the input is a list, it will return the number of elements
+- If the input is an object, it will return the number of members</p>
+<h4 id="arguments_54">Arguments</h4>
+<ul>
+<li><code>value</code>: The input object.</li>
+</ul>
+<h4 id="returns_54">Returns</h4>
+<p>The size of the input object.</p>
+<h4 id="examples_9">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ [1, 2, 3] | object.size }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>3
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objecttypeof"><code>object.typeof</code></h3>
+<div class="highlight"><pre><span></span><code>object.typeof &lt;value&gt;
+</code></pre></div>
+<h4 id="description_55">Description</h4>
+<p>Returns string representing the type of the input object. The type can be <code>string</code>, <code>boolean</code>, <code>number</code>, <code>array</code>, <code>iterator</code> and <code>object</code></p>
+<h4 id="arguments_55">Arguments</h4>
+<ul>
+<li><code>value</code>: The input object.</li>
+</ul>
+<h4 id="returns_55">Returns</h4>
+<h4 id="examples_10">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ null | object.typeof }}
+{{ true | object.typeof }}
+{{ 1 | object.typeof }}
+{{ 1.0 | object.typeof }}
+{{ &quot;text&quot; | object.typeof }}
+{{ 1..5 | object.typeof }}
+{{ [1,2,3,4,5] | object.typeof }}
+{{ {} | object.typeof }}
+{{ object | object.typeof }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>boolean
+number
+number
+string
+iterator
+array
+object
+object
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objectkind"><code>object.kind</code></h3>
+<div class="highlight"><pre><span></span><code>object.kind &lt;value&gt;
+</code></pre></div>
+<h4 id="description_56">Description</h4>
+<p>Returns string representing the type of the input object. The type can be <code>string</code>, <code>bool</code>, <code>number</code>, <code>array</code>, <code>iterator</code> and <code>object</code></p>
+<h4 id="arguments_56">Arguments</h4>
+<ul>
+<li><code>value</code>: The input object.</li>
+</ul>
+<h4 id="returns_56">Returns</h4>
+<h4 id="examples_11">Examples</h4>
+<p>This function is newer than object.typeof and returns more detailed results about the types (e.g instead of <code>number</code>, returns <code>int</code> or <code>double</code>)</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ null | object.kind }}
+{{ true | object.kind }}
+{{ 1 | object.kind }}
+{{ 1.0 | object.kind }}
+{{ &quot;text&quot; | object.kind }}
+{{ 1..5 | object.kind }}
+{{ [1,2,3,4,5] | object.kind }}
+{{ {} | object.kind }}
+{{ object | object.kind }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>bool
+int
+double
+string
+range
+array
+object
+object
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="objectvalues"><code>object.values</code></h3>
+<div class="highlight"><pre><span></span><code>object.values &lt;value&gt;
+</code></pre></div>
+<h4 id="description_57">Description</h4>
+<p>Gets the member's values of the specified value object.</p>
+<h4 id="arguments_57">Arguments</h4>
+<ul>
+<li><code>value</code>: The input object.</li>
+</ul>
+<h4 id="returns_57">Returns</h4>
+<p>A list with the member values of the input object</p>
+<h4 id="examples_12">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ product | object.values | array.sort }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;fruit&quot;, &quot;Orange&quot;]
+</code></pre></div>
+<a href="#builtins">:top:</a></p>
+</blockquote>
+<h2 id="regex-functions"><code>regex</code> functions</h2>
+<p>Functions exposed through <code>regex</code> builtin object.</p>
+<ul>
+<li><a href="#regexescape"><code>regex.escape</code></a></li>
+<li><a href="#regexmatch"><code>regex.match</code></a></li>
+<li><a href="#regexmatches"><code>regex.matches</code></a></li>
+<li><a href="#regexreplace"><code>regex.replace</code></a></li>
+<li><a href="#regexsplit"><code>regex.split</code></a></li>
+<li><a href="#regexunescape"><code>regex.unescape</code></a></li>
+</ul>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="regexescape"><code>regex.escape</code></h3>
+<div class="highlight"><pre><span></span><code>regex.escape &lt;pattern&gt;
+</code></pre></div>
+<h4 id="description_58">Description</h4>
+<p>Escapes a minimal set of characters (<code>\</code>, <code>*</code>, <code>+</code>, <code>?</code>, <code>|</code>, <code>{</code>, <code>[</code>, <code>(</code>,<code>)</code>, <code>^</code>, <code>$</code>,<code>.</code>, <code>#</code>, and white space)
+by replacing them with their escape codes.
+This instructs the regular expression engine to interpret these characters literally rather than as metacharacters.</p>
+<h4 id="arguments_58">Arguments</h4>
+<ul>
+<li><code>pattern</code>: The input string that contains the text to convert.</li>
+</ul>
+<h4 id="returns_58">Returns</h4>
+<p>A string of characters with metacharacters converted to their escaped form.</p>
+<h4 id="examples_13">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;(abc.*)&quot; | regex.escape }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>\(abc\.\*\)
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="regexmatch"><code>regex.match</code></h3>
+<div class="highlight"><pre><span></span><code>regex.match &lt;text&gt; &lt;pattern&gt; &lt;options&gt;?
+</code></pre></div>
+<h4 id="description_59">Description</h4>
+<p>Searches an input string for a substring that matches a regular expression pattern and returns an array with the match occurences.</p>
+<h4 id="arguments_59">Arguments</h4>
+<ul>
+<li><code>text</code>: The string to search for a match.</li>
+<li><code>pattern</code>: The regular expression pattern to match.</li>
+<li><code>options</code>: A string with regex options, that can contain the following option characters (default is <code>null</code>):
+            - <code>i</code>: Specifies case-insensitive matching.
+            - <code>m</code>: Multiline mode. Changes the meaning of <code>^</code> and <code>$</code> so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string.
+            - <code>s</code>: Specifies single-line mode. Changes the meaning of the dot <code>.</code> so it matches every character (instead of every character except <code>\n</code>).
+            - <code>x</code>: Eliminates unescaped white space from the pattern and enables comments marked with <code>#</code>.</li>
+</ul>
+<h4 id="returns_59">Returns</h4>
+<p>An array that contains all the match groups. The first group contains the entire match. The other elements contain regex matched groups <code>(..)</code>. An empty array returned means no match.</p>
+<h4 id="examples_14">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;this is a text123&quot; | regex.match `(\w+) a ([a-z]+\d+)` }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;is a text123&quot;, &quot;is&quot;, &quot;text123&quot;]
+</code></pre></div>
+Notice that the first element returned in the array is the entire regex match, followed by the regex group matches.</p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="regexmatches"><code>regex.matches</code></h3>
+<div class="highlight"><pre><span></span><code>regex.matches &lt;text&gt; &lt;pattern&gt; &lt;options&gt;?
+</code></pre></div>
+<h4 id="description_60">Description</h4>
+<p>Searches an input string for multiple substrings that matches a regular expression pattern and returns an array with the match occurences.</p>
+<h4 id="arguments_60">Arguments</h4>
+<ul>
+<li><code>text</code>: The string to search for a match.</li>
+<li><code>pattern</code>: The regular expression pattern to match.</li>
+<li><code>options</code>: A string with regex options, that can contain the following option characters (default is <code>null</code>):
+            - <code>i</code>: Specifies case-insensitive matching.
+            - <code>m</code>: Multiline mode. Changes the meaning of <code>^</code> and <code>$</code> so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string.
+            - <code>s</code>: Specifies single-line mode. Changes the meaning of the dot <code>.</code> so it matches every character (instead of every character except <code>\n</code>).
+            - <code>x</code>: Eliminates unescaped white space from the pattern and enables comments marked with <code>#</code>.</li>
+</ul>
+<h4 id="returns_60">Returns</h4>
+<p>An array of matches that contains all the match groups. The first group contains the entire match. The other elements contain regex matched groups <code>(..)</code>. An empty array returned means no match.</p>
+<h4 id="examples_15">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;this is a text123&quot; | regex.matches `(\w+)` }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[[&quot;this&quot;, &quot;this&quot;], [&quot;is&quot;, &quot;is&quot;], [&quot;a&quot;, &quot;a&quot;], [&quot;text123&quot;, &quot;text123&quot;]]
+</code></pre></div>
+Notice that the first element returned in the sub array is the entire regex match, followed by the regex group matches.</p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="regexreplace"><code>regex.replace</code></h3>
+<div class="highlight"><pre><span></span><code>regex.replace &lt;text&gt; &lt;pattern&gt; &lt;replace&gt; &lt;options&gt;?
+</code></pre></div>
+<h4 id="description_61">Description</h4>
+<p>In a specified input string, replaces strings that match a regular expression pattern with a specified replacement string.</p>
+<h4 id="arguments_61">Arguments</h4>
+<ul>
+<li><code>text</code>: The string to search for a match.</li>
+<li><code>pattern</code>: The regular expression pattern to match.</li>
+<li><code>replace</code>: The replacement string.</li>
+<li><code>options</code>: A string with regex options, that can contain the following option characters (default is <code>null</code>):
+            - <code>i</code>: Specifies case-insensitive matching.
+            - <code>m</code>: Multiline mode. Changes the meaning of <code>^</code> and <code>$</code> so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string.
+            - <code>s</code>: Specifies single-line mode. Changes the meaning of the dot <code>.</code> so it matches every character (instead of every character except <code>\n</code>).
+            - <code>x</code>: Eliminates unescaped white space from the pattern and enables comments marked with <code>#</code>.</li>
+</ul>
+<h4 id="returns_61">Returns</h4>
+<p>A new string that is identical to the input string, except that the replacement string takes the place of each matched string. If pattern is not matched in the current instance, the method returns the current instance unchanged.</p>
+<h4 id="examples_16">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;abbbbcccd&quot; | regex.replace &quot;b+c+&quot; &quot;-Yo-&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>a-Yo-d
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="regexsplit"><code>regex.split</code></h3>
+<div class="highlight"><pre><span></span><code>regex.split &lt;text&gt; &lt;pattern&gt; &lt;options&gt;?
+</code></pre></div>
+<h4 id="description_62">Description</h4>
+<p>Splits an input string into an array of substrings at the positions defined by a regular expression match.</p>
+<h4 id="arguments_62">Arguments</h4>
+<ul>
+<li><code>text</code>: The string to split.</li>
+<li><code>pattern</code>: The regular expression pattern to match.</li>
+<li><code>options</code>: A string with regex options, that can contain the following option characters (default is <code>null</code>):
+            - <code>i</code>: Specifies case-insensitive matching.
+            - <code>m</code>: Multiline mode. Changes the meaning of <code>^</code> and <code>$</code> so they match at the beginning and end, respectively, of any line, and not just the beginning and end of the entire string.
+            - <code>s</code>: Specifies single-line mode. Changes the meaning of the dot <code>.</code> so it matches every character (instead of every character except <code>\n</code>).
+            - <code>x</code>: Eliminates unescaped white space from the pattern and enables comments marked with <code>#</code>.</li>
+</ul>
+<h4 id="returns_62">Returns</h4>
+<p>A string array.</p>
+<h4 id="examples_17">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;a, b   , c,    d&quot; | regex.split `\s*,\s*` }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="regexunescape"><code>regex.unescape</code></h3>
+<div class="highlight"><pre><span></span><code>regex.unescape &lt;pattern&gt;
+</code></pre></div>
+<h4 id="description_63">Description</h4>
+<p>Converts any escaped characters in the input string.</p>
+<h4 id="arguments_63">Arguments</h4>
+<ul>
+<li><code>pattern</code>: The input string containing the text to convert.</li>
+</ul>
+<h4 id="returns_63">Returns</h4>
+<p>A string of characters with any escaped characters converted to their unescaped form.</p>
+<h4 id="examples_18">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;\\(abc\\.\\*\\)&quot; | regex.unescape }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>(abc.*)
+</code></pre></div>
+<a href="#builtins">:top:</a></p>
+</blockquote>
+<h2 id="string-functions"><code>string</code> functions</h2>
+<p>String functions available through the builtin object 'string`.</p>
+<ul>
+<li><a href="#stringescape"><code>string.escape</code></a></li>
+<li><a href="#stringappend"><code>string.append</code></a></li>
+<li><a href="#stringcapitalize"><code>string.capitalize</code></a></li>
+<li><a href="#stringcapitalizewords"><code>string.capitalizewords</code></a></li>
+<li><a href="#stringcontains"><code>string.contains</code></a></li>
+<li><a href="#stringempty"><code>string.empty</code></a></li>
+<li><a href="#stringwhitespace"><code>string.whitespace</code></a></li>
+<li><a href="#stringdowncase"><code>string.downcase</code></a></li>
+<li><a href="#stringends_with"><code>string.ends_with</code></a></li>
+<li><a href="#stringhandleize"><code>string.handleize</code></a></li>
+<li><a href="#stringliteral"><code>string.literal</code></a></li>
+<li><a href="#stringlstrip"><code>string.lstrip</code></a></li>
+<li><a href="#stringpluralize"><code>string.pluralize</code></a></li>
+<li><a href="#stringprepend"><code>string.prepend</code></a></li>
+<li><a href="#stringremove"><code>string.remove</code></a></li>
+<li><a href="#stringremove_first"><code>string.remove_first</code></a></li>
+<li><a href="#stringreplace"><code>string.replace</code></a></li>
+<li><a href="#stringreplace_first"><code>string.replace_first</code></a></li>
+<li><a href="#stringrstrip"><code>string.rstrip</code></a></li>
+<li><a href="#stringsize"><code>string.size</code></a></li>
+<li><a href="#stringslice"><code>string.slice</code></a></li>
+<li><a href="#stringslice1"><code>string.slice1</code></a></li>
+<li><a href="#stringsplit"><code>string.split</code></a></li>
+<li><a href="#stringstarts_with"><code>string.starts_with</code></a></li>
+<li><a href="#stringstrip"><code>string.strip</code></a></li>
+<li><a href="#stringstrip_newlines"><code>string.strip_newlines</code></a></li>
+<li><a href="#stringto_int"><code>string.to_int</code></a></li>
+<li><a href="#stringto_long"><code>string.to_long</code></a></li>
+<li><a href="#stringto_float"><code>string.to_float</code></a></li>
+<li><a href="#stringto_double"><code>string.to_double</code></a></li>
+<li><a href="#stringtruncate"><code>string.truncate</code></a></li>
+<li><a href="#stringtruncatewords"><code>string.truncatewords</code></a></li>
+<li><a href="#stringupcase"><code>string.upcase</code></a></li>
+<li><a href="#stringmd5"><code>string.md5</code></a></li>
+<li><a href="#stringsha1"><code>string.sha1</code></a></li>
+<li><a href="#stringsha256"><code>string.sha256</code></a></li>
+<li><a href="#stringhmac_sha1"><code>string.hmac_sha1</code></a></li>
+<li><a href="#stringhmac_sha256"><code>string.hmac_sha256</code></a></li>
+<li><a href="#stringpad_left"><code>string.pad_left</code></a></li>
+<li><a href="#stringpad_right"><code>string.pad_right</code></a></li>
+<li><a href="#stringbase64_encode"><code>string.base64_encode</code></a></li>
+<li><a href="#stringbase64_decode"><code>string.base64_decode</code></a></li>
+</ul>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringescape"><code>string.escape</code></h3>
+<div class="highlight"><pre><span></span><code>string.escape &lt;text&gt;
+</code></pre></div>
+<h4 id="description_64">Description</h4>
+<p>Escapes a string with escape characters.</p>
+<h4 id="arguments_64">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_64">Returns</h4>
+<p>The two strings concatenated</p>
+<h4 id="examples_19">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;Hel\tlo\n\&quot;W\\orld&quot; | string.escape }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Hel\tlo\n\&quot;W\\orld
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringappend"><code>string.append</code></h3>
+<div class="highlight"><pre><span></span><code>string.append &lt;text&gt; &lt;with&gt;
+</code></pre></div>
+<h4 id="description_65">Description</h4>
+<p>Concatenates two strings</p>
+<h4 id="arguments_65">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>with</code>: The text to append</li>
+</ul>
+<h4 id="returns_65">Returns</h4>
+<p>The two strings concatenated</p>
+<h4 id="examples_20">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;Hello&quot; | string.append &quot; World&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Hello World
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringcapitalize"><code>string.capitalize</code></h3>
+<div class="highlight"><pre><span></span><code>string.capitalize &lt;text&gt;
+</code></pre></div>
+<h4 id="description_66">Description</h4>
+<p>Converts the first character of the passed string to a upper case character.</p>
+<h4 id="arguments_66">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_66">Returns</h4>
+<p>The capitalized input string</p>
+<h4 id="examples_21">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;test&quot; | string.capitalize }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Test
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringcapitalizewords"><code>string.capitalizewords</code></h3>
+<div class="highlight"><pre><span></span><code>string.capitalizewords &lt;text&gt;
+</code></pre></div>
+<h4 id="description_67">Description</h4>
+<p>Converts the first character of each word in the passed string to a upper case character.</p>
+<h4 id="arguments_67">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_67">Returns</h4>
+<p>The capitalized input string</p>
+<h4 id="examples_22">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;This is easy&quot; | string.capitalizewords }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>This Is Easy
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringcontains"><code>string.contains</code></h3>
+<div class="highlight"><pre><span></span><code>string.contains &lt;text&gt; &lt;value&gt;
+</code></pre></div>
+<h4 id="description_68">Description</h4>
+<p>Returns a boolean indicating whether the input string contains the specified string <code>value</code>.</p>
+<h4 id="arguments_68">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>value</code>: The string to look for</li>
+</ul>
+<h4 id="returns_68">Returns</h4>
+<p>if <code>text</code> contains the string <code>value</code></p>
+<h4 id="examples_23">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;This is easy&quot; | string.contains &quot;easy&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringempty"><code>string.empty</code></h3>
+<div class="highlight"><pre><span></span><code>string.empty &lt;text&gt;
+</code></pre></div>
+<h4 id="description_69">Description</h4>
+<p>Returns a boolean indicating whether the input string is an empty string.</p>
+<h4 id="arguments_69">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_69">Returns</h4>
+<p>if <code>text</code> is an empty string</p>
+<h4 id="examples_24">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;&quot; | string.empty }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringwhitespace"><code>string.whitespace</code></h3>
+<div class="highlight"><pre><span></span><code>string.whitespace &lt;text&gt;
+</code></pre></div>
+<h4 id="description_70">Description</h4>
+<p>Returns a boolean indicating whether the input string is empty or contains only whitespace characters.</p>
+<h4 id="arguments_70">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_70">Returns</h4>
+<p>if <code>text</code> is empty string or contains only whitespace characters</p>
+<h4 id="examples_25">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;&quot; | string.whitespace }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringdowncase"><code>string.downcase</code></h3>
+<div class="highlight"><pre><span></span><code>string.downcase &lt;text&gt;
+</code></pre></div>
+<h4 id="description_71">Description</h4>
+<p>Converts the string to lower case.</p>
+<h4 id="arguments_71">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_71">Returns</h4>
+<p>The input string lower case</p>
+<h4 id="examples_26">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;TeSt&quot; | string.downcase }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>test
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringends_with"><code>string.ends_with</code></h3>
+<div class="highlight"><pre><span></span><code>string.ends_with &lt;text&gt; &lt;value&gt;
+</code></pre></div>
+<h4 id="description_72">Description</h4>
+<p>Returns a boolean indicating whether the input string ends with the specified string <code>value</code>.</p>
+<h4 id="arguments_72">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>value</code>: The string to look for</li>
+</ul>
+<h4 id="returns_72">Returns</h4>
+<p>if <code>text</code> ends with the specified string <code>value</code></p>
+<h4 id="examples_27">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;This is easy&quot; | string.ends_with &quot;easy&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringhandleize"><code>string.handleize</code></h3>
+<div class="highlight"><pre><span></span><code>string.handleize &lt;text&gt;
+</code></pre></div>
+<h4 id="description_73">Description</h4>
+<p>Returns a url handle from the input string.</p>
+<h4 id="arguments_73">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_73">Returns</h4>
+<p>A url handle</p>
+<h4 id="examples_28">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &#39;100% M &amp; Ms!!!&#39; | string.handleize  }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>100-m-ms
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringliteral"><code>string.literal</code></h3>
+<div class="highlight"><pre><span></span><code>string.literal &lt;text&gt;
+</code></pre></div>
+<h4 id="description_74">Description</h4>
+<p>Return a string literal enclosed with double quotes of the input string.</p>
+<h4 id="arguments_74">Arguments</h4>
+<ul>
+<li><code>text</code>: The string to return a literal from.</li>
+</ul>
+<h4 id="returns_74">Returns</h4>
+<p>The literal of a string.</p>
+<h4 id="examples_29">Examples</h4>
+<p>If the input string has non printable characters or they need contain a double quote, they will be escaped.</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &#39;Hello\n&quot;World&quot;&#39; | string.literal }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>&quot;Hello\n\&quot;World\&quot;&quot;
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringlstrip"><code>string.lstrip</code></h3>
+<div class="highlight"><pre><span></span><code>string.lstrip &lt;text&gt;
+</code></pre></div>
+<h4 id="description_75">Description</h4>
+<p>Removes any whitespace characters on the <strong>left</strong> side of the input string.</p>
+<h4 id="arguments_75">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_75">Returns</h4>
+<p>The input string without any left whitespace characters</p>
+<h4 id="examples_30">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &#39;   too many spaces&#39; | string.lstrip  }}
+</code></pre></div>
+Highlight to see the empty spaces to the right of the string
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>too many spaces
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringpluralize"><code>string.pluralize</code></h3>
+<div class="highlight"><pre><span></span><code>string.pluralize &lt;number&gt; &lt;singular&gt; &lt;plural&gt;
+</code></pre></div>
+<h4 id="description_76">Description</h4>
+<p>Outputs the singular or plural version of a string based on the value of a number.</p>
+<h4 id="arguments_76">Arguments</h4>
+<ul>
+<li><code>number</code>: The number to check</li>
+<li><code>singular</code>: The singular string to return if number is == 1</li>
+<li><code>plural</code>: The plural string to return if number is != 1</li>
+</ul>
+<h4 id="returns_76">Returns</h4>
+<p>The singular or plural string based on number</p>
+<h4 id="examples_31">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ products.size }} {{products.size | string.pluralize &#39;product&#39; &#39;products&#39; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>7 products
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringprepend"><code>string.prepend</code></h3>
+<div class="highlight"><pre><span></span><code>string.prepend &lt;text&gt; &lt;by&gt;
+</code></pre></div>
+<h4 id="description_77">Description</h4>
+<p>Concatenates two strings by placing the <code>by</code> string in from of the <code>text</code> string</p>
+<h4 id="arguments_77">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>by</code>: The string to prepend to <code>text</code></li>
+</ul>
+<h4 id="returns_77">Returns</h4>
+<p>The two strings concatenated</p>
+<h4 id="examples_32">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;World&quot; | string.prepend &quot;Hello &quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Hello World
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringremove"><code>string.remove</code></h3>
+<div class="highlight"><pre><span></span><code>string.remove &lt;text&gt; &lt;remove&gt;
+</code></pre></div>
+<h4 id="description_78">Description</h4>
+<p>Removes all occurrences of a substring from a string.</p>
+<h4 id="arguments_78">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>remove</code>: The substring to remove from the <code>text</code> string</li>
+</ul>
+<h4 id="returns_78">Returns</h4>
+<p>The input string with the all occurence of a substring removed</p>
+<h4 id="examples_33">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;Hello, world. Goodbye, world.&quot; | string.remove &quot;world&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Hello, . Goodbye, .
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringremove_first"><code>string.remove_first</code></h3>
+<div class="highlight"><pre><span></span><code>string.remove_first &lt;text&gt; &lt;remove&gt;
+</code></pre></div>
+<h4 id="description_79">Description</h4>
+<p>Removes the first occurrence of a substring from a string.</p>
+<h4 id="arguments_79">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>remove</code>: The first occurence of substring to remove from the <code>text</code> string</li>
+</ul>
+<h4 id="returns_79">Returns</h4>
+<p>The input string with the first occurence of a substring removed</p>
+<h4 id="examples_34">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;Hello, world. Goodbye, world.&quot; | string.remove_first &quot;world&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Hello, . Goodbye, world.
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringreplace"><code>string.replace</code></h3>
+<div class="highlight"><pre><span></span><code>string.replace &lt;text&gt; &lt;match&gt; &lt;replace&gt;
+</code></pre></div>
+<h4 id="description_80">Description</h4>
+<p>Replaces all occurrences of a string with a substring.</p>
+<h4 id="arguments_80">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>match</code>: The substring to find in the <code>text</code> string</li>
+<li><code>replace</code>: The substring used to replace the string matched by <code>match</code> in the input <code>text</code></li>
+</ul>
+<h4 id="returns_80">Returns</h4>
+<p>The input string replaced</p>
+<h4 id="examples_35">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;Hello, world. Goodbye, world.&quot; | string.replace &quot;world&quot; &quot;buddy&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Hello, buddy. Goodbye, buddy.
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringreplace_first"><code>string.replace_first</code></h3>
+<div class="highlight"><pre><span></span><code>string.replace_first &lt;text&gt; &lt;match&gt; &lt;replace&gt;
+</code></pre></div>
+<h4 id="description_81">Description</h4>
+<p>Replaces the first occurrence of a string with a substring.</p>
+<h4 id="arguments_81">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>match</code>: The substring to find in the <code>text</code> string</li>
+<li><code>replace</code>: The substring used to replace the string matched by <code>match</code> in the input <code>text</code></li>
+</ul>
+<h4 id="returns_81">Returns</h4>
+<p>The input string replaced</p>
+<h4 id="examples_36">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;Hello, world. Goodbye, world.&quot; | string.replace_first &quot;world&quot; &quot;buddy&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Hello, buddy. Goodbye, world.
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringrstrip"><code>string.rstrip</code></h3>
+<div class="highlight"><pre><span></span><code>string.rstrip &lt;text&gt;
+</code></pre></div>
+<h4 id="description_82">Description</h4>
+<p>Removes any whitespace characters on the <strong>right</strong> side of the input string.</p>
+<h4 id="arguments_82">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_82">Returns</h4>
+<p>The input string without any left whitespace characters</p>
+<h4 id="examples_37">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &#39;   too many spaces           &#39; | string.rstrip  }}
+</code></pre></div>
+Highlight to see the empty spaces to the right of the string
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>   too many spaces
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringsize"><code>string.size</code></h3>
+<div class="highlight"><pre><span></span><code>string.size &lt;text&gt;
+</code></pre></div>
+<h4 id="description_83">Description</h4>
+<p>Returns the number of characters from the input string</p>
+<h4 id="arguments_83">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_83">Returns</h4>
+<p>The length of the input string</p>
+<h4 id="examples_38">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;test&quot; | string.size }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>4
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringslice"><code>string.slice</code></h3>
+<div class="highlight"><pre><span></span><code>string.slice &lt;text&gt; &lt;start&gt; &lt;length&gt;?
+</code></pre></div>
+<h4 id="description_84">Description</h4>
+<p>The slice returns a substring, starting at the specified index. An optional second parameter can be passed to specify the length of the substring.
+If no second parameter is given, a substring with the remaining characters will be returned.</p>
+<h4 id="arguments_84">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>start</code>: The starting index character where the slice should start from the input <code>text</code> string</li>
+<li><code>length</code>: The number of character. Default is 0, meaning that the remaining of the string will be returned.</li>
+</ul>
+<h4 id="returns_84">Returns</h4>
+<p>The input string sliced</p>
+<h4 id="examples_39">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;hello&quot; | string.slice 0 }}
+{{ &quot;hello&quot; | string.slice 1 }}
+{{ &quot;hello&quot; | string.slice 1 3 }}
+{{ &quot;hello&quot; | string.slice 1 length:3 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>hello
+ello
+ell
+ell
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringslice1"><code>string.slice1</code></h3>
+<div class="highlight"><pre><span></span><code>string.slice1 &lt;text&gt; &lt;start&gt; &lt;length: 1&gt;?
+</code></pre></div>
+<h4 id="description_85">Description</h4>
+<p>The slice returns a substring, starting at the specified index. An optional second parameter can be passed to specify the length of the substring.
+If no second parameter is given, a substring with the first character will be returned.</p>
+<h4 id="arguments_85">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>start</code>: The starting index character where the slice should start from the input <code>text</code> string</li>
+<li><code>length</code>: The number of character. Default is 1, meaning that only the first character at <code>start</code> position will be returned.</li>
+</ul>
+<h4 id="returns_85">Returns</h4>
+<p>The input string sliced</p>
+<h4 id="examples_40">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;hello&quot; | string.slice1 0 }}
+{{ &quot;hello&quot; | string.slice1 1 }}
+{{ &quot;hello&quot; | string.slice1 1 3 }}
+{{ &quot;hello&quot; | string.slice1 1 length: 3 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>h
+e
+ell
+ell
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringsplit"><code>string.split</code></h3>
+<div class="highlight"><pre><span></span><code>string.split &lt;text&gt; &lt;match&gt;
+</code></pre></div>
+<h4 id="description_86">Description</h4>
+<p>The <code>split</code> function takes on a substring as a parameter.
+The substring is used as a delimiter to divide a string into an array. You can output different parts of an array using <code>array</code> functions.</p>
+<h4 id="arguments_86">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>match</code>: The string used to split the input <code>text</code> string</li>
+</ul>
+<h4 id="returns_86">Returns</h4>
+<p>An enumeration of the substrings</p>
+<h4 id="examples_41">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ for word in &quot;Hi, how are you today?&quot; | string.split &#39; &#39; ~}}
+{{ word }}
+{{ end ~}}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>Hi,
+how
+are
+you
+today?
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringstarts_with"><code>string.starts_with</code></h3>
+<div class="highlight"><pre><span></span><code>string.starts_with &lt;text&gt; &lt;value&gt;
+</code></pre></div>
+<h4 id="description_87">Description</h4>
+<p>Returns a boolean indicating whether the input string starts with the specified string <code>value</code>.</p>
+<h4 id="arguments_87">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>value</code>: The string to look for</li>
+</ul>
+<h4 id="returns_87">Returns</h4>
+<p>if <code>text</code> starts with the specified string <code>value</code></p>
+<h4 id="examples_42">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;This is easy&quot; | string.starts_with &quot;This&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringstrip"><code>string.strip</code></h3>
+<div class="highlight"><pre><span></span><code>string.strip &lt;text&gt;
+</code></pre></div>
+<h4 id="description_88">Description</h4>
+<p>Removes any whitespace characters on the <strong>left</strong> and <strong>right</strong> side of the input string.</p>
+<h4 id="arguments_88">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_88">Returns</h4>
+<p>The input string without any left and right whitespace characters</p>
+<h4 id="examples_43">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &#39;   too many spaces           &#39; | string.strip  }}
+</code></pre></div>
+Highlight to see the empty spaces to the right of the string
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>too many spaces
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringstrip_newlines"><code>string.strip_newlines</code></h3>
+<div class="highlight"><pre><span></span><code>string.strip_newlines &lt;text&gt;
+</code></pre></div>
+<h4 id="description_89">Description</h4>
+<p>Removes any line breaks/newlines from a string.</p>
+<h4 id="arguments_89">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_89">Returns</h4>
+<p>The input string without any breaks/newlines characters</p>
+<h4 id="examples_44">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;This is a string.\r\n With \nanother \rstring&quot; | string.strip_newlines  }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>This is a string. With another string
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringto_int"><code>string.to_int</code></h3>
+<div class="highlight"><pre><span></span><code>string.to_int &lt;text&gt;
+</code></pre></div>
+<h4 id="description_90">Description</h4>
+<p>Converts a string to an integer</p>
+<h4 id="arguments_90">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_90">Returns</h4>
+<p>A 32 bit integer or null if conversion failed</p>
+<h4 id="examples_45">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;123&quot; | string.to_int + 1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>124
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringto_long"><code>string.to_long</code></h3>
+<div class="highlight"><pre><span></span><code>string.to_long &lt;text&gt;
+</code></pre></div>
+<h4 id="description_91">Description</h4>
+<p>Converts a string to a long 64 bit integer</p>
+<h4 id="arguments_91">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_91">Returns</h4>
+<p>A 64 bit integer or null if conversion failed</p>
+<h4 id="examples_46">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;123678912345678&quot; | string.to_long + 1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>123678912345679
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringto_float"><code>string.to_float</code></h3>
+<div class="highlight"><pre><span></span><code>string.to_float &lt;text&gt;
+</code></pre></div>
+<h4 id="description_92">Description</h4>
+<p>Converts a string to a float</p>
+<h4 id="arguments_92">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_92">Returns</h4>
+<p>A 32 bit float or null if conversion failed</p>
+<h4 id="examples_47">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;123.4&quot; | string.to_float + 1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>124.4
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringto_double"><code>string.to_double</code></h3>
+<div class="highlight"><pre><span></span><code>string.to_double &lt;text&gt;
+</code></pre></div>
+<h4 id="description_93">Description</h4>
+<p>Converts a string to a double</p>
+<h4 id="arguments_93">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_93">Returns</h4>
+<p>A 64 bit float or null if conversion failed</p>
+<h4 id="examples_48">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;123.4&quot; | string.to_double + 1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>124.4
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringtruncate"><code>string.truncate</code></h3>
+<div class="highlight"><pre><span></span><code>string.truncate &lt;text&gt; &lt;length&gt; &lt;ellipsis&gt;?
+</code></pre></div>
+<h4 id="description_94">Description</h4>
+<p>Truncates a string down to the number of characters passed as the first parameter.
+An ellipsis (...) is appended to the truncated string and is included in the character count</p>
+<h4 id="arguments_94">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>length</code>: The maximum length of the output string, including the length of the <code>ellipsis</code></li>
+<li><code>ellipsis</code>: The ellipsis to append to the end of the truncated string</li>
+</ul>
+<h4 id="returns_94">Returns</h4>
+<p>The truncated input string</p>
+<h4 id="examples_49">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;The cat came back the very next day&quot; | string.truncate 13 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>The cat ca...
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringtruncatewords"><code>string.truncatewords</code></h3>
+<div class="highlight"><pre><span></span><code>string.truncatewords &lt;text&gt; &lt;count&gt; &lt;ellipsis&gt;?
+</code></pre></div>
+<h4 id="description_95">Description</h4>
+<p>Truncates a string down to the number of words passed as the first parameter.
+An ellipsis (...) is appended to the truncated string.</p>
+<h4 id="arguments_95">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>count</code>: The number of words to keep from the input <code>text</code> string before appending the <code>ellipsis</code></li>
+<li><code>ellipsis</code>: The ellipsis to append to the end of the truncated string</li>
+</ul>
+<h4 id="returns_95">Returns</h4>
+<p>The truncated input string</p>
+<h4 id="examples_50">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;The cat came back the very next day&quot; | string.truncatewords 4 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>The cat came back...
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringupcase"><code>string.upcase</code></h3>
+<div class="highlight"><pre><span></span><code>string.upcase &lt;text&gt;
+</code></pre></div>
+<h4 id="description_96">Description</h4>
+<p>Converts the string to uppercase</p>
+<h4 id="arguments_96">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_96">Returns</h4>
+<p>The input string upper case</p>
+<h4 id="examples_51">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;test&quot; | string.upcase }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>TEST
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringmd5"><code>string.md5</code></h3>
+<div class="highlight"><pre><span></span><code>string.md5 &lt;text&gt;
+</code></pre></div>
+<h4 id="description_97">Description</h4>
+<p>Computes the <code>md5</code> hash of the input string</p>
+<h4 id="arguments_97">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_97">Returns</h4>
+<p>The <code>md5</code> hash of the input string</p>
+<h4 id="examples_52">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;test&quot; | string.md5 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>098f6bcd4621d373cade4e832627b4f6
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringsha1"><code>string.sha1</code></h3>
+<div class="highlight"><pre><span></span><code>string.sha1 &lt;text&gt;
+</code></pre></div>
+<h4 id="description_98">Description</h4>
+<p>Computes the <code>sha1</code> hash of the input string</p>
+<h4 id="arguments_98">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_98">Returns</h4>
+<p>The <code>sha1</code> hash of the input string</p>
+<h4 id="examples_53">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;test&quot; | string.sha1 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>a94a8fe5ccb19ba61c4c0873d391e987982fbbd3
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringsha256"><code>string.sha256</code></h3>
+<div class="highlight"><pre><span></span><code>string.sha256 &lt;text&gt;
+</code></pre></div>
+<h4 id="description_99">Description</h4>
+<p>Computes the <code>sha256</code> hash of the input string</p>
+<h4 id="arguments_99">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+</ul>
+<h4 id="returns_99">Returns</h4>
+<p>The <code>sha256</code> hash of the input string</p>
+<h4 id="examples_54">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;test&quot; | string.sha256 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringhmac_sha1"><code>string.hmac_sha1</code></h3>
+<div class="highlight"><pre><span></span><code>string.hmac_sha1 &lt;text&gt; &lt;secretKey&gt;
+</code></pre></div>
+<h4 id="description_100">Description</h4>
+<p>Converts a string into a SHA-1 hash using a hash message authentication code (HMAC). Pass the secret key for the message as a parameter to the function.</p>
+<h4 id="arguments_100">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>secretKey</code>: The secret key</li>
+</ul>
+<h4 id="returns_100">Returns</h4>
+<p>The <code>SHA-1</code> hash of the input string using a hash message authentication code (HMAC)</p>
+<h4 id="examples_55">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;test&quot; | string.hmac_sha1 &quot;secret&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>1aa349585ed7ecbd3b9c486a30067e395ca4b356
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringhmac_sha256"><code>string.hmac_sha256</code></h3>
+<div class="highlight"><pre><span></span><code>string.hmac_sha256 &lt;text&gt; &lt;secretKey&gt;
+</code></pre></div>
+<h4 id="description_101">Description</h4>
+<p>Converts a string into a SHA-256 hash using a hash message authentication code (HMAC). Pass the secret key for the message as a parameter to the function.</p>
+<h4 id="arguments_101">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>secretKey</code>: The secret key</li>
+</ul>
+<h4 id="returns_101">Returns</h4>
+<p>The <code>SHA-256</code> hash of the input string using a hash message authentication code (HMAC)</p>
+<h4 id="examples_56">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;test&quot; | string.hmac_sha256 &quot;secret&quot; }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>0329a06b62cd16b33eb6792be8c60b158d89a2ee3a876fce9a881ebb488c0914
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringpad_left"><code>string.pad_left</code></h3>
+<div class="highlight"><pre><span></span><code>string.pad_left &lt;text&gt; &lt;width&gt;
+</code></pre></div>
+<h4 id="description_102">Description</h4>
+<p>Pads a string with leading spaces to a specified total length.</p>
+<h4 id="arguments_102">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>width</code>: The number of characters in the resulting string</li>
+</ul>
+<h4 id="returns_102">Returns</h4>
+<p>The input string padded</p>
+<h4 id="examples_57">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>hello{{ &quot;world&quot; | string.pad_left 10 }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>hello     world
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringpad_right"><code>string.pad_right</code></h3>
+<div class="highlight"><pre><span></span><code>string.pad_right &lt;text&gt; &lt;width&gt;
+</code></pre></div>
+<h4 id="description_103">Description</h4>
+<p>Pads a string with trailing spaces to a specified total length.</p>
+<h4 id="arguments_103">Arguments</h4>
+<ul>
+<li><code>text</code>: The input string</li>
+<li><code>width</code>: The number of characters in the resulting string</li>
+</ul>
+<h4 id="returns_103">Returns</h4>
+<p>The input string padded</p>
+<h4 id="examples_58">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;hello&quot; | string.pad_right 10 }}world
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>hello     world
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringbase64_encode"><code>string.base64_encode</code></h3>
+<div class="highlight"><pre><span></span><code>string.base64_encode &lt;text&gt;
+</code></pre></div>
+<h4 id="description_104">Description</h4>
+<p>Encodes a string to its Base64 representation.
+Its character encoded will be UTF-8.</p>
+<h4 id="arguments_104">Arguments</h4>
+<ul>
+<li><code>text</code>: The string to encode</li>
+</ul>
+<h4 id="returns_104">Returns</h4>
+<p>The encoded string</p>
+<h4 id="examples_59">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;hello&quot; | string.base64_encode }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>aGVsbG8=
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="stringbase64_decode"><code>string.base64_decode</code></h3>
+<div class="highlight"><pre><span></span><code>string.base64_decode &lt;text&gt;
+</code></pre></div>
+<h4 id="description_105">Description</h4>
+<p>Decodes a Base64-encoded string to a byte array.
+he encoding of the bytes is assumed to be UTF-8.</p>
+<h4 id="arguments_105">Arguments</h4>
+<ul>
+<li><code>text</code>: The string to decode</li>
+</ul>
+<h4 id="returns_105">Returns</h4>
+<p>The decoded string</p>
+<h4 id="examples_60">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ &quot;aGVsbG8=&quot; | string.base64_decode }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>hello
+</code></pre></div>
+<a href="#builtins">:top:</a></p>
+</blockquote>
+<h2 id="timespan-functions"><code>timespan</code> functions</h2>
+<p>A timespan object represents a time interval.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.days</code></td>
+<td>Gets the number of days of this interval</td>
+</tr>
+<tr>
+<td><code>.hours</code></td>
+<td>Gets the number of hours of this interval</td>
+</tr>
+<tr>
+<td><code>.minutes</code></td>
+<td>Gets the number of minutes of this interval</td>
+</tr>
+<tr>
+<td><code>.seconds</code></td>
+<td>Gets the number of seconds of this interval</td>
+</tr>
+<tr>
+<td><code>.milliseconds</code></td>
+<td>Gets the number of milliseconds of this interval</td>
+</tr>
+<tr>
+<td><code>.total_days</code></td>
+<td>Gets the total number of days in fractional part</td>
+</tr>
+<tr>
+<td><code>.total_hours</code></td>
+<td>Gets the total number of hours in fractional part</td>
+</tr>
+<tr>
+<td><code>.total_minutes</code></td>
+<td>Gets the total number of minutes in fractional part</td>
+</tr>
+<tr>
+<td><code>.total_seconds</code></td>
+<td>Gets the total number of seconds  in fractional part</td>
+</tr>
+<tr>
+<td><code>.total_milliseconds</code></td>
+<td>Gets the total number of milliseconds  in fractional part</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="#timespanfrom_days"><code>timespan.from_days</code></a></li>
+<li><a href="#timespanfrom_hours"><code>timespan.from_hours</code></a></li>
+<li><a href="#timespanfrom_minutes"><code>timespan.from_minutes</code></a></li>
+<li><a href="#timespanfrom_seconds"><code>timespan.from_seconds</code></a></li>
+<li><a href="#timespanfrom_milliseconds"><code>timespan.from_milliseconds</code></a></li>
+<li><a href="#timespanparse"><code>timespan.parse</code></a></li>
+</ul>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="timespanfrom_days"><code>timespan.from_days</code></h3>
+<div class="highlight"><pre><span></span><code>timespan.from_days &lt;days&gt;
+</code></pre></div>
+<h4 id="description_106">Description</h4>
+<p>Returns a timespan object that represents a <code>days</code> interval</p>
+<h4 id="arguments_106">Arguments</h4>
+<ul>
+<li><code>days</code>: The days.</li>
+</ul>
+<h4 id="returns_106">Returns</h4>
+<p>A timespan object</p>
+<h4 id="examples_61">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ (timespan.from_days 5).days }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="timespanfrom_hours"><code>timespan.from_hours</code></h3>
+<div class="highlight"><pre><span></span><code>timespan.from_hours &lt;hours&gt;
+</code></pre></div>
+<h4 id="description_107">Description</h4>
+<p>Returns a timespan object that represents a <code>hours</code> interval</p>
+<h4 id="arguments_107">Arguments</h4>
+<ul>
+<li><code>hours</code>: The hours.</li>
+</ul>
+<h4 id="returns_107">Returns</h4>
+<p>A timespan object</p>
+<h4 id="examples_62">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ (timespan.from_hours 5).hours }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="timespanfrom_minutes"><code>timespan.from_minutes</code></h3>
+<div class="highlight"><pre><span></span><code>timespan.from_minutes &lt;minutes&gt;
+</code></pre></div>
+<h4 id="description_108">Description</h4>
+<p>Returns a timespan object that represents a <code>minutes</code> interval</p>
+<h4 id="arguments_108">Arguments</h4>
+<ul>
+<li><code>minutes</code>: The minutes.</li>
+</ul>
+<h4 id="returns_108">Returns</h4>
+<p>A timespan object</p>
+<h4 id="examples_63">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ (timespan.from_minutes 5).minutes }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="timespanfrom_seconds"><code>timespan.from_seconds</code></h3>
+<div class="highlight"><pre><span></span><code>timespan.from_seconds &lt;seconds&gt;
+</code></pre></div>
+<h4 id="description_109">Description</h4>
+<p>Returns a timespan object that represents a <code>seconds</code> interval</p>
+<h4 id="arguments_109">Arguments</h4>
+<ul>
+<li><code>seconds</code>: The seconds.</li>
+</ul>
+<h4 id="returns_109">Returns</h4>
+<p>A timespan object</p>
+<h4 id="examples_64">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ (timespan.from_seconds 5).seconds }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="timespanfrom_milliseconds"><code>timespan.from_milliseconds</code></h3>
+<div class="highlight"><pre><span></span><code>timespan.from_milliseconds &lt;millis&gt;
+</code></pre></div>
+<h4 id="description_110">Description</h4>
+<p>Returns a timespan object that represents a <code>milliseconds</code> interval</p>
+<h4 id="arguments_110">Arguments</h4>
+<ul>
+<li><code>millis</code>: The milliseconds.</li>
+</ul>
+<h4 id="returns_110">Returns</h4>
+<p>A timespan object</p>
+<h4 id="examples_65">Examples</h4>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ (timespan.from_milliseconds 5).milliseconds }}
+</code></pre></div>
+<strong>output</strong>
+<div class="highlight"><pre><span></span><code>5
+</code></pre></div></p>
+</blockquote>
+<p><a href="#builtins">:top:</a></p>
+<h3 id="timespanparse"><code>timespan.parse</code></h3>
+<div class="highlight"><pre><span></span><code>timespan.parse &lt;text&gt;
+</code></pre></div>
+<h4 id="description_111">Description</h4>
+<p>Parses the specified input string into a timespan object.</p>
+<h4 id="arguments_111">Arguments</h4>
+<ul>
+<li><code>text</code>: A timespan text</li>
+</ul>
+<h4 id="returns_111">Returns</h4>
+<p>A timespan object parsed from timespan</p>
+<h4 id="examples_66">Examples</h4>
+<blockquote>
+<p>Note: This document was automatically generated from the sourcecode using <code>Scriban.DocGen</code> program</p>
+</blockquote>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../benchmarks/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Benchmarks
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../language/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Language
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>

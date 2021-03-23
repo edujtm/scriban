@@ -1,0 +1,776 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>Benchmarks - Scriban Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#benchmarks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Scriban Docs" class="md-header__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Scriban Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Benchmarks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Documentation
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Benchmarks
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../builtins/" class="md-tabs__link">
+      Builtins
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../language/" class="md-tabs__link">
+      Language
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../liquid-support/" class="md-tabs__link">
+      Liquid Support
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../runtime/" class="md-tabs__link">
+      Runtime
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Scriban Docs" class="md-nav__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    Scriban Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Benchmarks
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Benchmarks
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overall-results" class="md-nav__link">
+    Overall results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parser-benchmarks" class="md-nav__link">
+    Parser Benchmarks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-benchmarks" class="md-nav__link">
+    Rendering Benchmarks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../builtins/" class="md-nav__link">
+        Builtins
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../language/" class="md-nav__link">
+        Language
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../liquid-support/" class="md-nav__link">
+        Liquid Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtime/" class="md-nav__link">
+        Runtime
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overall-results" class="md-nav__link">
+    Overall results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parser-benchmarks" class="md-nav__link">
+    Parser Benchmarks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-benchmarks" class="md-nav__link">
+    Rendering Benchmarks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/scriban/scriban/edit/master/docs/benchmarks.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="benchmarks">Benchmarks</h1>
+<p>Latest benchmark update: 07 March 2019</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a micro benchmark, so results may vary vastly on use cases. The goal here is to demonstrate on a very simple example how the different engines behave
+Also, while Scriban is compared here to <code>liquid</code> and <code>mustache</code> like templating engines, you should  keep in mind that language-wise, Scriban is allowing a lot more language constructions/expressions.</p>
+</div>
+<p>The benchmark was performed on two aspects of the libraries:</p>
+<ul>
+<li>The <a href="#parser-benchmarks"><strong>Parser Benchmark</strong></a>: How long does it take to parse a template to a runtime representation? How much memory is used?</li>
+<li>The <a href="#rendering-benchmarks"><strong>Rendering Benchmark</strong></a>: How long does it take to render a template with some input datas? How much memory is used?</li>
+</ul>
+<p>Libraries used in this comparison:</p>
+<ul>
+<li>Scriban (2.0.0-alpha-006), Syntax: Scriban</li>
+<li><a href="https://github.com/sebastienros/fluid/">Fluid</a> (Fluid.Core.1.0.0-beta-9545), Syntax: Liquid based</li>
+<li><a href="https://github.com/dotliquid/dotliquid">DotLiquid</a> (2.0.298), Syntax: Liquid based</li>
+<li><a href="https://github.com/StubbleOrg/Stubble">Stubble</a> (1.2.7), Syntax: Mustache+ based</li>
+<li><a href="https://github.com/jdiamond/Nustache">Nustache</a> (1.16.0.8), Syntax: Mustache based</li>
+<li><a href="https://github.com/rexm/Handlebars.Net">Handlebars.NET</a> (1.9.5), Syntax: Handlebars based</li>
+<li><a href="https://github.com/r3c/cottle">Cottle</a> (1.4.2), Syntax: Cottle</li>
+</ul>
+<p>We are also adding <a href="https://github.com/aspnet/Razor">Razor</a> (2.0.0), Syntax: Razor/C#, not in the charts and in the raw results. This is not a relevant comparison for the fact that it a not a "end-user" text templating engine (not safe) but it gives some insights about the best raw performance you can achieve with it for the rendering part, as it is generating very raw pre-compiler C# code that is basically issuing a bunch of <code>WriteLiteral(text_as_is)</code>, so you can't really do better here in terms of performance.</p>
+<p>For benchmarking, we are using the fantastic <a href="https://github.com/dotnet/BenchmarkDotNet">BenchmarkDotNet</a></p>
+<p>See the <a href="../src/Scriban.Benchmarks/Program.cs">Scriban.Benchmark/Program.cs</a> for details of the benchmark implementation.</p>
+<h2 id="overall-results">Overall results</h2>
+<p>For the parser part:</p>
+<ul>
+<li><strong>Scriban parser is 3x to 6x times</strong> faster compared to liquid based templating parsers</li>
+<li><strong>Scriban parser takes 3x to 40x times less memory</strong> compared to other templating parsers</li>
+</ul>
+<p>If you look at Razor (which is again, not really fair), <code>scriban</code> is roughly 1000x times faster than Razor for parsing a template. Which is perfectly normal, as Razor is involving the full Roslyn/C# compiler here. It is taking a lot more memory...etc. But it is generating an ultra efficient renderer.</p>
+<p>For the rendering part:</p>
+<ul>
+<li><strong>Scriban is 1.2x to x14 times faster</strong> than most of the other templating engines (Note that the new version of Fluid in this test is now 5-8% faster than Scriban on the rendering side)</li>
+<li><strong>Scriban takes 3x to x65 times less memory</strong> compared to most of other templating engines</li>
+</ul>
+<p>In comparison to Razor, <code>scriban</code> is only 4-5 times slower than Razor, which is fairly honorable, considering how much raw is a compiled Razor template.</p>
+<p>In the following sections, you will find benchmark details.</p>
+<h2 id="parser-benchmarks">Parser Benchmarks</h2>
+<p>The methodology is to compile the following Scriban script:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;products&#39;</span><span class="p">&gt;</span>
+  {{ for product in products }}
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ product.name }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+           Only {{ product.price }}
+           {{ product.description | string.truncate 15 }}
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  {{ end }}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Or the equivalent Liquid script</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;products&#39;</span><span class="p">&gt;</span>
+  {% for product in products %}
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ product.name }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+           Only {{ product.price }}
+           {{ product.description | truncate: 15 }}
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  {% endfor %}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Or the pseudo-equivalent Mustache script:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;products&#39;</span><span class="p">&gt;</span>
+  {{#products}}
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{{ name }}<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+           Only {{ price }}
+           {{#truncate}}{{description}}{{/truncate}}
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  {{/products}}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Or the pseudo-equivalent Cottle script:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;products&#39;</span><span class="p">&gt;</span>
+  { for product in products:
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>{ product.Name }<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+           Only { product.Price }
+           { string.truncate(product.Description, 15) }
+    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  }
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>The raw results of the benchmarks are:</p>
+<div class="highlight"><pre><span></span><code>// * Summary *
+
+BenchmarkDotNet=v0.11.4, OS=Windows 10.0.17134.590 (1803/April2018Update/Redstone4)
+Intel Core i7-7700K CPU 4.20GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores
+  [Host]     : .NET Framework 4.7.2 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3324.0
+  DefaultJob : .NET Framework 4.7.2 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3324.0
+
+
+|                    Method |         Mean |       Error |      StdDev | Gen 0/1k Op | Gen 1/1k Op | Gen 2/1k Op | Allocated Memory/Op |
+|-------------------------- |-------------:|------------:|------------:|------------:|------------:|------------:|--------------------:|
+|        &#39;Scriban - Parser&#39; |     10.20 us |   0.0327 us |   0.0306 us |      1.0376 |           - |           - |             4.29 KB |
+|      &#39;DotLiquid - Parser&#39; |     66.33 us |   0.3275 us |   0.2903 us |      3.7842 |           - |           - |            15.55 KB |
+|        &#39;Stubble - Parser&#39; |     14.21 us |   0.0864 us |   0.0721 us |      2.7618 |           - |           - |            11.37 KB |
+|       &#39;Nustache - Parser&#39; |     46.97 us |   0.4216 us |   0.3291 us |      6.5308 |           - |           - |            26.87 KB |
+| &#39;Handlebars.NET - Parser&#39; |  1,645.16 us |   9.5167 us |   8.4363 us |     60.5469 |      1.9531 |           - |           254.46 KB |
+|         &#39;Cottle - Parser&#39; |     11.20 us |   0.1197 us |   0.1000 us |      2.8229 |           - |           - |            11.57 KB |
+|          &#39;Fluid - Parser&#39; |     27.74 us |   0.5366 us |   0.7164 us |      7.0190 |           - |           - |            28.94 KB |
+|          &#39;Razor - Parser&#39; | 13,338.41 us | 264.8221 us | 644.6136 us |           - |           - |           - |          3725.36 KB |
+</code></pre></div>
+<p>About the results, we couldn't include Handlebars.NET in the following chart, as it is compiling to IL so it takes a lot more time to compile a template.</p>
+<p><img alt="BenchMark Parser Time and Memory" src="../img/benchmark-parsing.png" /></p>
+<h2 id="rendering-benchmarks">Rendering Benchmarks</h2>
+<p>The methodology is to use the previously compiled script and use it with a list of 500 Products to output a final string</p>
+<div class="highlight"><pre><span></span><code>BenchmarkDotNet=v0.11.4, OS=Windows 10.0.17134.590 (1803/April2018Update/Redstone4)                                     
+Intel Core i7-7700K CPU 4.20GHz (Kaby Lake), 1 CPU, 8 logical and 4 physical cores                                      
+  [Host]     : .NET Framework 4.7.2 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3324.0                                     
+  DefaultJob : .NET Framework 4.7.2 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3324.0                                     
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th align="right">Mean</th>
+<th align="right">Error</th>
+<th align="right">StdDev</th>
+<th align="right">Gen 0/1k Op</th>
+<th align="right">Gen 1/1k Op</th>
+<th align="right">Gen 2/1k Op</th>
+<th align="right">Allocated Memory/Op</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scriban</td>
+<td align="right">992.7 us</td>
+<td align="right">4.068 us</td>
+<td align="right">3.805 us</td>
+<td align="right">44.9219</td>
+<td align="right">17.5781</td>
+<td align="right">17.5781</td>
+<td align="right">213.04 KB</td>
+</tr>
+<tr>
+<td>ScribanAsync</td>
+<td align="right">4,268.2 us</td>
+<td align="right">18.446 us</td>
+<td align="right">16.352 us</td>
+<td align="right">23.4375</td>
+<td align="right">-</td>
+<td align="right">-</td>
+<td align="right">212.93 KB</td>
+</tr>
+<tr>
+<td>DotLiquid</td>
+<td align="right">7,775.8 us</td>
+<td align="right">22.148 us</td>
+<td align="right">18.494 us</td>
+<td align="right">953.1250</td>
+<td align="right">93.7500</td>
+<td align="right">-</td>
+<td align="right">4050.74 KB</td>
+</tr>
+<tr>
+<td>Stubble</td>
+<td align="right">5,014.9 us</td>
+<td align="right">19.147 us</td>
+<td align="right">17.910 us</td>
+<td align="right">656.2500</td>
+<td align="right">-</td>
+<td align="right">-</td>
+<td align="right">2796.59 KB</td>
+</tr>
+<tr>
+<td>Nustache</td>
+<td align="right">22,360.3 us</td>
+<td align="right">216.415 us</td>
+<td align="right">202.435 us</td>
+<td align="right">5562.5000</td>
+<td align="right">-</td>
+<td align="right">-</td>
+<td align="right">22964.2 KB</td>
+</tr>
+<tr>
+<td>Handlebars</td>
+<td align="right">3,060.3 us</td>
+<td align="right">24.703 us</td>
+<td align="right">23.107 us</td>
+<td align="right">277.3438</td>
+<td align="right">31.2500</td>
+<td align="right">11.7188</td>
+<td align="right">1188.8 KB</td>
+</tr>
+<tr>
+<td>Cottle</td>
+<td align="right">2,039.5 us</td>
+<td align="right">11.350 us</td>
+<td align="right">10.617 us</td>
+<td align="right">218.7500</td>
+<td align="right">109.3750</td>
+<td align="right">11.7188</td>
+<td align="right">1329.83 KB</td>
+</tr>
+<tr>
+<td>Fluid</td>
+<td align="right">913.5 us</td>
+<td align="right">2.231 us</td>
+<td align="right">1.977 us</td>
+<td align="right">56.6406</td>
+<td align="right">20.5078</td>
+<td align="right">19.5313</td>
+<td align="right">245.3 KB</td>
+</tr>
+<tr>
+<td>Razor</td>
+<td align="right">314.3 us</td>
+<td align="right">3.107 us</td>
+<td align="right">2.595 us</td>
+<td align="right">58.1055</td>
+<td align="right">29.2969</td>
+<td align="right">19.0430</td>
+<td align="right">253.57 KB</td>
+</tr>
+</tbody>
+</table>
+<p>Note that for Stubble, It was not possible to match the behavior of the other engines, so it is including the parsing time (which is anyway insignificant compare to the rendering time in this particular case)</p>
+<p><img alt="BenchMark Rendering Time and Memory" src="../img/benchmark-rendering.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href=".." class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Documentation
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../builtins/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Builtins
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>

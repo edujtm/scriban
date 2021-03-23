@@ -1,0 +1,1564 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
+    
+    
+      
+        <title>Runtime - Scriban Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2c0c5eaf.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#runtime" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Scriban Docs" class="md-header__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Scriban Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Runtime
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Documentation
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../benchmarks/" class="md-tabs__link">
+      Benchmarks
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../builtins/" class="md-tabs__link">
+      Builtins
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../language/" class="md-tabs__link">
+      Language
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../liquid-support/" class="md-tabs__link">
+      Liquid Support
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Runtime
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Scriban Docs" class="md-nav__button md-logo" aria-label="Scriban Docs" data-md-component="logo">
+      
+  <img src="../scriban.svg" alt="logo">
+
+    </a>
+    Scriban Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/scriban/scriban/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../benchmarks/" class="md-nav__link">
+        Benchmarks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../builtins/" class="md-nav__link">
+        Builtins
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../language/" class="md-nav__link">
+        Language
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../liquid-support/" class="md-nav__link">
+        Liquid Support
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Runtime
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Runtime
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parsing-a-template" class="md-nav__link">
+    Parsing a template
+  </a>
+  
+    <nav class="md-nav" aria-label="Parsing a template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parsing-modes" class="md-nav__link">
+    Parsing modes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsing-languages" class="md-nav__link">
+    Parsing languages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liquid-support" class="md-nav__link">
+    Liquid support
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-a-template" class="md-nav__link">
+    Rendering a template
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendering a template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-templatecontext-execution-model" class="md-nav__link">
+    The TemplateContext execution model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-scriptobject" class="md-nav__link">
+    The ScriptObject
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-stack-of-scriptobject" class="md-nav__link">
+    The stack of ScriptObject
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usages" class="md-nav__link">
+    Advanced usages
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced usages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#member-renamer" class="md-nav__link">
+    Member renamer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#member-filter" class="md-nav__link">
+    Member filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include-and-itemplateloader" class="md-nav__link">
+    Include and ITemplateLoader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-lexer-and-parser" class="md-nav__link">
+    The Lexer and Parser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstract-syntax-tree" class="md-nav__link">
+    Abstract Syntax Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-templatecontext" class="md-nav__link">
+    Extending TemplateContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptobject-advanced-usages" class="md-nav__link">
+    ScriptObject advanced usages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluating-an-expression" class="md-nav__link">
+    Evaluating an expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-culture" class="md-nav__link">
+    Changing the Culture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safe-runtime" class="md-nav__link">
+    Safe Runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#parsing-a-template" class="md-nav__link">
+    Parsing a template
+  </a>
+  
+    <nav class="md-nav" aria-label="Parsing a template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parsing-modes" class="md-nav__link">
+    Parsing modes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parsing-languages" class="md-nav__link">
+    Parsing languages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liquid-support" class="md-nav__link">
+    Liquid support
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering-a-template" class="md-nav__link">
+    Rendering a template
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendering a template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-templatecontext-execution-model" class="md-nav__link">
+    The TemplateContext execution model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-scriptobject" class="md-nav__link">
+    The ScriptObject
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-stack-of-scriptobject" class="md-nav__link">
+    The stack of ScriptObject
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-usages" class="md-nav__link">
+    Advanced usages
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced usages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#member-renamer" class="md-nav__link">
+    Member renamer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#member-filter" class="md-nav__link">
+    Member filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#include-and-itemplateloader" class="md-nav__link">
+    Include and ITemplateLoader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-lexer-and-parser" class="md-nav__link">
+    The Lexer and Parser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abstract-syntax-tree" class="md-nav__link">
+    Abstract Syntax Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extending-templatecontext" class="md-nav__link">
+    Extending TemplateContext
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scriptobject-advanced-usages" class="md-nav__link">
+    ScriptObject advanced usages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluating-an-expression" class="md-nav__link">
+    Evaluating an expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-culture" class="md-nav__link">
+    Changing the Culture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safe-runtime" class="md-nav__link">
+    Safe Runtime
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/scriban/scriban/edit/master/docs/runtime.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="runtime">Runtime</h1>
+<p>This document describes the runtime API to manipulate scriban text templating.</p>
+<p>Scriban provides a <strong>safe runtime</strong>, meaning it doesn't expose any .NET objects that haven't been made explicitly available to a Template. </p>
+<p>The runtime is composed of two main parts:</p>
+<ul>
+<li>The <strong>parsing/compiler</strong> infrastructure that is responsible for parsing a text template and build a runtime representation of it (we will call this an <code>Abstract Syntax Tree</code>)</li>
+<li>The <strong>rendering/evaluation</strong> infrastructure that is responsible to render a compiled template to a string. We will see also that we can evaluate expressions without rendering.</li>
+</ul>
+<p>The scriban runtime was designed to provide an easy, powerful and extensible infrastructure. For example, we are making sure that nothing in the runtime is using a static, so that you can correctly override all the behaviors of the runtime.</p>
+<ul>
+<li><a href="#parsing-a-template">Parsing a template</a></li>
+<li><a href="#parsing-modes">Parsing modes</a></li>
+<li><a href="#parsing-languages">Parsing languages</a></li>
+<li><a href="#liquid-support">Liquid support</a></li>
+<li><a href="#rendering-a-template">Rendering a template</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#the-templatecontext-execution-model">The <code>TemplateContext</code> execution model</a></li>
+<li><a href="#the-scriptobject">The <code>ScriptObject</code></a><ul>
+<li><a href="#accessing-as-regular-dictionary-objects">Accessing as regular dictionary objects</a></li>
+<li><a href="#imports-a-net-delegate">Imports a .NET delegate</a></li>
+<li><a href="#imports-functions-from-a-net-class">Imports functions from a .NET class</a></li>
+<li><a href="#automatic-functions-import-from-scriptobject">Automatic functions import from <code>ScriptObject</code></a></li>
+<li><a href="#function-arguments-optional-and-params">Function arguments, optional and <code>params</code></a></li>
+<li><a href="#accessing-nested-scriptobject">Accessing nested <code>ScriptObject</code></a></li>
+<li><a href="#imports-a-scriptobject-into-another-scriptobject">Imports a <code>ScriptObject</code> into another <code>ScriptObject</code></a></li>
+<li><a href="#imports-a-net-object-instance">Imports a .NET object instance</a></li>
+<li><a href="#accessing-a-net-object">Accessing a .NET object</a></li>
+<li><a href="#read-only-properties">read-only properties</a></li>
+<li><a href="#the-builtin-functions">The builtin functions</a></li>
+</ul>
+</li>
+<li><a href="#the-stack-of-scriptobject">The stack of <code>ScriptObject</code></a><ul>
+<li><a href="#the-with-statement-with-the-stack">The <code>with</code> statement with the stack</a></li>
+</ul>
+</li>
+<li><a href="#advanced-usages">Advanced usages</a></li>
+<li><a href="#member-renamer">Member renamer</a></li>
+<li><a href="#member-filter">Member filter</a></li>
+<li><a href="#include-and-itemplateloader">Include and <code>ITemplateLoader</code></a></li>
+<li><a href="#the-lexer-and-parser">The Lexer and Parser</a></li>
+<li><a href="#abstract-syntax-tree">Abstract Syntax Tree</a><ul>
+<li><a href="#ast-to-text">AST to Text</a></li>
+</ul>
+</li>
+<li><a href="#extending-templatecontext">Extending <code>TemplateContext</code></a></li>
+<li><a href="#scriptobject-advanced-usages"><code>ScriptObject</code> advanced usages</a><ul>
+<li><a href="#advanced-custom-functions">Advanced custom functions</a></li>
+<li><a href="#hyper-custom-functionsiscriptcustomfunction">Hyper custom functions<code>IScriptCustomFunction</code></a></li>
+</ul>
+</li>
+<li><a href="#evaluating-an-expression">Evaluating an expression</a></li>
+<li><a href="#changing-the-culture">Changing the Culture</a></li>
+<li><a href="#safe-runtime">Safe Runtime</a></li>
+</ul>
+<p><a href="#runtime">:top:</a></p>
+<h2 id="parsing-a-template">Parsing a template</h2>
+<p>The <code>Scriban.Template</code> class is a main entry point to easily parse a template and renders it. The action of parsing consist of compiling the template to a faster runtime representation, suitable later for rendering the template.</p>
+<p>This class is mostly a user friendly frontend to the underlying classes used to parse a template. See <a href="#the-lexer-and-parser">The Lexer and Parser</a> section for advanded usages.</p>
+<p>The <code>Template.Parse</code> method is a convenient method to parse a template from a string and returns the compiled Template:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">inputTemplateAsText</span> <span class="p">=</span> <span class="s">&quot;This is a {{ name }} template&quot;</span><span class="p">;</span>
+
+<span class="c1">// Parse the template</span>
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">inputTemplateAsText</span><span class="p">);</span>
+
+<span class="c1">// Check for any errors</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">template</span><span class="p">.</span><span class="n">HasErrors</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="kt">var</span> <span class="n">error</span> <span class="k">in</span> <span class="n">template</span><span class="p">.</span><span class="n">Messages</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span><span class="p">;</span> <span class="c1">// or throw...etc.</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The returned <code>Template</code> object has the following relevant properties:</p>
+<ul>
+<li><code>ScriptPage Page {get;}</code> that contains the compiled template to a root Abstract Syntax Tree (AST). From this object you can navigate through all the statements parsed from the template if necessary. See the section about the <a href="#abstract-syntax-tree">Abstract Syntax Tree</a></li>
+<li><code>bool HasErrors {get;}</code> to check if the parsed template has any errors. In that case, the <code>ScriptPage Page</code> property is <code>null</code>.</li>
+<li><code>List&lt;LogMessage&gt; Messages {get;}</code> contains the list of warning and error messages while parsing the template.</li>
+</ul>
+<p>If you are using the <code>Template.Parse</code> method, it is important to verify <code>HasErrors</code> is <code>false</code>, otherwise you will get a null <code>ScriptPage</code> object from the <code>Template.Page</code> property.</p>
+<p>The parse method can take an additional argument <code>sourceFilePath</code> used when reporting syntax errors, typically used to associate a template file read from the disk or an editor and you want to report the exact error to the user.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Parse the template</span>
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="n">filePath</span><span class="p">),</span> <span class="n">filePath</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Note that the <code>sourceFilePath</code> is not used for accessing the disk (it could be a logical path to a zip file, or the name of tab opened in an editor...etc.). It is only a logical name that is used when reporting errors, but also you will see with the include directive and the setup of the <a href="#include-and-itemplateloader">Template Loader</a> that this value can be used to perform an include operation in the relative context to the template path being processed.</p>
+</blockquote>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="parsing-modes">Parsing modes</h3>
+<p>By default, when parsing a template, the template is expected to have mixed content of text and scriban code blocks enclosed by <code>{{</code> and <code>}}</code>. But you can modify the way a template is parsed by passing a <code>LexerOptions</code> to the <code>Template.Parse</code> method.</p>
+<p>The parsing mode is defined by the <code>LexerOptions.Mode</code> property which is <code>ScriptMode.Default</code> by default (i.e. mixed text and code).</p>
+<p>But you can also parse a template that contains directly scripting code (without enclosing <code>{{</code> <code>}}</code>), in that case, you can use the <code>ScriptMode.ScriptOnly</code> mode.</p>
+<p>For example illustrate how to use the <code>ScriptOnly</code> mode:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Create a template in ScriptOnly mode</span>
+<span class="kt">var</span> <span class="n">lexerOptions</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LexerOptions</span><span class="p">()</span> <span class="p">{</span> <span class="n">Mode</span> <span class="p">=</span> <span class="n">ScriptMode</span><span class="p">.</span><span class="n">ScriptOnly</span> <span class="p">};</span>
+<span class="c1">// Notice that code is not enclosed by `{{` and `}}`</span>
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;y = x + 1; y;&quot;</span><span class="p">,</span> <span class="n">lexerOptions</span><span class="p">:</span> <span class="n">lexerOptions</span><span class="p">);</span>
+<span class="c1">// Renders it with the specified parameter</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">(</span><span class="k">new</span> <span class="p">{</span><span class="n">x</span> <span class="p">=</span> <span class="m">10</span><span class="p">});</span>
+<span class="c1">// Prints 11</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="parsing-languages">Parsing languages</h3>
+<p>Scriban provides 3 languages through the <code>ScriptLang</code> enum:</p>
+<ul>
+<li><code>ScriptLang.Default</code>: which is the default Scriban Language</li>
+<li><code>ScriptLang.Liquid</code>: which is used to parse the language with liquid syntax.</li>
+<li><code>ScriptLang.Scientific</code>: which is similar to the default, but handles expression slight differently:</li>
+<li>Arguments separated by a space will convert to a multiplication: <code>2 x</code> will be evaluated as <code>2 * x</code></li>
+<li>Except if a function is taking one argument, and in that case it resolves to a function call <code>cos x</code> resolves to <code>cos(x)</code></li>
+<li>Otherwise function calls need to use explicit parenthesis <code>myfunction(1,2,3)</code></li>
+</ul>
+<p>The language is defined by the <code>LexerOptions.Lang</code> property which.</p>
+<p>For example illustrate how to use the the <code>ScriptLang.Scientific</code> and the <code>ScriptOnly</code> mode:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Create a template in ScriptOnly mode</span>
+<span class="kt">var</span> <span class="n">lexerOptions</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LexerOptions</span><span class="p">()</span> <span class="p">{</span> <span class="n">Lang</span> <span class="p">=</span> <span class="n">ScriptLang</span><span class="p">.</span><span class="n">Scientific</span><span class="p">,</span> <span class="n">Mode</span> <span class="p">=</span> <span class="n">ScriptMode</span><span class="p">.</span><span class="n">ScriptOnly</span> <span class="p">};</span>
+<span class="c1">// Notice that code is not enclosed by `{{` and `}}`</span>
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;y = x + 1; 2y;&quot;</span><span class="p">,</span> <span class="n">lexerOptions</span><span class="p">:</span> <span class="n">lexerOptions</span><span class="p">);</span>
+<span class="c1">// Renders it with the specified parameter</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">(</span><span class="k">new</span> <span class="p">{</span><span class="n">x</span> <span class="p">=</span> <span class="m">10</span><span class="p">});</span>
+<span class="c1">// Prints 22</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="liquid-support">Liquid support</h3>
+<p>Scriban supports a Lexer and Parser that can understand a Liquid template instead, while still translating it to a Scriban Runtime AST.</p>
+<p>You can easily parse an existing liquid template using the <code>Template.ParseLiquid</code> method:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// An Liquid </span>
+<span class="kt">var</span> <span class="n">inputTemplateAsText</span> <span class="p">=</span> <span class="s">&quot;This is a {{ name }} template&quot;</span><span class="p">;</span>
+
+<span class="c1">// Parse the template</span>
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">ParseLiquid</span><span class="p">(</span><span class="n">inputTemplateAsText</span><span class="p">);</span>
+
+<span class="c1">// Renders the template with the variable `name` exposed to the template</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="k">new</span> <span class="p">{</span> <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">});</span>
+
+<span class="c1">// Prints the result: &quot;This is a Hello World template&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p>Also, in terms of runtime, Liquid builtin functions are supported. They are created with the <code>LiquidTemplateContext</code> which inherits from the <code>TemplateContext</code>.</p>
+<p><a href="#runtime">:top:</a></p>
+<h2 id="rendering-a-template">Rendering a template</h2>
+<h3 id="overview">Overview</h3>
+<p>In order to render a template, you need pass a context for the variables, objects, functions that will be accessed by the template.</p>
+<p>In the following examples, we have a variable <code>name</code> that is used by the template:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">inputTemplateAsText</span> <span class="p">=</span> <span class="s">&quot;This is a {{ name }} template&quot;</span><span class="p">;</span>
+
+<span class="c1">// Parse the template</span>
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">inputTemplateAsText</span><span class="p">);</span>
+
+<span class="c1">// Renders the template with the variable `name` exposed to the template</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="k">new</span> <span class="p">{</span> <span class="n">name</span> <span class="p">=</span> <span class="s">&quot;Hello World&quot;</span><span class="p">});</span>
+
+<span class="c1">// Prints the result: &quot;This is a Hello World template&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p>As we can see, we are passing an anonymous objects that has this field/property <code>name</code> and by calling the Render method, the template is executed with this data model context.</p>
+<p>While passing an anonymous object is nice for a hello world example, it is not always enough for more advanced data model scenarios. </p>
+<p>In this case, you want to use more directly the <code>TemplateContext</code> (used by the method <code>Template.Render(object)</code>) and a <code>ScriptObject</code> which are both at the core of scriban rendering architecture to provide more powerful constructions &amp; hooks of the data model exposed (variables but also functions...etc.).</p>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="the-templatecontext-execution-model">The <code>TemplateContext</code> execution model</h3>
+<p>The <code>TemplateContext</code> provides:</p>
+<ul>
+<li><strong>an execution context</strong> when evaluating a template. The same instance can be used with many different templates, depending on your requirements.</li>
+<li>A <strong>stack of <code>ScriptObject</code></strong> that provides the actual variables/functions accessible to the template, accessible through <code>Template.PushGlobal(scriptObj)</code> and <code>Template.PopGlobal()</code>. Why a stack and how to use this stack is described below.</li>
+<li>The <strong>text output</strong> when evaluating a template, which is accessible through the <code>Template.Output</code> property as a <code>StringBuilder</code> but because you can have nested rendering happening, it is possible to use <code>Template.PushOutput()</code> and <code>Template.PopOutput()</code> to redirect temporarily the output to a new output. This functionality is typically used by the <a href="../language/#94-capture-variable--end"><code>capture</code> statement</a>.</li>
+<li>Caching of templates previously loaded by an <code>include</code> directive (see <a href="#include-and-itemplateloader"><code>include</code> and <code>ITemplateLoader</code></a> section )</li>
+<li>Various possible overrides to allow fine grained extensibility (evaluation of an expression, conversion to a string, enter/exit/step into a loop...etc.)</li>
+</ul>
+<p>Note that a <code>TemplateContext</code> is not thread safe, so it is recommended to have one <code>TemplateContext</code> per thread.</p>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="the-scriptobject">The <code>ScriptObject</code></h3>
+<p>The <code>ScriptObject</code> is a special implementation of a <code>Dictionary&lt;string, object&gt;</code> that runtime properties and functions accessible to a template:</p>
+<h4 id="accessing-as-regular-dictionary-objects">Accessing as regular dictionary objects</h4>
+<p>A <code>ScriptObject</code> is mainly an extended version of a <code>IDictionary&lt;string, object&gt;</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;var1&quot;</span><span class="p">,</span> <span class="s">&quot;Variable 1&quot;</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is var1: `{{var1}}`&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints: This is var1: `Variable 1`</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p>Note that any <code>IDictionary&lt;string, object&gt;</code> put as a property will be accessible as well.</p>
+<h4 id="imports-a-net-delegate">Imports a .NET delegate</h4>
+<p>Via <code>ScriptObject.Import(member, Delegate)</code>. Here we import a <code>Func&lt;string&gt;</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="c1">// Declare a function `myfunc` returning the string `Yes`</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="s">&quot;myfunc&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">Func</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="s">&quot;Yes&quot;</span><span class="p">));</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is myfunc: `{{myfunc}}`&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints: This is myfunc: `Yes`</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="imports-functions-from-a-net-class">Imports functions from a .NET class</h4>
+<p>You can easily import static methods declared in a .NET class via <code>ScriptObject.Import(typeof(MyFunctions))</code></p>
+<p>Let's define a class with a static function <code>Hello</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">MyFunctions</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">Hello</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;hello from method!&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This function can be imported into a ScriptObject:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">MyFunctions</span><span class="p">));</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is MyFunctions.Hello: `{{hello}}`&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints This is MyFunctions.Hello: `hello from method!`</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>Notice that when using a function with pipe calls like <code>{{description | string.strip }}</code>, the last argument passed to the <code>string.strip</code> function is the result of the previous pipe.
+That's a reason why you will notice in all builtin functions in scriban that they usually take the most relevant parameter as a last parameter instead of the first parameter, to allow proper support for pipe calls.</p>
+<p><strong>NOTICE</strong></p>
+<p>By default, Properties and static methods of .NET objects are automatically exposed with lowercase and <code>_</code> names. It means that a property like <code>MyMethodIsNice</code> will be exposed as <code>my_method_is_nice</code>. This is the default convention, originally to match the behavior of liquid templates.
+If you want to change this behavior, you need to use a <a href="#member-renamer"><code>MemberRenamer</code></a> delegate</p>
+</blockquote>
+<h4 id="automatic-functions-import-from-scriptobject">Automatic functions import from <code>ScriptObject</code></h4>
+<p>When inheriting from a <code>ScriptObject</code>, the inherited object will automatically import all public static methods and properties from the class:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// We simply inherit from ScriptObject</span>
+<span class="c1">// All functions defined in the object will be imported</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyCustomFunctions</span> <span class="p">:</span> <span class="n">ScriptObject</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">Hello</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;hello from method!&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="na">    [ScriptMemberIgnore]</span> <span class="c1">// This method won&#39;t be imported</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">NotImported</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Then using directly this custom <code>ScriptObject</code> as a regular object:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyCustomFunctions</span><span class="p">();</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is MyFunctions.Hello: `{{hello}}`&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints This is MyFunctions.Hello: `hello from method!`</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p>Notice that if you want to ignore a member when importing a .NET object or .NET class, you can use the attribute <code>ScriptMemberIgnore</code></p>
+<blockquote>
+<p>NOTE: Because Scriban doesn't support Function overloading, it is required that functions imported from a type must have different names.</p>
+<p><strong>NOTICE</strong></p>
+<p>By default, Properties and methods of .NET objects are automatically exposed with lowercase and <code>_</code> names. It means that a property like <code>MyMethodIsNice</code> will be exposed as <code>my_method_is_nice</code>. This is the default convention, originally to match the behavior of liquid templates.
+If you want to change this behavior, you need to use a <a href="#member-renamer"><code>MemberRenamer</code></a> delegate</p>
+</blockquote>
+<h4 id="function-arguments-optional-and-params">Function arguments, optional and <code>params</code></h4>
+<p>Scriban runtime supports regular function arguments, optional arguments (with a default value) and <code>params XXX[] array</code> arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// We simply inherit from ScriptObject</span>
+<span class="c1">// All functions defined in the object will be imported</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyCustomFunctions</span> <span class="p">:</span> <span class="n">ScriptObject</span>
+<span class="p">{</span>
+    <span class="c1">// A function an optional argument</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">HelloOpt</span><span class="p">(</span><span class="kt">string</span> <span class="n">text</span><span class="p">,</span> <span class="kt">string</span> <span class="n">option</span> <span class="p">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="err">$</span><span class="s">&quot;hello {text} with option:{option}&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// A function with params</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="nf">HelloArgs</span><span class="p">(</span><span class="k">params</span> <span class="kt">object</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="err">$</span><span class="s">&quot;hello {(string.Join(&quot;</span><span class="p">,</span><span class="s">&quot;, args))}&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Using the function above from a script could be like this:</p>
+<blockquote>
+<p><strong>input</strong>
+<div class="highlight"><pre><span></span><code>{{ hello_opt &quot;test&quot; }}
+{{ hello_opt &quot;test&quot; &quot;my_option&quot; }}
+{{ hello_opt &quot;test&quot; option: &quot;my_option&quot; }}
+{{ hello_opt text: &quot;test&quot;  }}
+{{ hello_args &quot;this&quot; &quot;is&quot; &quot;a&quot; &quot;test&quot;}}
+{{ hello_args &quot;this&quot; &quot;is&quot; args: &quot;a&quot; args: &quot;test&quot;}}
+</code></pre></div></p>
+<p><strong>output</strong>
+<div class="highlight"><pre><span></span><code>hello test with option:
+hello test with option:my_option
+hello test with option:my_option
+hello test with option:
+hello this,is,a,test
+hello this,is,a,test
+</code></pre></div></p>
+</blockquote>
+<p>Notice that we can have a mix of regular and named arguments, assuming that named arguments are always coming last when calling a function.</p>
+<p>Also, we can see that named arguments are also working with <code>params</code> arguments.</p>
+<p>If a regular argument (not optional) is missing, the runtime will complain about the missing argument giving precise source location of the error.</p>
+<h4 id="accessing-nested-scriptobject">Accessing nested <code>ScriptObject</code></h4>
+<p>A nested ScriptObject can be accessed indirectly through another <code>ScriptObject</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">nestedObject</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="n">nestedObject</span><span class="p">[</span><span class="s">&quot;x&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;subObject&quot;</span><span class="p">,</span> <span class="n">nestedObject</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is Hello: `{{subObject.x}}`&quot;</span><span class="p">);</span>
+<span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="imports-a-scriptobject-into-another-scriptobject">Imports a <code>ScriptObject</code> into another <code>ScriptObject</code></h4>
+<p>The properties/functions of a <code>ScriptObject</code> can be imported into another instance.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;var1&quot;</span><span class="p">,</span> <span class="s">&quot;Variable 1&quot;</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">scriptObject2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="n">scriptObject2</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;var2&quot;</span><span class="p">,</span> <span class="s">&quot;Variable 2&quot;</span><span class="p">);</span>
+
+<span class="c1">// After this command, scriptObject2 contains var1 and var2</span>
+<span class="c1">// But modifying var2 on scriptObject2 will not modify var2 on scriptObject1!</span>
+<span class="n">scriptObject2</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="imports-a-net-object-instance">Imports a .NET object instance</h4>
+<p>You can easily import a .NET object instance (including its public properties and static methods) into a <code>ScriptObject</code></p>
+<p>NOTE that when importing into a ScriptObject, the <strong>import actually copies the property values into the ScriptObject</strong>. The original .NET object is no longer used.</p>
+<p>Importing a .NET object instance is thus different from <a href="#accessing-a-net-object">accessing a .NET object</a> instance through a ScriptObject.</p>
+<p>Let's define a standard .NET object:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">class</span> <span class="nc">MyObject</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nf">MyObject</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Hello</span> <span class="p">=</span> <span class="s">&quot;hello from property!&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Hello</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>and import the properties/functions of this object into a ScriptObject, via <code>ScriptObject.Import(object)</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="k">new</span> <span class="n">MyObject</span><span class="p">());</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is Hello: `{{hello}}`&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints This is MyFunctions.Hello: `hello from method!`</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p>Also any objects inheriting from <code>IDictionary&lt;TKey, TValue&gt;</code> or <code>IDictionary</code> will be also accessible automatically. Typically, you can usually access directly any generic JSON objects that was parsed by a JSON library.</p>
+<blockquote>
+<p><strong>NOTICE</strong></p>
+<p>By default, Properties and static methods of .NET objects are automatically exposed with lowercase and <code>_</code> names. It means that a property like <code>MyMethodIsNice</code> will be exposed as <code>my_method_is_nice</code>. This is the default convention, originally to match the behavior of liquid templates.
+If you want to change this behavior, you need to use a <a href="#member-renamer"><code>MemberRenamer</code></a> delegate</p>
+</blockquote>
+<h4 id="accessing-a-net-object">Accessing a .NET object</h4>
+<p>This is an important feature of scriban. Every .NET objects made accessible through a ScriptObject is directly accessible without importing it. It means that Scriban will directly work on the .NET object instance instead of a copy (e.g when we do a <code>ScriptObject.Import</code> instead)</p>
+<blockquote>
+<p>Note that for security reason, only the properties of .NET objects accessed through another <code>ScriptObject</code> are made accessible from a Template. Methods and static methods are not automatically imported.</p>
+</blockquote>
+<p>For example, if we re-use the previous <code>MyObject</code> directly as a variable in a <code>ScriptObject</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="c1">// Notice: MyObject is not imported but accessible through</span>
+<span class="c1">// the variable myobject</span>
+<span class="n">scriptObject1</span><span class="p">[</span><span class="s">&quot;myobject&quot;</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MyObject</span><span class="p">();</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is Hello: `{{myobject.hello}}`&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints This is MyFunctions.Hello: `hello from method!`</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p><strong>NOTICE</strong></p>
+<p>By default, Properties and static methods of .NET objects are automatically exposed with lowercase and <code>_</code> names. It means that a property like <code>MyMethodIsNice</code> will be exposed as <code>my_method_is_nice</code>. This is the default convention, originally to match the behavior of liquid templates.
+If you want to change this behavior, you need to use a <a href="#member-renamer"><code>MemberRenamer</code></a> delegate</p>
+</blockquote>
+<h4 id="read-only-properties">read-only properties</h4>
+<p>Runtime equivalent of the language <code>readonly &lt;var&gt;</code> statement, you can easily define a variable of a <code>ScriptObject</code> as read-only</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="c1">// The variable `var1` is immutable</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s">&quot;var1&quot;</span><span class="p">,</span> <span class="s">&quot;My immutable variable&quot;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// Or or an existing property/function member:</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">SetReadonly</span><span class="p">(</span><span class="s">&quot;var1&quot;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="the-builtin-functions">The builtin functions</h4>
+<p>For example, all builtin functions object of Scriban are imported easily by inheriting from a <code>ScriptObject</code>:</p>
+<ul>
+<li>The <code>BuilinsFunctions</code> object defined <a href="https://github.com/lunet-io/scriban/blob/8b374ffde418b8b57714e3be145a66d3085f66e6/src/Scriban/Functions/BuiltinFunctions.cs">here</a> and <a href="https://github.com/lunet-io/scriban/tree/master/src/Scriban/Functions">listed here</a> is directly used as the bottom level stack <code>ScriptObject</code> as explained below.</li>
+<li>Each sub function objects (e.g <code>array</code>, <code>string</code>) are also regular <code>ScriptObject</code>. For example, the <a href="https://github.com/lunet-io/scriban/blob/8b374ffde418b8b57714e3be145a66d3085f66e6/src/Scriban/Functions/StringFunctions.cs"><code>string</code> builtin functions</a></li>
+</ul>
+<p>The current builtin <code>ScriptObject</code> defined for a <code>TemplateContext</code> is accessible through the <code>TemplateContext.BuiltinObject</code> property.</p>
+<p>See section about <a href="#scriptobject-advanced-usages">ScriptObject advanced usages</a> also for more specific usages.</p>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="the-stack-of-scriptobject">The stack of <code>ScriptObject</code></h3>
+<p>A <code>TemplateContext</code> maintains a stack of <code>ScriptObject</code> that defines the state of the variables accessible from the current template. </p>
+<p>When evaluating a template and <strong>resolving a variable</strong>, the <code>TemplateContext</code> will lookup to the stack of <code>ScriptObject</code> for the specified variable. From the top of the stack (the latest <code>PushGlobal</code>) to the bottom of the stack, when a variable is accessed from a template, the closest variable in the stack will be returned.</p>
+<p>By default, the <code>TemplateContext</code> is initialized with a builtin <code>ScriptObject</code> which contains all the default builtin functions provided by scriban. You can pass your own builtin object if you want when creating a new <code>TemplateContext</code>.</p>
+<p>Then, each time you do a <code>TemplateContext.PushGlobal(scriptObject)</code>, you push a new <code>ScriptObject</code> accessible for <strong>resolving variable</strong></p>
+<p>Let's look at the following example:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Creates scriptObject1</span>
+<span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;var1&quot;</span><span class="p">,</span> <span class="s">&quot;Variable 1&quot;</span><span class="p">);</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;var2&quot;</span><span class="p">,</span> <span class="s">&quot;Variable 2&quot;</span><span class="p">);</span>
+
+<span class="c1">// Creates scriptObject2</span>
+<span class="kt">var</span> <span class="n">scriptObject2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="c1">// overrides the variable &quot;var2&quot; </span>
+<span class="n">scriptObject2</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;var2&quot;</span><span class="p">,</span> <span class="s">&quot;Variable 2 - from ScriptObject 2&quot;</span><span class="p">);</span>
+
+<span class="c1">// Creates a template with (builtins) + scriptObject1 + scriptObject2 variables</span>
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject2</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is var1: `{{var1}}` and var2: `{{var2}}&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints: &quot;This is var1: `Variable 1` and var2: `Variable 2 - from ScriptObject 2&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p>The <code>TemplateContext</code> stack is setup like this:  <code>scriptObject2</code> =&gt; <code>scriptObject1</code> =&gt; <code>builtins</code></p>
+<p>As you can see the variable <code>var1</code> will be resolved from <code>scriptObject1</code> but the variable <code>var2</code> will be resolved from <code>scriptObject2</code> as there is an override here.</p>
+<blockquote>
+<p><strong>NOTE</strong> If a variable is not found, the runtime will not throw an error but will return <code>null</code> instead. It allows to check for a variable existence <code>if !page</code> for example. In case you want your script to throw an exception if a variable was not found, you can specify <code>TemplateContext.StrictVariables = true</code> to enforce checks. See the <a href="#safe-runtime">safe runtime</a> section for more details.</p>
+</blockquote>
+<p>When writing to a variable, only the <code>ScriptObject</code> at the top of the <code>TemplateContext</code> will be used. This top object is accessible through <code>TemplateContext.CurrentGlobal</code> property. It the previous example, if we had something like this in a template:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">template2</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is var1: `{{var1}}` and var2: `{{var2}}`{{var2 = 5}} and new var2: `{{var2}}&quot;</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template2</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints: &quot;This is var1: `Variable 1` and var2: `Variable 2 - from ScriptObject 2 and new var2: `5`&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+<p>The <code>scriptObject2</code> object will now contain the <code>var2 = 5</code></p>
+<p>The stack provides a way to segregate variables between their usages or read-only/accessibility/mutability requirements. Typically, the <code>builtins</code> <code>ScriptObject</code> is a normal <code>ScriptObject</code> that contains all the builtins objects but you cannot modify directly the <code>builtins</code> object. But you could modify the sub-builtins objects.</p>
+<p>For example, the following code adds a new property <code>myprop</code> to the builtin object <code>string</code>:</p>
+<div class="highlight"><pre><span></span><code>{{
+   string.myprop = &quot;Yoyo&quot;
+}}
+</code></pre></div>
+<p>Because scriban allows you to define new functions directly into the language and also allow to store a function pointer by using the alias <code>@</code> operator, you can basically extend an existing object with both properties and functions.</p>
+<h4 id="the-with-statement-with-the-stack">The <code>with</code> statement with the stack</h4>
+<p>When using the <code>with</code> statement with a script object, it is relying on this concept of stack:</p>
+<ul>
+<li><code>with &lt;scriptobject&gt;</code> is equivalent of calling <code>TemplateContext.PushGlobal(scriptObject)</code></li>
+<li>Assigning a variable enclosed by a <code>with</code> statement will set variable on the target object of the <code>with</code> statement.</li>
+<li>Ending a with is equivalent of calling <code>context.PopGlobal()</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">@&quot;</span>
+<span class="s">   Create a variable </span>
+<span class="s">{{</span>
+<span class="s">    myvar = {} </span>
+<span class="s">    with myvar   # Equivalent of calling context.PushGlobal(myvar)</span>
+<span class="s">        x = 5    # Equivalent to set myvar.x = 5</span>
+<span class="s">        y = 6    </span>
+<span class="s">    end          # Equivalent of calling context.PopGlobal()</span>
+<span class="s">}}&quot;</span><span class="p">);</span>
+
+<span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Contains 5</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(((</span><span class="n">ScriptObject</span><span class="p">)</span><span class="n">scriptObject1</span><span class="p">[</span><span class="s">&quot;myvar&quot;</span><span class="p">])[</span><span class="s">&quot;x&quot;</span><span class="p">]);</span>
+</code></pre></div>
+<p><a href="#runtime">:top:</a></p>
+<h2 id="advanced-usages">Advanced usages</h2>
+<h3 id="member-renamer">Member renamer</h3>
+<p>By default, .NET objects accessed through a <code>ScriptObject</code> are automatically exposed with lowercase and <code>_</code> names. It means that a property like <code>MyMethodIsNice</code> will be exposed as <code>my_method_is_nice</code>. This is the default convention, originally to match the behavior of <code>liquid</code> templates.</p>
+<p>A renamer is simply a delegate that takes an input MemberInfo and return a new member name:</p>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span> <span class="nn">Scriban.Runtime</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">delegate</span> <span class="kt">string</span> <span class="nf">MemberRenamerDelegate</span><span class="p">(</span><span class="n">MemberInfo</span> <span class="n">member</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <a href="https://github.com/lunet-io/scriban/blob/master/src/Scriban/Runtime/StandardMemberRenamer.cs"><code>StandardMemberRenamer</code></a> is used to convert string camel/pascal case strings to "ruby" like strings.</p>
+<p>If you want to import a .NET object without changing the cases, you can use the simple nop member renamer <code>member =&gt; member.Name</code>.</p>
+<p>Note that renaming can be changed at two levels:</p>
+<ul>
+<li>When importing a .NET object into a <code>ScriptObject</code> by passing a renamer delegate, before passing an object to a <code>TemplateContext</code>:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="c1">// Here the renamer will just return a same member name as the original</span>
+<span class="c1">// hence importing .NET member name as-is</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="k">new</span> <span class="n">MyObject</span><span class="p">(),</span> <span class="n">renamer</span><span class="p">:</span> <span class="n">member</span> <span class="p">=&gt;</span> <span class="n">member</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is Hello: `{{Hello}}`&quot;</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="n">context</span><span class="p">);</span>
+
+<span class="c1">// Prints This is MyFunctions.Hello: `hello from method!`</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+- By setting the default member renamer on the <code>TemplateContext</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Setup a default renamer at the `TemplateContext` level</span>
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span> <span class="p">{</span><span class="n">MemberRenamer</span> <span class="p">=</span> <span class="n">member</span> <span class="p">=&gt;</span> <span class="n">member</span><span class="p">.</span><span class="n">Name</span><span class="p">};</span>
+</code></pre></div>
+<p>It is important to setup this on the <code>TemplateContext</code> for any .NET objects that might be accessed indirectly through another <code>ScriptObject</code> so that when a .NET object is exposed, it is exposed with the correct naming convention. </p>
+<p>The method <code>Template.Render(object, renamer)</code> takes also a member renamer, imports the object model with the renamer and setup correctly the renamer on the underlying <code>TemplateContext</code>.</p>
+<p>So you can rewrite the previous example with the shorter version:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is Hello: `{{Hello}}`&quot;</span><span class="p">);</span>
+<span class="n">template</span><span class="p">.</span><span class="n">Render</span><span class="p">(</span><span class="k">new</span> <span class="n">MyObject</span><span class="p">(),</span> <span class="n">member</span> <span class="p">=&gt;</span> <span class="n">member</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+</code></pre></div>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="member-filter">Member filter</h3>
+<p>Similar to the member renamer, by default, .NET objects accessed through a <code>ScriptObject</code> are automatically exposing all public instance fields and properties of .NET objects.</p>
+<p>A filter is simply a delegate that takes an input MemberInfo and return a boolean to indicate whether to expose the member (<code>true</code>) or discard the member (<code>false</code>)</p>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span> <span class="nn">Scriban.Runtime</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Allows to filter a member while importing a .NET object into a ScriptObject </span>
+    <span class="c1">/// or while exposing a .NET instance through a ScriptObject, </span>
+    <span class="c1">/// by returning &lt;c&gt;true&lt;/c&gt; to keep the member; or false to discard it.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="c1">/// &lt;param name=&quot;member&quot;&gt;A member info&lt;/param&gt;</span>
+    <span class="c1">/// &lt;returns&gt;&lt;c&gt;true&lt;/c&gt; to keep the member; otherwise &lt;c&gt;false&lt;/c&gt; to remove the member&lt;/returns&gt;</span>
+    <span class="k">public</span> <span class="k">delegate</span> <span class="kt">bool</span> <span class="nf">MemberFilterDelegate</span><span class="p">(</span><span class="n">MemberInfo</span> <span class="n">member</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>You can use a MemberFilter when importing a an instance:</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="c1">// Imports only properties that contains the word &quot;Yo&quot;</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="k">new</span> <span class="n">MyObject</span><span class="p">(),</span> <span class="n">filter</span><span class="p">:</span> <span class="n">member</span> <span class="p">=&gt;</span> <span class="n">member</span> <span class="k">is</span> <span class="n">PropertyInfo</span> <span class="p">&amp;&amp;</span> <span class="n">member</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;Yo&quot;</span><span class="p">));</span>
+</code></pre></div>
+- By setting the default member filter on the <code>TemplateContext</code>, so that .NET objects automatically exposed via a <code>ScriptObject</code> will follow the global filtering rules defined on the context:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Setup a default filter at the `TemplateContext` level</span>
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span> <span class="p">{</span><span class="n">MemberFilter</span> <span class="p">=</span> <span class="n">member</span> <span class="p">=&gt;</span> <span class="n">member</span> <span class="k">is</span> <span class="n">PropertyInfo</span> <span class="p">&amp;&amp;</span> <span class="n">member</span><span class="p">.</span><span class="n">Name</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">&quot;Yo&quot;</span><span class="p">)</span> <span class="p">};</span>
+</code></pre></div>
+<p>As for the member renamer, it is important to setup this on the <code>TemplateContext</code> for any .NET objects that might be accessed indirectly through another <code>ScriptObject</code> so that when a .NET object is exposed, it is exposed with the same filtering convention </p>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="include-and-itemplateloader">Include and <code>ITemplateLoader</code></h3>
+<p>The <code>include</code> directives requires that a template loader is setup on the <code>TemplateContext.TemplateLoader</code> property</p>
+<p>A template loader is responsible for providing the text template from an include directive. The interface of a <a href="https://github.com/lunet-io/scriban/blob/master/src/Scriban/Runtime/ITemplateLoader.cs"><code>ITemplateLoader</code></a> is defined like this:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Interface used for loading a template.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span> <span class="k">interface</span> <span class="n">ITemplateLoader</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Gets an absolute path for the specified include template name. Note that it is not necessarely a path on a disk, </span>
+    <span class="c1">/// but an absolute path that can be used as a dictionary key for caching)</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="c1">/// &lt;param name=&quot;context&quot;&gt;The current context called from&lt;/param&gt;</span>
+    <span class="c1">/// &lt;param name=&quot;callerSpan&quot;&gt;The current span called from&lt;/param&gt;</span>
+    <span class="c1">/// &lt;param name=&quot;templateName&quot;&gt;The name of the template to load&lt;/param&gt;</span>
+    <span class="c1">/// &lt;returns&gt;An absolute path or unique key for the specified template name&lt;/returns&gt;</span>
+    <span class="kt">string</span> <span class="nf">GetPath</span><span class="p">(</span><span class="n">TemplateContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">SourceSpan</span> <span class="n">callerSpan</span><span class="p">,</span> <span class="kt">string</span> <span class="n">templateName</span><span class="p">);</span>
+
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Loads a template using the specified template path/key.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="c1">/// &lt;param name=&quot;context&quot;&gt;The current context called from&lt;/param&gt;</span>
+    <span class="c1">/// &lt;param name=&quot;callerSpan&quot;&gt;The current span called from&lt;/param&gt;</span>
+    <span class="c1">/// &lt;param name=&quot;templatePath&quot;&gt;The path/key previously returned by &lt;see cref=&quot;GetPath&quot;/&gt;&lt;/param&gt;</span>
+    <span class="c1">/// &lt;returns&gt;The content string loaded from the specified template path/key&lt;/returns&gt;</span>
+    <span class="kt">string</span> <span class="nf">Load</span><span class="p">(</span><span class="n">TemplateContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">SourceSpan</span> <span class="n">callerSpan</span><span class="p">,</span> <span class="kt">string</span> <span class="n">templatePath</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>In order to use the <code>include</code> directive, the template loader should provide:</p>
+<ul>
+<li>The <code>GetPath</code> method translates a <code>templateName</code> (the argument passed to the <code>include &lt;templateName&gt;</code> directive) to a logical/phyisical path that the <code>ITemplateLoader.Load</code> method will understand. </li>
+<li>The <code>Load</code> method to actually load the the text template code from the specified <code>templatePath</code> (previously returned by <code>GetPath</code> method)</li>
+</ul>
+<p>The 2 step methods, <code>GetPath</code> and then <code>Load</code> allows to cache intermediate results. If a template loader returns the same <code>template path</code> for a <code>template name</code> any existing cached templates will be returned instead. Cached templates are stored in the <code>TemplateContext.CachedTemplates</code> property.</p>
+<p>A typical implementation of <code>ITemplateLoader</code> could read data from the disk:</p>
+<div class="highlight"><pre><span></span><code><span class="err">```</span><span class="n">C</span><span class="err">#</span>
+<span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// A very simple ITemplateLoader loading directly from the disk, without any checks...etc.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">MyIncludeFromDisk</span> <span class="p">:</span> <span class="n">ITemplateLoader</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="nf">GetPath</span><span class="p">(</span><span class="n">TemplateContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">SourceSpan</span> <span class="n">callerSpan</span><span class="p">,</span> <span class="kt">string</span> <span class="n">templateName</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="n">CurrentDirectory</span><span class="p">,</span> <span class="n">templateName</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">string</span> <span class="nf">Load</span><span class="p">(</span><span class="n">TemplateContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">SourceSpan</span> <span class="n">callerSpan</span><span class="p">,</span> <span class="kt">string</span> <span class="n">templatePath</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Template path was produced by the `GetPath` method above in case the Template has </span>
+        <span class="c1">// not been loaded yet</span>
+        <span class="k">return</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="n">templatePath</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="the-lexer-and-parser">The Lexer and Parser</h3>
+<ul>
+<li>The <a href="https://github.com/lunet-io/scriban/blob/master/src/Scriban/Parsing/Lexer.cs"><code>Lexer</code></a> class is responsible for extracting <code>Tokens</code> from a text template.</li>
+<li>The <a href="https://github.com/lunet-io/scriban/blob/master/src/Scriban/Parsing/Parser.cs"><code>Parser</code></a> class is responsible for creating <code>ScriptNode</code> AST from input tokens (extracted from the <code>Lexer</code>)</li>
+</ul>
+<p>The lexer has a few <a href="https://github.com/lunet-io/scriban/blob/master/src/Scriban/Parsing/LexerOptions.cs"><code>LexerOptions</code></a> to control the way the lexer is behaving, as described with the <a href="#parsing-modes">parsing modes</a></p>
+<p>The parser has a <a href="https://github.com/lunet-io/scriban/blob/master/src/Scriban/Parsing/ParserOptions.cs"><code>ParserOptions</code></a> only used for securing nested statements/blocks to avoid any stack overflow exceptions while parsing a document.</p>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="abstract-syntax-tree">Abstract Syntax Tree</h3>
+<p>The base object used by the syntax for all scriban elements is the class <code>Scriban.Syntax.ScriptNode</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">/// &lt;summary&gt;</span>
+<span class="c1">/// Base class for the abstract syntax tree of a scriban program.</span>
+<span class="c1">/// &lt;/summary&gt;</span>
+<span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">ScriptNode</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// The source span of this node.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="k">public</span> <span class="n">SourceSpan</span> <span class="n">Span</span><span class="p">;</span>
+
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Evaluates this instance with the specified context.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="c1">/// &lt;param name=&quot;context&quot;&gt;The template context.&lt;/param&gt;</span>
+    <span class="k">public</span> <span class="k">abstract</span> <span class="kt">object</span> <span class="nf">Evaluate</span><span class="p">(</span><span class="n">TemplateContext</span> <span class="n">context</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>As you can see, each <code>ScriptNode</code> contains a method to evaluate it against a <code>TemplateContext</code>. You can go through the all the <a href="https://github.com/lunet-io/scriban/tree/master/src/Scriban/Syntax">Syntax classes</a> in the codebase and you will see that it is very easy to create a new <code>SyntaxNode</code></p>
+<p><a href="#runtime">:top:</a></p>
+<h4 id="ast-to-text">AST to Text</h4>
+<p>Scriban allows to write back an AST to a textual representation:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">&quot;This is a {{ name }} template&quot;</span><span class="p">);</span>
+
+<span class="c1">// Prints &quot;This is a {{name}} template&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">template</span><span class="p">.</span><span class="n">ToText</span><span class="p">());</span>
+</code></pre></div>
+<p>In the previous example, you can notice that whitespace were removed from the original template. The reason is by default, the parser doesn't keep all hidden symbols when parsing, to still allow fast parsing for the regular case.</p>
+<p>But you can specify the parser to keep all the hidden symbols from the original template, directly by activating the <code>IsKeepTrivia</code> on the <code>LexerOptions</code></p>
+<p>In the following example, you can see that it keep all the whitespace and comment:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Specifying the KeepTrivia allow to keep as much as hidden symbols from the original template (white spaces, newlines...etc.)</span>
+<span class="kt">var</span> <span class="n">template</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">@&quot;This is a {{ name   +   ## With some comment ## &#39;&#39; }} template&quot;</span><span class="p">,</span> <span class="n">lexerOptions</span><span class="p">:</span> <span class="k">new</span> <span class="n">LexerOptions</span><span class="p">()</span> <span class="p">{</span> <span class="n">KeepTrivia</span> <span class="p">=</span> <span class="k">true</span> <span class="p">});</span>
+
+<span class="c1">// Prints &quot;This is a {{ name   +   ## With some comment ## &#39;&#39; }} template&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">template</span><span class="p">.</span><span class="n">ToText</span><span class="p">());</span>
+</code></pre></div>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="extending-templatecontext">Extending <code>TemplateContext</code></h3>
+<p>You may need to extend a <code>TemplateContext</code> to overrides some methods there, tyically in cases you want:</p>
+<ul>
+<li>To hook into whenever a <code>ScriptNode</code> AST node is evaluated</li>
+<li>To catch if a property/member is accessed and should not be null</li>
+<li>Provides a <code>IObjectAccessor</code> for non .NET, non <code>Dictionary&lt;string, object&gt;</code> in case you are looking to expose a specific object to the runtime that requires a specific access pattern. By overriding the method <code>GetMemberAccessorImpl</code> you can override this aspect.</li>
+<li>To override <code>ToString(span, object)</code> method to provide custom <code>ToString</code> for specifics .NET objects.</li>
+<li>...etc.</li>
+</ul>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="scriptobject-advanced-usages"><code>ScriptObject</code> advanced usages</h3>
+<p>It is sometimes required for a custom function to have access to the current <code>TemplateContext</code> or to tha access to original location of the text code, where a particular expression is occurring (via a <code>SourceSpan</code> that gives a <code>line</code>, <code>column</code> and <code>sourcefile</code> )</p>
+<h4 id="advanced-custom-functions">Advanced custom functions</h4>
+<p>In the <a href="#the-ScriptObject"><code>ScriptObject</code></a> section we described how to easily import a custom function either by using a delegate or a pre-defined .NET static functions/properties.</p>
+<p>In some cases, you also need to have access to the current <code>TemplateContext</code> and also, the current <code>SourceSpan</code> (original location position in the text template code).
+By simply adding as a first parameter <code>TemplateContext</code>, and optionally as a second parameter, a <code>SourceSpan</code> a custom function can have access to the current evaluation context:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="c1">// Here, we can have access to the `TemplateContext`</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Import</span><span class="p">(</span><span class="s">&quot;contextAccess&quot;</span><span class="p">,</span> <span class="k">new</span> <span class="n">Func</span><span class="p">&lt;</span><span class="n">TemplateContext</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;(</span><span class="n">templateContext</span> <span class="p">=&gt;</span> <span class="s">&quot;Yes&quot;</span><span class="p">));</span>
+</code></pre></div>
+<p><a href="#runtime">:top:</a></p>
+<h4 id="hyper-custom-functionsiscriptcustomfunction">Hyper custom functions<code>IScriptCustomFunction</code></h4>
+<p>Some custom functions can require deeper access to the internals for exposing a function. Scriban provides the interface <a href="https://github.com/lunet-io/scriban/blob/master/src/Scriban/Runtime/IScriptCustomFunction.cs"><code>IScriptCustomFunction</code></a> for this matter. If an object inherits from this interface and is accessed another <code>ScriptObject</code>, it will call the method <code>IScriptCustomFunction.Invoke</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">namespace</span> <span class="nn">Scriban.Runtime</span>
+<span class="p">{</span>
+    <span class="c1">/// &lt;summary&gt;</span>
+    <span class="c1">/// Allows to create a custom function object.</span>
+    <span class="c1">/// &lt;/summary&gt;</span>
+    <span class="k">public</span> <span class="k">interface</span> <span class="n">IScriptCustomFunction</span>
+    <span class="p">{</span>
+        <span class="c1">/// &lt;summary&gt;</span>
+        <span class="c1">/// Calls the custom function object.</span>
+        <span class="c1">/// &lt;/summary&gt;</span>
+        <span class="c1">/// &lt;param name=&quot;context&quot;&gt;The template context&lt;/param&gt;</span>
+        <span class="c1">/// &lt;param name=&quot;callerContext&quot;&gt;The script node originating this call&lt;/param&gt;</span>
+        <span class="c1">/// &lt;param name=&quot;parameters&quot;&gt;The parameters of the call&lt;/param&gt;</span>
+        <span class="c1">/// &lt;param name=&quot;blockStatement&quot;&gt;The current block statement this call is made&lt;/param&gt;</span>
+        <span class="c1">/// &lt;returns&gt;The result of the call&lt;/returns&gt;</span>
+        <span class="kt">object</span> <span class="nf">Invoke</span><span class="p">(</span><span class="n">TemplateContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">ScriptNode</span> <span class="n">callerContext</span><span class="p">,</span> <span class="n">ScriptArray</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">ScriptBlockStatement</span> <span class="n">blockStatement</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>As you can see, the <code>IScriptCustomFunction</code> gives you access to:</p>
+<ul>
+<li>The current <code>TemplateContext</code> evaluating the current <code>Template</code></li>
+<li>The AST node context from the <code>Template</code> that is calling this custom functions, so you can precisely get information about the location of the parameters in the original source code...etc.</li>
+<li>The parameters already evaluated</li>
+<li>The block statement (not yet used for custom functions - but used by the <code>wrap</code> statement)</li>
+</ul>
+<p>The <code>include</code> expression is typically implemented via a <code>IScriptCustomFunction</code>. You can have a look at the details <a href="https://github.com/lunet-io/scriban/blob/master/src/Scriban/Functions/IncludeFunction.cs">here</a></p>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="evaluating-an-expression">Evaluating an expression</h3>
+<p>It is sometimes convenient to evaluate a script expression without rendering it to a string.</p>
+<p>First, there is an option in <code>TemplateContext.EnableOutput</code> that can be set to disable the output to the <code>TemplateContext.Output</code> StringBuilder.</p>
+<p>Also, as in the <a href="#abstract-syntax-tree">Abstract Syntax Tree</a> section, all AST <code>ScriptNode</code> have an <code>Evaluate</code> method that returns the result of an evaluation.</p>
+<p>Lastly, you can use the convenient static method <code>Template.Evaluate</code> to quickly evaluate an expression relative to a <code>TemplateContext</code>:</p>
+<p><div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">scriptObject1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScriptObject</span><span class="p">();</span>
+<span class="n">scriptObject1</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;var1&quot;</span><span class="p">,</span> <span class="m">5</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushGlobal</span><span class="p">(</span><span class="n">scriptObject1</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">Template</span><span class="p">.</span><span class="n">Evaluate</span><span class="p">(</span><span class="s">&quot;var1 * 5 + 2&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">);</span>
+<span class="c1">// Prints `27`</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</code></pre></div>
+When using <code>Template.Evaluate</code>, the underlying code will use the <code>ScriptMode.ScriptOnly</code> when compiling the expression and will disable the output on the <code>TemplateContext</code>.</p>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="changing-the-culture">Changing the Culture</h3>
+<p>The default culture when running a template is <code>CultureInfo.InvariantCulture</code></p>
+<p>You can change the culture that is used when rendering numbers/date/time and parsing date/time by pushing a new Culture to a <code>TemplateContext</code></p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span> <span class="n">context</span> <span class="p">=</span> <span class="k">new</span> <span class="n">TemplateContext</span><span class="p">();</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PushCulture</span><span class="p">(</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">CurrentCulture</span><span class="p">);</span>
+<span class="c1">// ...</span>
+<span class="n">context</span><span class="p">.</span><span class="n">PopCulture</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>Notice that the parsing of numbers in the language is not culture dependent but is baked into the language specs instead.</p>
+</blockquote>
+<p><a href="#runtime">:top:</a></p>
+<h3 id="safe-runtime">Safe Runtime</h3>
+<p>The <code>TemplateContext</code> provides a few properties to control the runtime and make it safer. You can tweak the following properties:</p>
+<ul>
+<li><code>LoopLimit</code> (default is <code>1000</code>): If a script performs a loop over 1000 iteration, the runtime will throw a <code>ScriptRuntimeException</code></li>
+<li><code>RecursiveLimit</code> (default is <code>100</code>): If a script performs a recursive call over 100 depth, the runtime will throw a <code>ScriptRuntimeException</code></li>
+<li><code>StrictVariables</code> (default is <code>false</code>): If set to <code>true</code>, any variables that were not found during variable resolution will throw a <code>ScriptRuntimeException</code></li>
+<li><code>RegexTimeOut</code> (default is <code>10s</code>): If a builtin function is using a regular expression that is taking more than 10s to complete, the runtime will throw an exception</li>
+</ul>
+<p><a href="#runtime">:top:</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../liquid-support/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Liquid Support
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a1c7c35e.min.js"></script>
+      
+    
+  </body>
+</html>
